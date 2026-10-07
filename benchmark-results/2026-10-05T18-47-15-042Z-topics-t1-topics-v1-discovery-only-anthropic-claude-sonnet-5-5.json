@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "kind": "discovery-only",
+    "notice": "DISCOVERY-ONLY RESULT: taxonomy discovery and validation only. Topic assignment (Jev) was NOT run; this is not a full topic benchmark report.",
+    "timestamp": "2026-10-05T18:47:15.042Z",
+    "dataset": "t1-topics-v1",
+    "datasetVersion": "sha256:e44ac9d63b94ebc9",
+    "topicBase": 188,
+    "sampleSize": 188,
+    "sampleSeed": "t1-topics-v1/ds1",
+    "repeats": 1,
+    "discovery": {
+      "provider": "anthropic",
+      "modelRequested": "claude-sonnet-5-5",
+      "contract": "topic-discovery-v1",
+      "settings": {
+        "effort": "high",
+        "refusalFallback": "off"
+      }
+    },
+    "assignment": "not run",
+    "validation": "production taxonomy validator (validateTopicTaxonomy), at most 2 attempts with structured feedback",
+    "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard."
+  },
+  "oracleGate": {
+    "passed": true,
+    "failures": []
+  },
+  "runs": [
+    {
+      "repeat": 1,
+      "status": "valid",
+      "attempts": [
+        {
+          "attempt": 1,
+          "outcome": "valid",
+          "issueCodes": [],
+          "feedbackSent": false,
+          "topics": 12,
+          "latencyMs": 8656
+        }
+      ],
+      "topics": 12,
+      "latencyMs": 8656,
+      "taxonomy": {
+        "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard.",
+        "predictedTopics": 12,
+        "topicsWithExamples": 12,
+        "matchedTopics": 10,
+        "topicPrecision": 0.8333333333333334,
+        "conceptRecall": 1,
+        "mergeErrors": 0,
+        "splitErrors": 2,
+        "definitionValidity": 1,
+        "definitionIssues": [],
+        "matches": [
+          {
+            "key": "range_per_charge",
+            "name": "Range per charge",
+            "examples": 3,
+            "exampleGold": [
+              "range",
+              "range",
+              "range"
+            ],
+            "goldKey": "range"
+          },
+          {
+            "key": "battery_charging",
+            "name": "Charging and battery pack",
+            "examples": 3,
+            "exampleGold": [
+              "charging",
+              "charging",
+              "charging"
+            ],
+            "goldKey": "charging"
+          },
+          {
+            "key": "range_display_gauge",
+            "name": "Battery gauge accuracy",
+            "examples": 2,
+            "exampleGold": [
+              "range",
+              "range"
+            ],
+            "goldKey": "range"
+          },
+          {
+            "key": "brakes",
+            "name": "Braking performance",
+            "examples": 3,
+            "exampleGold": [
+              "brakes",
+              "brakes",
+              "brakes"
+            ],
+            "goldKey": "brakes"
+          },
+          {
+            "key": "motor_assist",
+            "name": "Motor and assist behaviour",
+            "examples": 3,
+            "exampleGold": [
+              "motor",
+              "motor",
+              "motor"
+            ],
+            "goldKey": "motor"
+          },
+          {
+            "key": "folding_mechanism",
+            "name": "Folding mechanism",
+            "examples": 3,
+            "exampleGold": [
+              "folding",
+              "folding",
+              "folding"
+            ],
+            "goldKey": "folding"
+          },
+          {
+            "key": "portability_storage",
+            "name": "Portability and storage",
+            "examples": 3,
+            "exampleGold": [
+              "folding",
+              "folding",
+              "folding"
+            ],
+            "goldKey": "folding"
+          },
+          {
+            "key": "ride_comfort",
+            "name": "Ride comfort and fit",
+            "examples": 3,
+            "exampleGold": [
+              "comfort",
+              "comfort",
+              "comfort"
+            ],
+            "goldKey": "comfort"
+          },
+          {
+            "key": "price_value",
+            "name": "Price and value",
+            "examples": 3,
+            "exampleGold": [
+              "value",
+              "value",
+              "value"
+            ],
+            "goldKey": "value"
+          },
+          {
+            "key": "app_connectivity",
+            "name": "Companion app and software",
+            "examples": 3,
+            "exampleGold": [
+              "app",
+              "app",
+              "app"
+            ],
+            "goldKey": "app"
+          },
+          {
+            "key": "build_durability_service",
+            "name": "Build quality and support",
+            "examples": 3,
+            "exampleGold": [
+              "other",
+              "other",
+              "other"
+            ],
+            "goldKey": null
+          },
+          {
+            "key": "sponsorship_disclosure",
+            "name": "Sponsorship and review integrity",
+            "examples": 3,
+            "exampleGold": [
+              "other",
+              "other",
+              "other"
+            ],
+            "goldKey": null
+          }
+        ]
+      },
+      "topicList": [
+        {
+          "key": "range_per_charge",
+          "name": "Range per charge"
+        },
+        {
+          "key": "battery_charging",
+          "name": "Charging and battery pack"
+        },
+        {
+          "key": "range_display_gauge",
+          "name": "Battery gauge accuracy"
+        },
+        {
+          "key": "brakes",
+          "name": "Braking performance"
+        },
+        {
+          "key": "motor_assist",
+          "name": "Motor and assist behaviour"
+        },
+        {
+          "key": "folding_mechanism",
+          "name": "Folding mechanism"
+        },
+        {
+          "key": "portability_storage",
+          "name": "Portability and storage"
+        },
+        {
+          "key": "ride_comfort",
+          "name": "Ride comfort and fit"
+        },
+        {
+          "key": "price_value",
+          "name": "Price and value"
+        },
+        {
+          "key": "app_connectivity",
+          "name": "Companion app and software"
+        },
+        {
+          "key": "build_durability_service",
+          "name": "Build quality and support"
+        },
+        {
+          "key": "sponsorship_disclosure",
+          "name": "Sponsorship and review integrity"
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "failedRequests": 0,
+        "inputTokens": 7543,
+        "outputTokens": 1125,
+        "estimatedCostUsd": 0.026336,
+        "latencyMs": {
+          "total": 8655,
+          "mean": 8655,
+          "p50": 8655,
+          "p95": 8655,
+          "max": 8655
+        },
+        "modelsServed": [
+          "claude-sonnet-5-5"
+        ]
+      },
+      "records": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5-5",
+          "modelVersion": "claude-sonnet-5-5",
+          "promptVersion": "topic-discovery-v1",
+          "schemaVersion": "topic-discovery-v1",
+          "batchSize": 188,
+          "attempt": 1,
+          "outcome": "ok",
+          "inputTokens": 7543,
+          "outputTokens": 1125,
+          "estimatedCostUsd": 0.026336,
+          "latencyMs": 8655,
+          "timestamp": "2026-10-05T18:47:15.034Z"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "requests": 1,
+    "failedRequests": 0,
+    "inputTokens": 7543,
+    "outputTokens": 1125,
+    "estimatedCostUsd": 0.026336,
+    "latencyMs": {
+      "total": 8655,
+      "mean": 8655,
+      "p50": 8655,
+      "p95": 8655,
+      "max": 8655
+    }
+  }
+}

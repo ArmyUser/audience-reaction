@@ -1,0 +1,7 @@
+{
+  "kind": "discovery-reliability-reservation",
+  "experiment": "discovery-v3-name-robustness-v1",
+  "definitionFingerprint": "sha256:17aa3db369cc0ae836655e01132d2144f6f5f7cf4b19de88117b9075b2dda4fe",
+  "scheduledRun": 26,
+  "timestamp": "2026-10-06T17:45:05.233Z"
+}

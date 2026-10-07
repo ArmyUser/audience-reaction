@@ -1,0 +1,256 @@
+{
+  "kind": "discovery-reliability-run",
+  "stamp": {
+    "experiment": "discovery-v3-name-robustness-v1",
+    "definitionFingerprint": "sha256:17aa3db369cc0ae836655e01132d2144f6f5f7cf4b19de88117b9075b2dda4fe",
+    "scheduledRun": 32,
+    "dataset": "t5-topics-v1",
+    "datasetSha256": "cec6e6563d81a1799a1eeed9328a9c19558a9ce6fadc265901529c8bf79a2cc3",
+    "contract": "topic-discovery-v2",
+    "runNumber": 8
+  },
+  "result": {
+    "meta": {
+      "kind": "discovery-only",
+      "notice": "DISCOVERY-ONLY RESULT: taxonomy discovery and validation only. Topic assignment (Jev) was NOT run; this is not a full topic benchmark report.",
+      "timestamp": "2026-10-06T18:00:37.260Z",
+      "dataset": "t5-topics-v1",
+      "datasetVersion": "sha256:cec6e6563d81a179",
+      "topicBase": 194,
+      "sampleSize": 194,
+      "sampleSeed": "t1-topics-v1/ds1",
+      "repeats": 1,
+      "discovery": {
+        "provider": "anthropic",
+        "modelRequested": "claude-sonnet-5-5",
+        "contract": "topic-discovery-v2",
+        "settings": {
+          "effort": "high",
+          "refusalFallback": "off"
+        }
+      },
+      "assignment": "not run",
+      "validation": "production taxonomy validator (validateTopicTaxonomy), at most 2 attempts with structured feedback",
+      "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard."
+    },
+    "oracleGate": {
+      "passed": true,
+      "failures": []
+    },
+    "runs": [
+      {
+        "repeat": 1,
+        "status": "valid",
+        "attempts": [
+          {
+            "attempt": 1,
+            "outcome": "valid",
+            "issueCodes": [],
+            "feedbackSent": false,
+            "topics": 12,
+            "latencyMs": 7407
+          }
+        ],
+        "topics": 12,
+        "latencyMs": 7407,
+        "taxonomy": {
+          "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard.",
+          "predictedTopics": 12,
+          "topicsWithExamples": 0,
+          "matchedTopics": 0,
+          "topicPrecision": 0,
+          "conceptRecall": 0,
+          "mergeErrors": 0,
+          "splitErrors": 0,
+          "definitionValidity": 1,
+          "definitionIssues": [],
+          "matches": [
+            {
+              "key": "espresso_taste",
+              "name": "Shot Quality and Taste",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "temp_stability",
+              "name": "Temperature Stability",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "warmup_time",
+              "name": "Heat-Up Time",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "grinder_performance",
+              "name": "Built-in Grinder",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "steam_wand_milk",
+              "name": "Steam Wand and Milk",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "noise_vibration",
+              "name": "Noise and Vibration",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "controls_interface",
+              "name": "Touchscreen and Controls",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "cleaning_maintenance",
+              "name": "Cleaning and Maintenance",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "support_warranty",
+              "name": "Support, Warranty and Repairs",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "design_size_shipping",
+              "name": "Design, Size and Packaging",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "purchase_value",
+              "name": "Value and Buying Verdict",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "video_requests",
+              "name": "Video Content Requests",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            }
+          ]
+        },
+        "topicList": [
+          {
+            "key": "espresso_taste",
+            "name": "Shot Quality and Taste"
+          },
+          {
+            "key": "temp_stability",
+            "name": "Temperature Stability"
+          },
+          {
+            "key": "warmup_time",
+            "name": "Heat-Up Time"
+          },
+          {
+            "key": "grinder_performance",
+            "name": "Built-in Grinder"
+          },
+          {
+            "key": "steam_wand_milk",
+            "name": "Steam Wand and Milk"
+          },
+          {
+            "key": "noise_vibration",
+            "name": "Noise and Vibration"
+          },
+          {
+            "key": "controls_interface",
+            "name": "Touchscreen and Controls"
+          },
+          {
+            "key": "cleaning_maintenance",
+            "name": "Cleaning and Maintenance"
+          },
+          {
+            "key": "support_warranty",
+            "name": "Support, Warranty and Repairs"
+          },
+          {
+            "key": "design_size_shipping",
+            "name": "Design, Size and Packaging"
+          },
+          {
+            "key": "purchase_value",
+            "name": "Value and Buying Verdict"
+          },
+          {
+            "key": "video_requests",
+            "name": "Video Content Requests"
+          }
+        ],
+        "rejectedOutputs": [],
+        "usage": {
+          "requests": 1,
+          "failedRequests": 0,
+          "inputTokens": 8223,
+          "outputTokens": 829,
+          "estimatedCostUsd": 0.024736,
+          "latencyMs": {
+            "total": 7406,
+            "mean": 7406,
+            "p50": 7406,
+            "p95": 7406,
+            "max": 7406
+          },
+          "modelsServed": [
+            "claude-sonnet-5-5"
+          ]
+        },
+        "records": [
+          {
+            "provider": "anthropic",
+            "model": "claude-sonnet-5-5",
+            "modelVersion": "claude-sonnet-5-5",
+            "promptVersion": "topic-discovery-v2",
+            "schemaVersion": "topic-discovery-v2",
+            "batchSize": 194,
+            "attempt": 1,
+            "outcome": "ok",
+            "inputTokens": 8223,
+            "outputTokens": 829,
+            "estimatedCostUsd": 0.024736,
+            "latencyMs": 7406,
+            "timestamp": "2026-10-06T18:00:37.255Z"
+          }
+        ]
+      }
+    ],
+    "totals": {
+      "requests": 1,
+      "failedRequests": 0,
+      "inputTokens": 8223,
+      "outputTokens": 829,
+      "estimatedCostUsd": 0.024736,
+      "latencyMs": {
+        "total": 7406,
+        "mean": 7406,
+        "p50": 7406,
+        "p95": 7406,
+        "max": 7406
+      }
+    }
+  }
+}

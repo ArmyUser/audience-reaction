@@ -1,0 +1,1489 @@
+{
+  "meta": {
+    "timestamp": "2026-10-06T11:12:01.341Z",
+    "dataset": "t4-topics-v1",
+    "datasetVersion": "sha256:58e225f986238591",
+    "repeats": 1,
+    "discovery": {
+      "provider": "anthropic",
+      "modelRequested": "claude-sonnet-5-5",
+      "contract": "topic-discovery-v2",
+      "effort": "high",
+      "refusalFallback": "off"
+    },
+    "assignment": {
+      "provider": "typesafe",
+      "modelRequested": "jev-latest",
+      "contract": "topic-assignment-v1",
+      "questionSet": "jev-topic-a1",
+      "maxCommentsPerBatch": 25
+    },
+    "kind": "real-consolidated",
+    "experimental": true,
+    "notice": "EXPERIMENTAL REAL-CONSOLIDATED RESULT: discovery → taxonomy consolidation (topic-consolidation-v4, experimental) → the unchanged production pipeline (Jev assignment, topic sentiment, report) → the full benchmark evaluator. NOT part of production yet. Scored by the same evaluator as the real suite, so the full metrics are comparable with it; only the taxonomy path differs.",
+    "consolidation": {
+      "contract": "topic-consolidation-v4",
+      "topicBase": 189,
+      "minTopicSize": 10
+    },
+    "validation": "production (frozen M4 validators, two attempts); consolidation: at most two attempts, then unavailable (no fallback to the unconsolidated taxonomy)",
+    "resultSchema": "real-consolidated-result-v2"
+  },
+  "report": {
+    "meta": {
+      "datasetId": "t4-topics-v1",
+      "datasetVersion": "sha256:58e225f986238591",
+      "comments": 201,
+      "parameters": {
+        "maxTopics": 12,
+        "evidencePerTopic": 3,
+        "smallSampleThreshold": 30,
+        "minTopicSizeFloor": 10,
+        "minTopicSizePercentOfBase": 1,
+        "otherWarningThresholdPercent": 35
+      },
+      "sampleSeed": "t1-topics-v1/ds1",
+      "repeats": 1,
+      "matching": "member-comment Jaccard ≥ 0.5, ties to the earlier gold topic; no name similarity"
+    },
+    "gold": {
+      "topicBase": 189,
+      "spamExcluded": 12,
+      "minTopicSize": 10,
+      "dispositions": {
+        "primary_topic": 135,
+        "other": 28,
+        "no_specific_topic": 26
+      },
+      "topicSizes": {
+        "lessons": 20,
+        "pronunciation": 18,
+        "tutors": 15,
+        "chat_partner": 14,
+        "motivation": 22,
+        "grammar": 12,
+        "course_catalog": 13,
+        "progress": 11,
+        "offline": 10
+      },
+      "namedTopics": [
+        "lessons",
+        "pronunciation",
+        "tutors",
+        "chat_partner",
+        "motivation",
+        "grammar",
+        "course_catalog",
+        "progress",
+        "offline"
+      ],
+      "smallTopics": [],
+      "topicSentiment": {
+        "lessons": {
+          "positive": 8,
+          "neutral": 4,
+          "negative": 8
+        },
+        "pronunciation": {
+          "positive": 7,
+          "neutral": 4,
+          "negative": 7
+        },
+        "tutors": {
+          "positive": 5,
+          "neutral": 4,
+          "negative": 6
+        },
+        "chat_partner": {
+          "positive": 5,
+          "neutral": 3,
+          "negative": 6
+        },
+        "motivation": {
+          "positive": 9,
+          "neutral": 4,
+          "negative": 9
+        },
+        "grammar": {
+          "positive": 4,
+          "neutral": 3,
+          "negative": 5
+        },
+        "course_catalog": {
+          "positive": 5,
+          "neutral": 3,
+          "negative": 5
+        },
+        "progress": {
+          "positive": 4,
+          "neutral": 3,
+          "negative": 4
+        },
+        "offline": {
+          "positive": 3,
+          "neutral": 3,
+          "negative": 4
+        }
+      },
+      "topicSentimentDiffersFromOverall": 17,
+      "shares": {
+        "named": 71,
+        "other": 15,
+        "noSpecificTopic": 14
+      },
+      "highOtherShare": false
+    },
+    "oracleGate": {
+      "passed": true,
+      "failures": []
+    },
+    "scenarios": [
+      {
+        "id": "oracle",
+        "group": "oracle",
+        "description": "Gold taxonomy and gold dispositions (harness sanity check; must score 100%).",
+        "expected": {
+          "status": "available",
+          "attempts": 1,
+          "generatorCalls": 1,
+          "assignerCalls": 1,
+          "failedAttemptCodes": [],
+          "perfect": true,
+          "outcome": "accepted first time; every metric perfect"
+        },
+        "runs": [
+          {
+            "repeat": 1,
+            "status": "available",
+            "attempts": 1,
+            "generatorCalls": 1,
+            "assignerCalls": 1,
+            "phaseCalls": [
+              {
+                "phase": "taxonomy",
+                "attempt": 1,
+                "comments": 189,
+                "failed": false
+              },
+              {
+                "phase": "assignment",
+                "attempt": 1,
+                "comments": 189,
+                "failed": false
+              }
+            ],
+            "failedAttemptCodes": [],
+            "taxonomyProposals": [
+              {
+                "attempt": 1,
+                "valid": true,
+                "issueCodes": []
+              }
+            ],
+            "taxonomy": {
+              "predictedTopics": 9,
+              "matchedTopics": 9,
+              "topicPrecision": 1,
+              "conceptRecall": 1,
+              "mergeErrors": 0,
+              "splitErrors": 0,
+              "definitionValidity": 1,
+              "definitionIssues": [],
+              "exampleIdValidity": 1,
+              "exampleSupport": 1,
+              "matches": [
+                {
+                  "topicId": "topic:chatbot-conversation-practice",
+                  "name": "chatbot conversation practice",
+                  "members": 14,
+                  "goldKey": "chat_partner",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:grammar-explanations",
+                  "name": "grammar explanations",
+                  "members": 12,
+                  "goldKey": "grammar",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:languages-and-course-depth",
+                  "name": "languages and course depth",
+                  "members": 13,
+                  "goldKey": "course_catalog",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:lesson-design-and-pacing",
+                  "name": "lesson design and pacing",
+                  "members": 20,
+                  "goldKey": "lessons",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:live-tutor-sessions",
+                  "name": "live tutor sessions",
+                  "members": 15,
+                  "goldKey": "tutors",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:offline-use-and-syncing",
+                  "name": "offline use and syncing",
+                  "members": 10,
+                  "goldKey": "offline",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:progress-tracking-and-placement",
+                  "name": "progress tracking and placement",
+                  "members": 11,
+                  "goldKey": "progress",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:pronunciation-feedback",
+                  "name": "pronunciation feedback",
+                  "members": 18,
+                  "goldKey": "pronunciation",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:streaks-and-motivation",
+                  "name": "streaks and motivation",
+                  "members": 22,
+                  "goldKey": "motivation",
+                  "jaccard": 1
+                }
+              ]
+            },
+            "assignment": {
+              "dispositionAccuracy": 1,
+              "primaryTopicAccuracy": 1,
+              "otherAccuracy": 1,
+              "otherPrecision": 1,
+              "noSpecificTopicAccuracy": 1,
+              "noSpecificTopicPrecision": 1,
+              "topicSentimentAccuracy": 1,
+              "topicSentimentScored": 135,
+              "overallSentimentAgreement": 0.8740740740740741,
+              "fullValidity": 1
+            },
+            "report": {
+              "namedShareErrorPp": {
+                "lessons": 0,
+                "pronunciation": 0,
+                "tutors": 0,
+                "chat_partner": 0,
+                "motivation": 0,
+                "grammar": 0,
+                "course_catalog": 0,
+                "progress": 0,
+                "offline": 0
+              },
+              "namedShareErrorMaxPp": 0,
+              "unmatchedNamedSharePp": 0,
+              "otherShareErrorPp": 0,
+              "noSpecificTopicShareErrorPp": 0,
+              "highOtherShareExpected": false,
+              "highOtherShareReported": false,
+              "highOtherShareCorrect": true,
+              "evidenceCoverage": 1,
+              "evidenceSentimentCoverage": 1,
+              "evidencePrecision": 1,
+              "ac23Valid": true
+            },
+            "retry": {
+              "withinAttemptLimit": true,
+              "phaseCallsWithinLimit": true,
+              "feedbackSent": null,
+              "feedbackCorrect": null,
+              "feedbackSanitized": true,
+              "reportSanitized": true,
+              "noPartialTopics": null,
+              "diagnosticsMatch": true
+            },
+            "predictions": {
+              "t4-001": "primary_topic:topic:lesson-design-and-pacing:positive",
+              "t4-002": "primary_topic:topic:live-tutor-sessions:neutral",
+              "t4-003": "primary_topic:topic:streaks-and-motivation:negative",
+              "t4-004": "primary_topic:topic:offline-use-and-syncing:neutral",
+              "t4-005": "no_specific_topic",
+              "t4-006": "primary_topic:topic:lesson-design-and-pacing:positive",
+              "t4-007": "primary_topic:topic:chatbot-conversation-practice:neutral",
+              "t4-008": "primary_topic:topic:grammar-explanations:negative",
+              "t4-009": "other",
+              "t4-010": "no_specific_topic",
+              "t4-011": "primary_topic:topic:pronunciation-feedback:negative",
+              "t4-012": "primary_topic:topic:streaks-and-motivation:negative",
+              "t4-013": "primary_topic:topic:progress-tracking-and-placement:positive",
+              "t4-014": "other",
+              "t4-016": "primary_topic:topic:live-tutor-sessions:neutral",
+              "t4-017": "primary_topic:topic:streaks-and-motivation:positive",
+              "t4-018": "primary_topic:topic:offline-use-and-syncing:positive",
+              "t4-019": "no_specific_topic",
+              "t4-020": "primary_topic:topic:lesson-design-and-pacing:negative",
+              "t4-021": "primary_topic:topic:chatbot-conversation-practice:positive",
+              "t4-022": "primary_topic:topic:grammar-explanations:neutral",
+              "t4-023": "other",
+              "t4-024": "no_specific_topic",
+              "t4-025": "primary_topic:topic:pronunciation-feedback:positive",
+              "t4-026": "primary_topic:topic:streaks-and-motivation:positive",
+              "t4-027": "primary_topic:topic:languages-and-course-depth:positive",
+              "t4-028": "other",
+              "t4-030": "primary_topic:topic:live-tutor-sessions:positive",
+              "t4-031": "primary_topic:topic:streaks-and-motivation:negative",
+              "t4-032": "primary_topic:topic:offline-use-and-syncing:negative",
+              "t4-033": "no_specific_topic",
+              "t4-034": "primary_topic:topic:lesson-design-and-pacing:positive",
+              "t4-035": "primary_topic:topic:chatbot-conversation-practice:negative",
+              "t4-036": "primary_topic:topic:grammar-explanations:positive",
+              "t4-037": "other",
+              "t4-038": "no_specific_topic",
+              "t4-039": "primary_topic:topic:pronunciation-feedback:negative",
+              "t4-040": "primary_topic:topic:streaks-and-motivation:negative",
+              "t4-041": "primary_topic:topic:languages-and-course-depth:negative",
+              "t4-042": "other",
+              "t4-044": "primary_topic:topic:live-tutor-sessions:negative",
+              "t4-045": "primary_topic:topic:streaks-and-motivation:positive",
+              "t4-046": "primary_topic:topic:offline-use-and-syncing:negative",
+              "t4-047": "no_specific_topic",
+              "t4-048": "primary_topic:topic:lesson-design-and-pacing:negative",
+              "t4-049": "primary_topic:topic:chatbot-conversation-practice:negative",
+              "t4-050": "primary_topic:topic:grammar-explanations:negative",
+              "t4-051": "other",
+              "t4-052": "no_specific_topic",
+              "t4-053": "primary_topic:topic:pronunciation-feedback:neutral",
+              "t4-054": "primary_topic:topic:streaks-and-motivation:negative",
+              "t4-055": "primary_topic:topic:languages-and-course-depth:neutral",
+              "t4-056": "other",
+              "t4-058": "primary_topic:topic:live-tutor-sessions:negative",
+              "t4-059": "primary_topic:topic:streaks-and-motivation:neutral",
+              "t4-060": "primary_topic:topic:offline-use-and-syncing:positive",
+              "t4-061": "no_specific_topic",
+              "t4-062": "primary_topic:topic:lesson-design-and-pacing:positive",
+              "t4-063": "primary_topic:topic:chatbot-conversation-practice:positive",
+              "t4-064": "primary_topic:topic:grammar-explanations:positive",
+              "t4-065": "other",
+              "t4-066": "no_specific_topic",
+              "t4-067": "primary_topic:topic:pronunciation-feedback:neutral",
+              "t4-068": "primary_topic:topic:streaks-and-motivation:positive",
+              "t4-069": "primary_topic:topic:languages-and-course-depth:positive",
+              "t4-070": "other",
+              "t4-072": "primary_topic:topic:live-tutor-sessions:positive",
+              "t4-073": "primary_topic:topic:streaks-and-motivation:negative",
+              "t4-074": "primary_topic:topic:progress-tracking-and-placement:positive",
+              "t4-075": "no_specific_topic",
+              "t4-076": "primary_topic:topic:lesson-design-and-pacing:negative",
+              "t4-077": "primary_topic:topic:live-tutor-sessions:neutral",
+              "t4-078": "primary_topic:topic:grammar-explanations:negative",
+              "t4-079": "other",
+              "t4-080": "no_specific_topic",
+              "t4-081": "primary_topic:topic:pronunciation-feedback:positive",
+              "t4-082": "primary_topic:topic:chatbot-conversation-practice:negative",
+              "t4-083": "primary_topic:topic:languages-and-course-depth:negative",
+              "t4-084": "other",
+              "t4-086": "primary_topic:topic:pronunciation-feedback:positive",
+              "t4-087": "primary_topic:topic:streaks-and-motivation:positive",
+              "t4-088": "primary_topic:topic:progress-tracking-and-placement:neutral",
+              "t4-089": "no_specific_topic",
+              "t4-090": "primary_topic:topic:lesson-design-and-pacing:positive",
+              "t4-091": "primary_topic:topic:live-tutor-sessions:negative",
+              "t4-092": "primary_topic:topic:grammar-explanations:neutral",
+              "t4-093": "other",
+              "t4-094": "no_specific_topic",
+              "t4-095": "primary_topic:topic:pronunciation-feedback:negative",
+              "t4-096": "primary_topic:topic:chatbot-conversation-practice:neutral",
+              "t4-097": "primary_topic:topic:languages-and-course-depth:negative",
+              "t4-098": "other",
+              "t4-100": "primary_topic:topic:pronunciation-feedback:neutral",
+              "t4-101": "primary_topic:topic:streaks-and-motivation:negative",
+              "t4-102": "primary_topic:topic:progress-tracking-and-placement:negative",
+              "t4-103": "no_specific_topic",
+              "t4-104": "primary_topic:topic:lesson-design-and-pacing:negative",
+              "t4-105": "primary_topic:topic:live-tutor-sessions:positive",
+              "t4-106": "primary_topic:topic:grammar-explanations:neutral",
+              "t4-107": "other",
+              "t4-108": "no_specific_topic",
+              "t4-109": "primary_topic:topic:pronunciation-feedback:negative",
+              "t4-110": "primary_topic:topic:chatbot-conversation-practice:positive",
+              "t4-111": "primary_topic:topic:languages-and-course-depth:positive",
+              "t4-112": "other",
+              "t4-114": "primary_topic:topic:pronunciation-feedback:negative",
+              "t4-115": "primary_topic:topic:streaks-and-motivation:positive",
+              "t4-116": "primary_topic:topic:progress-tracking-and-placement:positive",
+              "t4-117": "no_specific_topic",
+              "t4-118": "primary_topic:topic:lesson-design-and-pacing:neutral",
+              "t4-119": "primary_topic:topic:live-tutor-sessions:neutral",
+              "t4-120": "primary_topic:topic:grammar-explanations:positive",
+              "t4-121": "other",
+              "t4-122": "no_specific_topic",
+              "t4-123": "primary_topic:topic:pronunciation-feedback:positive",
+              "t4-124": "primary_topic:topic:chatbot-conversation-practice:negative",
+              "t4-125": "primary_topic:topic:languages-and-course-depth:neutral",
+              "t4-126": "other",
+              "t4-128": "primary_topic:topic:pronunciation-feedback:positive",
+              "t4-129": "primary_topic:topic:streaks-and-motivation:negative",
+              "t4-130": "primary_topic:topic:progress-tracking-and-placement:negative",
+              "t4-131": "no_specific_topic",
+              "t4-132": "primary_topic:topic:lesson-design-and-pacing:neutral",
+              "t4-133": "primary_topic:topic:live-tutor-sessions:negative",
+              "t4-134": "primary_topic:topic:grammar-explanations:negative",
+              "t4-135": "primary_topic:topic:offline-use-and-syncing:neutral",
+              "t4-136": "no_specific_topic",
+              "t4-137": "primary_topic:topic:lesson-design-and-pacing:positive",
+              "t4-138": "primary_topic:topic:chatbot-conversation-practice:positive",
+              "t4-139": "primary_topic:topic:languages-and-course-depth:neutral",
+              "t4-140": "other",
+              "t4-142": "primary_topic:topic:pronunciation-feedback:negative",
+              "t4-143": "primary_topic:topic:streaks-and-motivation:positive",
+              "t4-144": "primary_topic:topic:progress-tracking-and-placement:neutral",
+              "t4-145": "other",
+              "t4-146": "primary_topic:topic:lesson-design-and-pacing:neutral",
+              "t4-147": "primary_topic:topic:live-tutor-sessions:positive",
+              "t4-148": "primary_topic:topic:grammar-explanations:negative",
+              "t4-149": "primary_topic:topic:offline-use-and-syncing:negative",
+              "t4-150": "no_specific_topic",
+              "t4-151": "primary_topic:topic:lesson-design-and-pacing:negative",
+              "t4-152": "primary_topic:topic:chatbot-conversation-practice:negative",
+              "t4-153": "primary_topic:topic:languages-and-course-depth:positive",
+              "t4-154": "other",
+              "t4-156": "primary_topic:topic:pronunciation-feedback:neutral",
+              "t4-157": "primary_topic:topic:streaks-and-motivation:positive",
+              "t4-158": "primary_topic:topic:progress-tracking-and-placement:neutral",
+              "t4-159": "other",
+              "t4-160": "primary_topic:topic:lesson-design-and-pacing:positive",
+              "t4-161": "primary_topic:topic:live-tutor-sessions:negative",
+              "t4-162": "primary_topic:topic:grammar-explanations:positive",
+              "t4-163": "primary_topic:topic:offline-use-and-syncing:positive",
+              "t4-164": "no_specific_topic",
+              "t4-165": "primary_topic:topic:lesson-design-and-pacing:positive",
+              "t4-166": "primary_topic:topic:chatbot-conversation-practice:negative",
+              "t4-167": "primary_topic:topic:languages-and-course-depth:negative",
+              "t4-168": "other",
+              "t4-170": "primary_topic:topic:pronunciation-feedback:positive",
+              "t4-171": "primary_topic:topic:streaks-and-motivation:negative",
+              "t4-172": "primary_topic:topic:progress-tracking-and-placement:positive",
+              "t4-173": "other",
+              "t4-174": "primary_topic:topic:lesson-design-and-pacing:negative",
+              "t4-175": "primary_topic:topic:live-tutor-sessions:positive",
+              "t4-176": "primary_topic:topic:streaks-and-motivation:positive",
+              "t4-177": "primary_topic:topic:offline-use-and-syncing:negative",
+              "t4-178": "no_specific_topic",
+              "t4-179": "primary_topic:topic:lesson-design-and-pacing:neutral",
+              "t4-180": "primary_topic:topic:chatbot-conversation-practice:positive",
+              "t4-181": "primary_topic:topic:languages-and-course-depth:negative",
+              "t4-182": "other",
+              "t4-183": "no_specific_topic",
+              "t4-184": "primary_topic:topic:pronunciation-feedback:negative",
+              "t4-185": "primary_topic:topic:streaks-and-motivation:neutral",
+              "t4-186": "primary_topic:topic:progress-tracking-and-placement:negative",
+              "t4-187": "other",
+              "t4-188": "primary_topic:topic:lesson-design-and-pacing:negative",
+              "t4-189": "primary_topic:topic:live-tutor-sessions:negative",
+              "t4-190": "primary_topic:topic:streaks-and-motivation:neutral",
+              "t4-191": "primary_topic:topic:offline-use-and-syncing:neutral",
+              "t4-192": "no_specific_topic",
+              "t4-193": "primary_topic:topic:lesson-design-and-pacing:negative",
+              "t4-194": "primary_topic:topic:chatbot-conversation-practice:neutral",
+              "t4-195": "primary_topic:topic:languages-and-course-depth:positive",
+              "t4-196": "other",
+              "t4-197": "no_specific_topic",
+              "t4-198": "primary_topic:topic:pronunciation-feedback:positive",
+              "t4-199": "primary_topic:topic:streaks-and-motivation:neutral",
+              "t4-200": "primary_topic:topic:progress-tracking-and-placement:negative",
+              "t4-201": "other"
+            },
+            "section": {
+              "status": "available",
+              "topics": [
+                {
+                  "id": "topic:streaks-and-motivation",
+                  "name": "streaks and motivation",
+                  "description": "Streaks, points, leagues, badges, goals and reminders meant to keep learners practising.",
+                  "count": {
+                    "count": 22,
+                    "base": 189,
+                    "percent": 12
+                  },
+                  "topicSentiment": {
+                    "base": 22,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 9,
+                        "percent": 41
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 4,
+                        "percent": 18
+                      },
+                      {
+                        "label": "negative",
+                        "count": 9,
+                        "percent": 41
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t4-017",
+                      "topicSentiment": "positive",
+                      "rank": 1,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-003",
+                      "topicSentiment": "negative",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-059",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": false
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:lesson-design-and-pacing",
+                  "name": "lesson design and pacing",
+                  "description": "How lessons are structured, how varied the exercises are and how quickly new material is introduced.",
+                  "count": {
+                    "count": 20,
+                    "base": 189,
+                    "percent": 11
+                  },
+                  "topicSentiment": {
+                    "base": 20,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 8,
+                        "percent": 40
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 4,
+                        "percent": 20
+                      },
+                      {
+                        "label": "negative",
+                        "count": 8,
+                        "percent": 40
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t4-001",
+                      "topicSentiment": "positive",
+                      "rank": 1,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-020",
+                      "topicSentiment": "negative",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-118",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": false
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:pronunciation-feedback",
+                  "name": "pronunciation feedback",
+                  "description": "How the speaking exercises score and correct the learner's pronunciation.",
+                  "count": {
+                    "count": 18,
+                    "base": 189,
+                    "percent": 10
+                  },
+                  "topicSentiment": {
+                    "base": 18,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 7,
+                        "percent": 39
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 4,
+                        "percent": 22
+                      },
+                      {
+                        "label": "negative",
+                        "count": 7,
+                        "percent": 39
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t4-025",
+                      "topicSentiment": "positive",
+                      "rank": 1,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-011",
+                      "topicSentiment": "negative",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-053",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": false
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:live-tutor-sessions",
+                  "name": "live tutor sessions",
+                  "description": "Booking and quality of one-to-one lessons with human teachers.",
+                  "count": {
+                    "count": 15,
+                    "base": 189,
+                    "percent": 8
+                  },
+                  "topicSentiment": {
+                    "base": 15,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 5,
+                        "percent": 33
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 4,
+                        "percent": 27
+                      },
+                      {
+                        "label": "negative",
+                        "count": 6,
+                        "percent": 40
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t4-044",
+                      "topicSentiment": "negative",
+                      "rank": 1,
+                      "providerExample": false
+                    },
+                    {
+                      "commentId": "t4-030",
+                      "topicSentiment": "positive",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-002",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": true
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:chatbot-conversation-practice",
+                  "name": "chatbot conversation practice",
+                  "description": "Practising conversations with the automated chat partner and how realistic and helpful it is.",
+                  "count": {
+                    "count": 14,
+                    "base": 189,
+                    "percent": 7
+                  },
+                  "topicSentiment": {
+                    "base": 14,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 5,
+                        "percent": 36
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 3,
+                        "percent": 21
+                      },
+                      {
+                        "label": "negative",
+                        "count": 6,
+                        "percent": 43
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t4-035",
+                      "topicSentiment": "negative",
+                      "rank": 1,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-021",
+                      "topicSentiment": "positive",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-007",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": true
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:languages-and-course-depth",
+                  "name": "languages and course depth",
+                  "description": "Which languages are offered and how far each course goes beyond the basics.",
+                  "count": {
+                    "count": 13,
+                    "base": 189,
+                    "percent": 7
+                  },
+                  "topicSentiment": {
+                    "base": 13,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 5,
+                        "percent": 39
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 3,
+                        "percent": 23
+                      },
+                      {
+                        "label": "negative",
+                        "count": 5,
+                        "percent": 38
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t4-027",
+                      "topicSentiment": "positive",
+                      "rank": 1,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-041",
+                      "topicSentiment": "negative",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-055",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": true
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:grammar-explanations",
+                  "name": "grammar explanations",
+                  "description": "Whether and how clearly the service explains grammar rules.",
+                  "count": {
+                    "count": 12,
+                    "base": 189,
+                    "percent": 6
+                  },
+                  "topicSentiment": {
+                    "base": 12,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 4,
+                        "percent": 33
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 3,
+                        "percent": 25
+                      },
+                      {
+                        "label": "negative",
+                        "count": 5,
+                        "percent": 42
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t4-008",
+                      "topicSentiment": "negative",
+                      "rank": 1,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-036",
+                      "topicSentiment": "positive",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-022",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": true
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:progress-tracking-and-placement",
+                  "name": "progress tracking and placement",
+                  "description": "Placement tests, level estimates and reports showing what the learner has achieved.",
+                  "count": {
+                    "count": 11,
+                    "base": 189,
+                    "percent": 6
+                  },
+                  "topicSentiment": {
+                    "base": 11,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 4,
+                        "percent": 37
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 3,
+                        "percent": 27
+                      },
+                      {
+                        "label": "negative",
+                        "count": 4,
+                        "percent": 36
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t4-013",
+                      "topicSentiment": "positive",
+                      "rank": 1,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-102",
+                      "topicSentiment": "negative",
+                      "rank": 2,
+                      "providerExample": false
+                    },
+                    {
+                      "commentId": "t4-088",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": true
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:offline-use-and-syncing",
+                  "name": "offline use and syncing",
+                  "description": "Using lessons without a connection and keeping progress in sync across devices.",
+                  "count": {
+                    "count": 10,
+                    "base": 189,
+                    "percent": 5
+                  },
+                  "topicSentiment": {
+                    "base": 10,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 3,
+                        "percent": 30
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 3,
+                        "percent": 30
+                      },
+                      {
+                        "label": "negative",
+                        "count": 4,
+                        "percent": 40
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t4-032",
+                      "topicSentiment": "negative",
+                      "rank": 1,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-018",
+                      "topicSentiment": "positive",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t4-004",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": true
+                    }
+                  ]
+                }
+              ],
+              "other": {
+                "count": {
+                  "count": 28,
+                  "base": 189,
+                  "percent": 15
+                },
+                "providerOther": {
+                  "count": 28,
+                  "base": 189,
+                  "percent": 15
+                },
+                "smallTopics": {
+                  "count": 0,
+                  "base": 189,
+                  "percent": 0
+                },
+                "smallTopicSentiment": {
+                  "base": 0,
+                  "rows": [
+                    {
+                      "label": "positive",
+                      "count": 0,
+                      "percent": 0
+                    },
+                    {
+                      "label": "neutral",
+                      "count": 0,
+                      "percent": 0
+                    },
+                    {
+                      "label": "negative",
+                      "count": 0,
+                      "percent": 0
+                    }
+                  ]
+                },
+                "mergedTopics": []
+              },
+              "noSpecificTopic": {
+                "count": 26,
+                "base": 189,
+                "percent": 14
+              },
+              "coverage": {
+                "sentimentBase": 189,
+                "spamExcluded": 12,
+                "namedTopics": {
+                  "count": 135,
+                  "base": 189,
+                  "percent": 71
+                },
+                "other": {
+                  "count": 28,
+                  "base": 189,
+                  "percent": 15
+                },
+                "noSpecificTopic": {
+                  "count": 26,
+                  "base": 189,
+                  "percent": 14
+                }
+              },
+              "minTopicSize": 10,
+              "warnings": [],
+              "method": {
+                "providerLabel": "Two-phase topics (Oracle taxonomy generator (gold) + Oracle topic assigner (gold))",
+                "normalizationVersion": "tn1",
+                "commentsSent": 189,
+                "attempts": 1,
+                "parameters": {
+                  "maxTopics": 12,
+                  "evidencePerTopic": 3,
+                  "smallSampleThreshold": 30,
+                  "minTopicSizeFloor": 10,
+                  "minTopicSizePercentOfBase": 1,
+                  "otherWarningThresholdPercent": 35
+                },
+                "discoverySample": {
+                  "version": "ds1",
+                  "strategy": "seeded_stratified",
+                  "population": "non_spam_topic_base",
+                  "seed": "t1-topics-v1/ds1",
+                  "eligible": 189,
+                  "size": 189,
+                  "usedAll": true,
+                  "strata": [
+                    {
+                      "key": "focus:negative",
+                      "available": 64,
+                      "selected": 64
+                    },
+                    {
+                      "key": "focus:neutral",
+                      "available": 19,
+                      "selected": 19
+                    },
+                    {
+                      "key": "focus:positive",
+                      "available": 60,
+                      "selected": 60
+                    },
+                    {
+                      "key": "substantive:negative",
+                      "available": 1,
+                      "selected": 1
+                    },
+                    {
+                      "key": "substantive:neutral",
+                      "available": 33,
+                      "selected": 33
+                    },
+                    {
+                      "key": "substantive:positive",
+                      "available": 3,
+                      "selected": 3
+                    },
+                    {
+                      "key": "trivial:neutral",
+                      "available": 6,
+                      "selected": 6
+                    },
+                    {
+                      "key": "trivial:positive",
+                      "available": 3,
+                      "selected": 3
+                    }
+                  ],
+                  "parameters": {
+                    "maxSize": 400,
+                    "focusReservePercent": 15,
+                    "trivialMaxPercent": 10,
+                    "shortWordThreshold": 4,
+                    "minPerSentimentLabel": 10
+                  }
+                }
+              }
+            },
+            "fingerprint": "{\"status\":\"available\",\"attempts\":1,\"phaseCalls\":[{\"phase\":\"taxonomy\",\"attempt\":1,\"comments\":189,\"failed\":false},{\"phase\":\"assignment\",\"attempt\":1,\"comments\":189,\"failed\":false}],\"failedAttemptCodes\":[],\"topics\":[{\"id\":\"topic:lesson-design-and-pacing\",\"name\":\"lesson design and pacing\",\"formation\":{\"sourceNames\":[\"Lesson design and pacing\"],\"providerKeys\":[\"lessons\"],\"providerExampleIds\":[\"t4-001\",\"t4-006\",\"t4-020\"]},\"description\":\"How lessons are structured, how varied the exercises are and how quickly new material is introduced.\"},{\"id\":\"topic:pronunciation-feedback\",\"name\":\"pronunciation feedback\",\"formation\":{\"sourceNames\":[\"Pronunciation feedback\"],\"providerKeys\":[\"pronunciation\"],\"providerExampleIds\":[\"t4-011\",\"t4-025\",\"t4-039\"]},\"description\":\"How the speaking exercises score and correct the learner's pronunciation.\"},{\"id\":\"topic:live-tutor-sessions\",\"name\":\"live tutor sessions\",\"formation\":{\"sourceNames\":[\"Live tutor sessions\"],\"providerKeys\":[\"tutors\"],\"providerExampleIds\":[\"t4-002\",\"t4-016\",\"t4-030\"]},\"description\":\"Booking and quality of one-to-one lessons with human teachers.\"},{\"id\":\"topic:chatbot-conversation-practice\",\"name\":\"chatbot conversation practice\",\"formation\":{\"sourceNames\":[\"Chatbot conversation practice\"],\"providerKeys\":[\"chat_partner\"],\"providerExampleIds\":[\"t4-007\",\"t4-021\",\"t4-035\"]},\"description\":\"Practising conversations with the automated chat partner and how realistic and helpful it is.\"},{\"id\":\"topic:streaks-and-motivation\",\"name\":\"streaks and motivation\",\"formation\":{\"sourceNames\":[\"Streaks and motivation\"],\"providerKeys\":[\"motivation\"],\"providerExampleIds\":[\"t4-003\",\"t4-012\",\"t4-017\"]},\"description\":\"Streaks, points, leagues, badges, goals and reminders meant to keep learners practising.\"},{\"id\":\"topic:grammar-explanations\",\"name\":\"grammar explanations\",\"formation\":{\"sourceNames\":[\"Grammar explanations\"],\"providerKeys\":[\"grammar\"],\"providerExampleIds\":[\"t4-008\",\"t4-022\",\"t4-036\"]},\"description\":\"Whether and how clearly the service explains grammar rules.\"},{\"id\":\"topic:languages-and-course-depth\",\"name\":\"languages and course depth\",\"formation\":{\"sourceNames\":[\"Languages and course depth\"],\"providerKeys\":[\"course_catalog\"],\"providerExampleIds\":[\"t4-027\",\"t4-041\",\"t4-055\"]},\"description\":\"Which languages are offered and how far each course goes beyond the basics.\"},{\"id\":\"topic:progress-tracking-and-placement\",\"name\":\"progress tracking and placement\",\"formation\":{\"sourceNames\":[\"Progress tracking and placement\"],\"providerKeys\":[\"progress\"],\"providerExampleIds\":[\"t4-013\",\"t4-074\",\"t4-088\"]},\"description\":\"Placement tests, level estimates and reports showing what the learner has achieved.\"},{\"id\":\"topic:offline-use-and-syncing\",\"name\":\"offline use and syncing\",\"formation\":{\"sourceNames\":[\"Offline use and syncing\"],\"providerKeys\":[\"offline\"],\"providerExampleIds\":[\"t4-004\",\"t4-018\",\"t4-032\"]},\"description\":\"Using lessons without a connection and keeping progress in sync across devices.\"}],\"predictions\":{\"t4-001\":\"primary_topic:topic:lesson-design-and-pacing:positive\",\"t4-002\":\"primary_topic:topic:live-tutor-sessions:neutral\",\"t4-003\":\"primary_topic:topic:streaks-and-motivation:negative\",\"t4-004\":\"primary_topic:topic:offline-use-and-syncing:neutral\",\"t4-005\":\"no_specific_topic\",\"t4-006\":\"primary_topic:topic:lesson-design-and-pacing:positive\",\"t4-007\":\"primary_topic:topic:chatbot-conversation-practice:neutral\",\"t4-008\":\"primary_topic:topic:grammar-explanations:negative\",\"t4-009\":\"other\",\"t4-010\":\"no_specific_topic\",\"t4-011\":\"primary_topic:topic:pronunciation-feedback:negative\",\"t4-012\":\"primary_topic:topic:streaks-and-motivation:negative\",\"t4-013\":\"primary_topic:topic:progress-tracking-and-placement:positive\",\"t4-014\":\"other\",\"t4-016\":\"primary_topic:topic:live-tutor-sessions:neutral\",\"t4-017\":\"primary_topic:topic:streaks-and-motivation:positive\",\"t4-018\":\"primary_topic:topic:offline-use-and-syncing:positive\",\"t4-019\":\"no_specific_topic\",\"t4-020\":\"primary_topic:topic:lesson-design-and-pacing:negative\",\"t4-021\":\"primary_topic:topic:chatbot-conversation-practice:positive\",\"t4-022\":\"primary_topic:topic:grammar-explanations:neutral\",\"t4-023\":\"other\",\"t4-024\":\"no_specific_topic\",\"t4-025\":\"primary_topic:topic:pronunciation-feedback:positive\",\"t4-026\":\"primary_topic:topic:streaks-and-motivation:positive\",\"t4-027\":\"primary_topic:topic:languages-and-course-depth:positive\",\"t4-028\":\"other\",\"t4-030\":\"primary_topic:topic:live-tutor-sessions:positive\",\"t4-031\":\"primary_topic:topic:streaks-and-motivation:negative\",\"t4-032\":\"primary_topic:topic:offline-use-and-syncing:negative\",\"t4-033\":\"no_specific_topic\",\"t4-034\":\"primary_topic:topic:lesson-design-and-pacing:positive\",\"t4-035\":\"primary_topic:topic:chatbot-conversation-practice:negative\",\"t4-036\":\"primary_topic:topic:grammar-explanations:positive\",\"t4-037\":\"other\",\"t4-038\":\"no_specific_topic\",\"t4-039\":\"primary_topic:topic:pronunciation-feedback:negative\",\"t4-040\":\"primary_topic:topic:streaks-and-motivation:negative\",\"t4-041\":\"primary_topic:topic:languages-and-course-depth:negative\",\"t4-042\":\"other\",\"t4-044\":\"primary_topic:topic:live-tutor-sessions:negative\",\"t4-045\":\"primary_topic:topic:streaks-and-motivation:positive\",\"t4-046\":\"primary_topic:topic:offline-use-and-syncing:negative\",\"t4-047\":\"no_specific_topic\",\"t4-048\":\"primary_topic:topic:lesson-design-and-pacing:negative\",\"t4-049\":\"primary_topic:topic:chatbot-conversation-practice:negative\",\"t4-050\":\"primary_topic:topic:grammar-explanations:negative\",\"t4-051\":\"other\",\"t4-052\":\"no_specific_topic\",\"t4-053\":\"primary_topic:topic:pronunciation-feedback:neutral\",\"t4-054\":\"primary_topic:topic:streaks-and-motivation:negative\",\"t4-055\":\"primary_topic:topic:languages-and-course-depth:neutral\",\"t4-056\":\"other\",\"t4-058\":\"primary_topic:topic:live-tutor-sessions:negative\",\"t4-059\":\"primary_topic:topic:streaks-and-motivation:neutral\",\"t4-060\":\"primary_topic:topic:offline-use-and-syncing:positive\",\"t4-061\":\"no_specific_topic\",\"t4-062\":\"primary_topic:topic:lesson-design-and-pacing:positive\",\"t4-063\":\"primary_topic:topic:chatbot-conversation-practice:positive\",\"t4-064\":\"primary_topic:topic:grammar-explanations:positive\",\"t4-065\":\"other\",\"t4-066\":\"no_specific_topic\",\"t4-067\":\"primary_topic:topic:pronunciation-feedback:neutral\",\"t4-068\":\"primary_topic:topic:streaks-and-motivation:positive\",\"t4-069\":\"primary_topic:topic:languages-and-course-depth:positive\",\"t4-070\":\"other\",\"t4-072\":\"primary_topic:topic:live-tutor-sessions:positive\",\"t4-073\":\"primary_topic:topic:streaks-and-motivation:negative\",\"t4-074\":\"primary_topic:topic:progress-tracking-and-placement:positive\",\"t4-075\":\"no_specific_topic\",\"t4-076\":\"primary_topic:topic:lesson-design-and-pacing:negative\",\"t4-077\":\"primary_topic:topic:live-tutor-sessions:neutral\",\"t4-078\":\"primary_topic:topic:grammar-explanations:negative\",\"t4-079\":\"other\",\"t4-080\":\"no_specific_topic\",\"t4-081\":\"primary_topic:topic:pronunciation-feedback:positive\",\"t4-082\":\"primary_topic:topic:chatbot-conversation-practice:negative\",\"t4-083\":\"primary_topic:topic:languages-and-course-depth:negative\",\"t4-084\":\"other\",\"t4-086\":\"primary_topic:topic:pronunciation-feedback:positive\",\"t4-087\":\"primary_topic:topic:streaks-and-motivation:positive\",\"t4-088\":\"primary_topic:topic:progress-tracking-and-placement:neutral\",\"t4-089\":\"no_specific_topic\",\"t4-090\":\"primary_topic:topic:lesson-design-and-pacing:positive\",\"t4-091\":\"primary_topic:topic:live-tutor-sessions:negative\",\"t4-092\":\"primary_topic:topic:grammar-explanations:neutral\",\"t4-093\":\"other\",\"t4-094\":\"no_specific_topic\",\"t4-095\":\"primary_topic:topic:pronunciation-feedback:negative\",\"t4-096\":\"primary_topic:topic:chatbot-conversation-practice:neutral\",\"t4-097\":\"primary_topic:topic:languages-and-course-depth:negative\",\"t4-098\":\"other\",\"t4-100\":\"primary_topic:topic:pronunciation-feedback:neutral\",\"t4-101\":\"primary_topic:topic:streaks-and-motivation:negative\",\"t4-102\":\"primary_topic:topic:progress-tracking-and-placement:negative\",\"t4-103\":\"no_specific_topic\",\"t4-104\":\"primary_topic:topic:lesson-design-and-pacing:negative\",\"t4-105\":\"primary_topic:topic:live-tutor-sessions:positive\",\"t4-106\":\"primary_topic:topic:grammar-explanations:neutral\",\"t4-107\":\"other\",\"t4-108\":\"no_specific_topic\",\"t4-109\":\"primary_topic:topic:pronunciation-feedback:negative\",\"t4-110\":\"primary_topic:topic:chatbot-conversation-practice:positive\",\"t4-111\":\"primary_topic:topic:languages-and-course-depth:positive\",\"t4-112\":\"other\",\"t4-114\":\"primary_topic:topic:pronunciation-feedback:negative\",\"t4-115\":\"primary_topic:topic:streaks-and-motivation:positive\",\"t4-116\":\"primary_topic:topic:progress-tracking-and-placement:positive\",\"t4-117\":\"no_specific_topic\",\"t4-118\":\"primary_topic:topic:lesson-design-and-pacing:neutral\",\"t4-119\":\"primary_topic:topic:live-tutor-sessions:neutral\",\"t4-120\":\"primary_topic:topic:grammar-explanations:positive\",\"t4-121\":\"other\",\"t4-122\":\"no_specific_topic\",\"t4-123\":\"primary_topic:topic:pronunciation-feedback:positive\",\"t4-124\":\"primary_topic:topic:chatbot-conversation-practice:negative\",\"t4-125\":\"primary_topic:topic:languages-and-course-depth:neutral\",\"t4-126\":\"other\",\"t4-128\":\"primary_topic:topic:pronunciation-feedback:positive\",\"t4-129\":\"primary_topic:topic:streaks-and-motivation:negative\",\"t4-130\":\"primary_topic:topic:progress-tracking-and-placement:negative\",\"t4-131\":\"no_specific_topic\",\"t4-132\":\"primary_topic:topic:lesson-design-and-pacing:neutral\",\"t4-133\":\"primary_topic:topic:live-tutor-sessions:negative\",\"t4-134\":\"primary_topic:topic:grammar-explanations:negative\",\"t4-135\":\"primary_topic:topic:offline-use-and-syncing:neutral\",\"t4-136\":\"no_specific_topic\",\"t4-137\":\"primary_topic:topic:lesson-design-and-pacing:positive\",\"t4-138\":\"primary_topic:topic:chatbot-conversation-practice:positive\",\"t4-139\":\"primary_topic:topic:languages-and-course-depth:neutral\",\"t4-140\":\"other\",\"t4-142\":\"primary_topic:topic:pronunciation-feedback:negative\",\"t4-143\":\"primary_topic:topic:streaks-and-motivation:positive\",\"t4-144\":\"primary_topic:topic:progress-tracking-and-placement:neutral\",\"t4-145\":\"other\",\"t4-146\":\"primary_topic:topic:lesson-design-and-pacing:neutral\",\"t4-147\":\"primary_topic:topic:live-tutor-sessions:positive\",\"t4-148\":\"primary_topic:topic:grammar-explanations:negative\",\"t4-149\":\"primary_topic:topic:offline-use-and-syncing:negative\",\"t4-150\":\"no_specific_topic\",\"t4-151\":\"primary_topic:topic:lesson-design-and-pacing:negative\",\"t4-152\":\"primary_topic:topic:chatbot-conversation-practice:negative\",\"t4-153\":\"primary_topic:topic:languages-and-course-depth:positive\",\"t4-154\":\"other\",\"t4-156\":\"primary_topic:topic:pronunciation-feedback:neutral\",\"t4-157\":\"primary_topic:topic:streaks-and-motivation:positive\",\"t4-158\":\"primary_topic:topic:progress-tracking-and-placement:neutral\",\"t4-159\":\"other\",\"t4-160\":\"primary_topic:topic:lesson-design-and-pacing:positive\",\"t4-161\":\"primary_topic:topic:live-tutor-sessions:negative\",\"t4-162\":\"primary_topic:topic:grammar-explanations:positive\",\"t4-163\":\"primary_topic:topic:offline-use-and-syncing:positive\",\"t4-164\":\"no_specific_topic\",\"t4-165\":\"primary_topic:topic:lesson-design-and-pacing:positive\",\"t4-166\":\"primary_topic:topic:chatbot-conversation-practice:negative\",\"t4-167\":\"primary_topic:topic:languages-and-course-depth:negative\",\"t4-168\":\"other\",\"t4-170\":\"primary_topic:topic:pronunciation-feedback:positive\",\"t4-171\":\"primary_topic:topic:streaks-and-motivation:negative\",\"t4-172\":\"primary_topic:topic:progress-tracking-and-placement:positive\",\"t4-173\":\"other\",\"t4-174\":\"primary_topic:topic:lesson-design-and-pacing:negative\",\"t4-175\":\"primary_topic:topic:live-tutor-sessions:positive\",\"t4-176\":\"primary_topic:topic:streaks-and-motivation:positive\",\"t4-177\":\"primary_topic:topic:offline-use-and-syncing:negative\",\"t4-178\":\"no_specific_topic\",\"t4-179\":\"primary_topic:topic:lesson-design-and-pacing:neutral\",\"t4-180\":\"primary_topic:topic:chatbot-conversation-practice:positive\",\"t4-181\":\"primary_topic:topic:languages-and-course-depth:negative\",\"t4-182\":\"other\",\"t4-183\":\"no_specific_topic\",\"t4-184\":\"primary_topic:topic:pronunciation-feedback:negative\",\"t4-185\":\"primary_topic:topic:streaks-and-motivation:neutral\",\"t4-186\":\"primary_topic:topic:progress-tracking-and-placement:negative\",\"t4-187\":\"other\",\"t4-188\":\"primary_topic:topic:lesson-design-and-pacing:negative\",\"t4-189\":\"primary_topic:topic:live-tutor-sessions:negative\",\"t4-190\":\"primary_topic:topic:streaks-and-motivation:neutral\",\"t4-191\":\"primary_topic:topic:offline-use-and-syncing:neutral\",\"t4-192\":\"no_specific_topic\",\"t4-193\":\"primary_topic:topic:lesson-design-and-pacing:negative\",\"t4-194\":\"primary_topic:topic:chatbot-conversation-practice:neutral\",\"t4-195\":\"primary_topic:topic:languages-and-course-depth:positive\",\"t4-196\":\"other\",\"t4-197\":\"no_specific_topic\",\"t4-198\":\"primary_topic:topic:pronunciation-feedback:positive\",\"t4-199\":\"primary_topic:topic:streaks-and-motivation:neutral\",\"t4-200\":\"primary_topic:topic:progress-tracking-and-placement:negative\",\"t4-201\":\"other\"},\"section\":{\"status\":\"available\",\"topics\":[{\"id\":\"topic:streaks-and-motivation\",\"name\":\"streaks and motivation\",\"description\":\"Streaks, points, leagues, badges, goals and reminders meant to keep learners practising.\",\"count\":{\"count\":22,\"base\":189,\"percent\":12},\"topicSentiment\":{\"base\":22,\"rows\":[{\"label\":\"positive\",\"count\":9,\"percent\":41},{\"label\":\"neutral\",\"count\":4,\"percent\":18},{\"label\":\"negative\",\"count\":9,\"percent\":41}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t4-017\",\"topicSentiment\":\"positive\",\"rank\":1,\"providerExample\":true},{\"commentId\":\"t4-003\",\"topicSentiment\":\"negative\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t4-059\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":false}]},{\"id\":\"topic:lesson-design-and-pacing\",\"name\":\"lesson design and pacing\",\"description\":\"How lessons are structured, how varied the exercises are and how quickly new material is introduced.\",\"count\":{\"count\":20,\"base\":189,\"percent\":11},\"topicSentiment\":{\"base\":20,\"rows\":[{\"label\":\"positive\",\"count\":8,\"percent\":40},{\"label\":\"neutral\",\"count\":4,\"percent\":20},{\"label\":\"negative\",\"count\":8,\"percent\":40}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t4-001\",\"topicSentiment\":\"positive\",\"rank\":1,\"providerExample\":true},{\"commentId\":\"t4-020\",\"topicSentiment\":\"negative\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t4-118\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":false}]},{\"id\":\"topic:pronunciation-feedback\",\"name\":\"pronunciation feedback\",\"description\":\"How the speaking exercises score and correct the learner's pronunciation.\",\"count\":{\"count\":18,\"base\":189,\"percent\":10},\"topicSentiment\":{\"base\":18,\"rows\":[{\"label\":\"positive\",\"count\":7,\"percent\":39},{\"label\":\"neutral\",\"count\":4,\"percent\":22},{\"label\":\"negative\",\"count\":7,\"percent\":39}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t4-025\",\"topicSentiment\":\"positive\",\"rank\":1,\"providerExample\":true},{\"commentId\":\"t4-011\",\"topicSentiment\":\"negative\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t4-053\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":false}]},{\"id\":\"topic:live-tutor-sessions\",\"name\":\"live tutor sessions\",\"description\":\"Booking and quality of one-to-one lessons with human teachers.\",\"count\":{\"count\":15,\"base\":189,\"percent\":8},\"topicSentiment\":{\"base\":15,\"rows\":[{\"label\":\"positive\",\"count\":5,\"percent\":33},{\"label\":\"neutral\",\"count\":4,\"percent\":27},{\"label\":\"negative\",\"count\":6,\"percent\":40}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t4-044\",\"topicSentiment\":\"negative\",\"rank\":1,\"providerExample\":false},{\"commentId\":\"t4-030\",\"topicSentiment\":\"positive\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t4-002\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":true}]},{\"id\":\"topic:chatbot-conversation-practice\",\"name\":\"chatbot conversation practice\",\"description\":\"Practising conversations with the automated chat partner and how realistic and helpful it is.\",\"count\":{\"count\":14,\"base\":189,\"percent\":7},\"topicSentiment\":{\"base\":14,\"rows\":[{\"label\":\"positive\",\"count\":5,\"percent\":36},{\"label\":\"neutral\",\"count\":3,\"percent\":21},{\"label\":\"negative\",\"count\":6,\"percent\":43}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t4-035\",\"topicSentiment\":\"negative\",\"rank\":1,\"providerExample\":true},{\"commentId\":\"t4-021\",\"topicSentiment\":\"positive\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t4-007\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":true}]},{\"id\":\"topic:languages-and-course-depth\",\"name\":\"languages and course depth\",\"description\":\"Which languages are offered and how far each course goes beyond the basics.\",\"count\":{\"count\":13,\"base\":189,\"percent\":7},\"topicSentiment\":{\"base\":13,\"rows\":[{\"label\":\"positive\",\"count\":5,\"percent\":39},{\"label\":\"neutral\",\"count\":3,\"percent\":23},{\"label\":\"negative\",\"count\":5,\"percent\":38}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t4-027\",\"topicSentiment\":\"positive\",\"rank\":1,\"providerExample\":true},{\"commentId\":\"t4-041\",\"topicSentiment\":\"negative\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t4-055\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":true}]},{\"id\":\"topic:grammar-explanations\",\"name\":\"grammar explanations\",\"description\":\"Whether and how clearly the service explains grammar rules.\",\"count\":{\"count\":12,\"base\":189,\"percent\":6},\"topicSentiment\":{\"base\":12,\"rows\":[{\"label\":\"positive\",\"count\":4,\"percent\":33},{\"label\":\"neutral\",\"count\":3,\"percent\":25},{\"label\":\"negative\",\"count\":5,\"percent\":42}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t4-008\",\"topicSentiment\":\"negative\",\"rank\":1,\"providerExample\":true},{\"commentId\":\"t4-036\",\"topicSentiment\":\"positive\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t4-022\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":true}]},{\"id\":\"topic:progress-tracking-and-placement\",\"name\":\"progress tracking and placement\",\"description\":\"Placement tests, level estimates and reports showing what the learner has achieved.\",\"count\":{\"count\":11,\"base\":189,\"percent\":6},\"topicSentiment\":{\"base\":11,\"rows\":[{\"label\":\"positive\",\"count\":4,\"percent\":37},{\"label\":\"neutral\",\"count\":3,\"percent\":27},{\"label\":\"negative\",\"count\":4,\"percent\":36}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t4-013\",\"topicSentiment\":\"positive\",\"rank\":1,\"providerExample\":true},{\"commentId\":\"t4-102\",\"topicSentiment\":\"negative\",\"rank\":2,\"providerExample\":false},{\"commentId\":\"t4-088\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":true}]},{\"id\":\"topic:offline-use-and-syncing\",\"name\":\"offline use and syncing\",\"description\":\"Using lessons without a connection and keeping progress in sync across devices.\",\"count\":{\"count\":10,\"base\":189,\"percent\":5},\"topicSentiment\":{\"base\":10,\"rows\":[{\"label\":\"positive\",\"count\":3,\"percent\":30},{\"label\":\"neutral\",\"count\":3,\"percent\":30},{\"label\":\"negative\",\"count\":4,\"percent\":40}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t4-032\",\"topicSentiment\":\"negative\",\"rank\":1,\"providerExample\":true},{\"commentId\":\"t4-018\",\"topicSentiment\":\"positive\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t4-004\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":true}]}],\"other\":{\"count\":{\"count\":28,\"base\":189,\"percent\":15},\"providerOther\":{\"count\":28,\"base\":189,\"percent\":15},\"smallTopics\":{\"count\":0,\"base\":189,\"percent\":0},\"smallTopicSentiment\":{\"base\":0,\"rows\":[{\"label\":\"positive\",\"count\":0,\"percent\":0},{\"label\":\"neutral\",\"count\":0,\"percent\":0},{\"label\":\"negative\",\"count\":0,\"percent\":0}]},\"mergedTopics\":[]},\"noSpecificTopic\":{\"count\":26,\"base\":189,\"percent\":14},\"coverage\":{\"sentimentBase\":189,\"spamExcluded\":12,\"namedTopics\":{\"count\":135,\"base\":189,\"percent\":71},\"other\":{\"count\":28,\"base\":189,\"percent\":15},\"noSpecificTopic\":{\"count\":26,\"base\":189,\"percent\":14}},\"minTopicSize\":10,\"warnings\":[],\"method\":{\"providerLabel\":\"Two-phase topics (Oracle taxonomy generator (gold) + Oracle topic assigner (gold))\",\"normalizationVersion\":\"tn1\",\"commentsSent\":189,\"attempts\":1,\"parameters\":{\"maxTopics\":12,\"evidencePerTopic\":3,\"smallSampleThreshold\":30,\"minTopicSizeFloor\":10,\"minTopicSizePercentOfBase\":1,\"otherWarningThresholdPercent\":35},\"discoverySample\":{\"version\":\"ds1\",\"strategy\":\"seeded_stratified\",\"population\":\"non_spam_topic_base\",\"seed\":\"t1-topics-v1/ds1\",\"eligible\":189,\"size\":189,\"usedAll\":true,\"strata\":[{\"key\":\"focus:negative\",\"available\":64,\"selected\":64},{\"key\":\"focus:neutral\",\"available\":19,\"selected\":19},{\"key\":\"focus:positive\",\"available\":60,\"selected\":60},{\"key\":\"substantive:negative\",\"available\":1,\"selected\":1},{\"key\":\"substantive:neutral\",\"available\":33,\"selected\":33},{\"key\":\"substantive:positive\",\"available\":3,\"selected\":3},{\"key\":\"trivial:neutral\",\"available\":6,\"selected\":6},{\"key\":\"trivial:positive\",\"available\":3,\"selected\":3}],\"parameters\":{\"maxSize\":400,\"focusReservePercent\":15,\"trivialMaxPercent\":10,\"shortWordThreshold\":4,\"minPerSentimentLabel\":10}}}}}"
+          }
+        ],
+        "repeatIdentical": true,
+        "repeatConsistency": 1,
+        "retryRate": 0,
+        "persistentFailureRate": 0,
+        "perfect": true,
+        "expectationFailures": []
+      },
+      {
+        "id": "real-consolidated-anthropic-discovery-jev-assignment",
+        "group": "live",
+        "description": "EXPERIMENTAL live: claude-sonnet-5-5 discovery → topic-consolidation-v4 consolidation → jev-latest assignment.",
+        "expected": {
+          "status": "available",
+          "attempts": 1,
+          "generatorCalls": 1,
+          "assignerCalls": 1,
+          "failedAttemptCodes": [],
+          "perfect": true,
+          "outcome": "ideal; any deviation is a measurement of the real providers, not a harness failure"
+        },
+        "runs": [
+          {
+            "repeat": 1,
+            "status": "unavailable",
+            "attempts": 2,
+            "generatorCalls": 2,
+            "assignerCalls": 0,
+            "phaseCalls": [
+              {
+                "phase": "taxonomy",
+                "attempt": 1,
+                "comments": 189,
+                "failed": true
+              },
+              {
+                "phase": "taxonomy",
+                "attempt": 2,
+                "comments": 189,
+                "feedback": {
+                  "attempt": 1,
+                  "issues": [
+                    {
+                      "code": "invalid_topic_name",
+                      "count": 1,
+                      "topicKeys": [
+                        "offline_sync_technical"
+                      ]
+                    }
+                  ]
+                },
+                "failed": true
+              }
+            ],
+            "failedAttemptCodes": [
+              [
+                "invalid_topic_name"
+              ],
+              [
+                "invalid_topic_name"
+              ]
+            ],
+            "taxonomyProposals": [],
+            "taxonomy": null,
+            "assignment": null,
+            "report": null,
+            "retry": {
+              "withinAttemptLimit": true,
+              "phaseCallsWithinLimit": true,
+              "feedbackSent": true,
+              "feedbackCorrect": true,
+              "feedbackSanitized": true,
+              "reportSanitized": true,
+              "noPartialTopics": true,
+              "diagnosticsMatch": true
+            },
+            "predictions": null,
+            "section": {
+              "status": "unavailable",
+              "reason": "TOPICS_UNAVAILABLE",
+              "issues": [
+                {
+                  "attempt": 1,
+                  "code": "invalid_topic_name",
+                  "count": 1
+                },
+                {
+                  "attempt": 2,
+                  "code": "invalid_topic_name",
+                  "count": 1
+                }
+              ],
+              "method": {
+                "providerLabel": "Two-phase topics (Anthropic claude-sonnet-5-5 (topic-discovery-v2) → consolidation (topic-consolidation-v4) + TypeSafe jev-latest (jev-topic-a1), batches of ≤ 25)",
+                "normalizationVersion": "tn1",
+                "commentsSent": 189,
+                "attempts": 2,
+                "parameters": {
+                  "maxTopics": 12,
+                  "evidencePerTopic": 3,
+                  "smallSampleThreshold": 30,
+                  "minTopicSizeFloor": 10,
+                  "minTopicSizePercentOfBase": 1,
+                  "otherWarningThresholdPercent": 35
+                },
+                "discoverySample": {
+                  "version": "ds1",
+                  "strategy": "seeded_stratified",
+                  "population": "non_spam_topic_base",
+                  "seed": "t1-topics-v1/ds1",
+                  "eligible": 189,
+                  "size": 189,
+                  "usedAll": true,
+                  "strata": [
+                    {
+                      "key": "focus:negative",
+                      "available": 64,
+                      "selected": 64
+                    },
+                    {
+                      "key": "focus:neutral",
+                      "available": 19,
+                      "selected": 19
+                    },
+                    {
+                      "key": "focus:positive",
+                      "available": 60,
+                      "selected": 60
+                    },
+                    {
+                      "key": "substantive:negative",
+                      "available": 1,
+                      "selected": 1
+                    },
+                    {
+                      "key": "substantive:neutral",
+                      "available": 33,
+                      "selected": 33
+                    },
+                    {
+                      "key": "substantive:positive",
+                      "available": 3,
+                      "selected": 3
+                    },
+                    {
+                      "key": "trivial:neutral",
+                      "available": 6,
+                      "selected": 6
+                    },
+                    {
+                      "key": "trivial:positive",
+                      "available": 3,
+                      "selected": 3
+                    }
+                  ],
+                  "parameters": {
+                    "maxSize": 400,
+                    "focusReservePercent": 15,
+                    "trivialMaxPercent": 10,
+                    "shortWordThreshold": 4,
+                    "minPerSentimentLabel": 10
+                  }
+                }
+              }
+            },
+            "fingerprint": "{\"status\":\"unavailable\",\"attempts\":2,\"phaseCalls\":[{\"phase\":\"taxonomy\",\"attempt\":1,\"comments\":189,\"failed\":true},{\"phase\":\"taxonomy\",\"attempt\":2,\"comments\":189,\"feedback\":{\"attempt\":1,\"issues\":[{\"code\":\"invalid_topic_name\",\"count\":1,\"topicKeys\":[\"offline_sync_technical\"]}]},\"failed\":true}],\"failedAttemptCodes\":[[\"invalid_topic_name\"],[\"invalid_topic_name\"]],\"topics\":null,\"predictions\":null,\"section\":{\"status\":\"unavailable\",\"reason\":\"TOPICS_UNAVAILABLE\",\"issues\":[{\"attempt\":1,\"code\":\"invalid_topic_name\",\"count\":1},{\"attempt\":2,\"code\":\"invalid_topic_name\",\"count\":1}],\"method\":{\"providerLabel\":\"Two-phase topics (Anthropic claude-sonnet-5-5 (topic-discovery-v2) → consolidation (topic-consolidation-v4) + TypeSafe jev-latest (jev-topic-a1), batches of ≤ 25)\",\"normalizationVersion\":\"tn1\",\"commentsSent\":189,\"attempts\":2,\"parameters\":{\"maxTopics\":12,\"evidencePerTopic\":3,\"smallSampleThreshold\":30,\"minTopicSizeFloor\":10,\"minTopicSizePercentOfBase\":1,\"otherWarningThresholdPercent\":35},\"discoverySample\":{\"version\":\"ds1\",\"strategy\":\"seeded_stratified\",\"population\":\"non_spam_topic_base\",\"seed\":\"t1-topics-v1/ds1\",\"eligible\":189,\"size\":189,\"usedAll\":true,\"strata\":[{\"key\":\"focus:negative\",\"available\":64,\"selected\":64},{\"key\":\"focus:neutral\",\"available\":19,\"selected\":19},{\"key\":\"focus:positive\",\"available\":60,\"selected\":60},{\"key\":\"substantive:negative\",\"available\":1,\"selected\":1},{\"key\":\"substantive:neutral\",\"available\":33,\"selected\":33},{\"key\":\"substantive:positive\",\"available\":3,\"selected\":3},{\"key\":\"trivial:neutral\",\"available\":6,\"selected\":6},{\"key\":\"trivial:positive\",\"available\":3,\"selected\":3}],\"parameters\":{\"maxSize\":400,\"focusReservePercent\":15,\"trivialMaxPercent\":10,\"shortWordThreshold\":4,\"minPerSentimentLabel\":10}}}}}"
+          }
+        ],
+        "repeatIdentical": true,
+        "repeatConsistency": 1,
+        "retryRate": 1,
+        "persistentFailureRate": 1,
+        "perfect": false,
+        "expectationFailures": [
+          "repeat 1: status unavailable, expected available",
+          "repeat 1: 2 attempts, expected 1",
+          "repeat 1: 2 taxonomy calls, expected 1",
+          "repeat 1: 0 assignment calls, expected 1",
+          "repeat 1: failed-attempt codes [[\"invalid_topic_name\"],[\"invalid_topic_name\"]], expected []",
+          "repeat 1: not perfect (topics unavailable)"
+        ]
+      }
+    ]
+  },
+  "phases": [
+    {
+      "repeat": 1,
+      "taxonomyCalls": [
+        {
+          "call": 1,
+          "discovery": {
+            "outcome": "invalid_taxonomy",
+            "issueCodes": [
+              "invalid_topic_name"
+            ],
+            "topics": null
+          },
+          "consolidation": {
+            "status": "not_run",
+            "attempts": [],
+            "topics": null,
+            "decisions": null
+          }
+        },
+        {
+          "call": 2,
+          "discovery": {
+            "outcome": "invalid_taxonomy",
+            "issueCodes": [
+              "invalid_topic_name"
+            ],
+            "topics": null
+          },
+          "consolidation": {
+            "status": "not_run",
+            "attempts": [],
+            "topics": null,
+            "decisions": null
+          }
+        }
+      ]
+    }
+  ],
+  "instrumentation": {
+    "notice": "DIAGNOSTIC ONLY: not part of the evaluator and never used for pass/fail.",
+    "repeats": [
+      {
+        "repeat": 1,
+        "taxonomyCalls": [
+          {
+            "call": 1,
+            "candidate": null,
+            "consolidationAttempts": [],
+            "provenance": null
+          },
+          {
+            "call": 2,
+            "candidate": null,
+            "consolidationAttempts": [],
+            "provenance": null
+          }
+        ],
+        "run": null
+      }
+    ]
+  },
+  "usage": [
+    {
+      "repeat": 1,
+      "discovery": {
+        "requests": 2,
+        "failedRequests": 0,
+        "inputTokens": 15907,
+        "outputTokens": 2223,
+        "estimatedCostUsd": 0.054043999999999995,
+        "latencyMs": {
+          "total": 18414,
+          "mean": 9207,
+          "p50": 8729,
+          "p95": 9685,
+          "max": 9685
+        }
+      },
+      "consolidation": {
+        "requests": 0,
+        "failedRequests": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "estimatedCostUsd": 0,
+        "latencyMs": {
+          "total": 0,
+          "mean": 0,
+          "p50": 0,
+          "p95": 0,
+          "max": 0
+        }
+      },
+      "assignment": {
+        "requests": 0,
+        "failedRequests": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "estimatedCostUsd": 0,
+        "latencyMs": {
+          "total": 0,
+          "mean": 0,
+          "p50": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "modelsServed": [],
+        "batches": 0,
+        "failedBatches": 0
+      },
+      "records": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5-5",
+          "modelVersion": "claude-sonnet-5-5",
+          "promptVersion": "topic-discovery-v2",
+          "schemaVersion": "topic-discovery-v2",
+          "batchSize": 189,
+          "attempt": 1,
+          "outcome": "ok",
+          "inputTokens": 7742,
+          "outputTokens": 1130,
+          "estimatedCostUsd": 0.026784,
+          "latencyMs": 8729,
+          "timestamp": "2026-10-06T11:11:51.649Z"
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5-5",
+          "modelVersion": "claude-sonnet-5-5",
+          "promptVersion": "topic-discovery-v2",
+          "schemaVersion": "topic-discovery-v2",
+          "batchSize": 189,
+          "attempt": 2,
+          "outcome": "ok",
+          "inputTokens": 8165,
+          "outputTokens": 1093,
+          "estimatedCostUsd": 0.02726,
+          "latencyMs": 9685,
+          "timestamp": "2026-10-06T11:12:01.337Z"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "discovery": {
+      "requests": 2,
+      "failedRequests": 0,
+      "inputTokens": 15907,
+      "outputTokens": 2223,
+      "estimatedCostUsd": 0.054043999999999995,
+      "latencyMs": {
+        "total": 18414,
+        "mean": 9207,
+        "p50": 8729,
+        "p95": 9685,
+        "max": 9685
+      }
+    },
+    "consolidation": {
+      "requests": 0,
+      "failedRequests": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "estimatedCostUsd": 0,
+      "latencyMs": {
+        "total": 0,
+        "mean": 0,
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+      }
+    },
+    "assignment": {
+      "requests": 0,
+      "failedRequests": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "estimatedCostUsd": 0,
+      "latencyMs": {
+        "total": 0,
+        "mean": 0,
+        "p50": 0,
+        "p95": 0,
+        "max": 0
+      }
+    },
+    "all": {
+      "requests": 2,
+      "failedRequests": 0,
+      "inputTokens": 15907,
+      "outputTokens": 2223,
+      "estimatedCostUsd": 0.054043999999999995,
+      "latencyMs": {
+        "total": 18414,
+        "mean": 9207,
+        "p50": 8729,
+        "p95": 9685,
+        "max": 9685
+      }
+    },
+    "attempts": [
+      2
+    ],
+    "batches": 0
+  }
+}

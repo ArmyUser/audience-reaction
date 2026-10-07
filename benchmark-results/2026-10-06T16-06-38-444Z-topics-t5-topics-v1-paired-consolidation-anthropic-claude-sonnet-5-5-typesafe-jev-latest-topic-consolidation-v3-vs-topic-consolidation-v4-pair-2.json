@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "kind": "paired-consolidation",
+    "experimental": true,
+    "resultSchema": "paired-consolidation-result-v1",
+    "notice": "EXPERIMENTAL PAIRED CONSOLIDATION RESULT: one discovery per pair, validated before the pair is formed; the same validated taxonomy is consolidated by each contract and then run through the unchanged real-consolidated path (Jev assignment, topic sentiment, report, full evaluator). A pair whose discovery stays invalid after the fixed retry policy is unavailable as a whole and is never scored for either arm. NOT part of production.",
+    "pairId": "2026-10-06T16:06:38.444Z-t5-topics-v1-pair-2-unavailable",
+    "pairIndex": 2,
+    "timestamp": "2026-10-06T16:06:38.444Z",
+    "dataset": "t5-topics-v1",
+    "datasetVersion": "sha256:cec6e6563d81a179",
+    "contracts": {
+      "baseline": "topic-consolidation-v3",
+      "candidate": "topic-consolidation-v4"
+    },
+    "armOrder": [
+      "topic-consolidation-v4",
+      "topic-consolidation-v3"
+    ],
+    "discovery": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-5-5",
+      "contract": "topic-discovery-v2",
+      "maxOutputTokens": 16000,
+      "effort": "high",
+      "refusalFallback": "off"
+    },
+    "assignment": {
+      "provider": "typesafe",
+      "modelRequested": "jev-latest",
+      "contract": "topic-assignment-v1",
+      "questionSet": "jev-topic-a1",
+      "maxCommentsPerBatch": 25
+    },
+    "evaluator": {
+      "matchJaccardThreshold": 0.5,
+      "mergeSplitShare": 0.3,
+      "maxDefinitionChars": 200
+    },
+    "experiment": {
+      "id": "paired-consolidation-v3-v4-t5-v1",
+      "definitionFingerprint": "sha256:697e2e73965540c5e2e47f4406ffc8c0007e9de6958c37105ee326d0aa0a0d51",
+      "scheduledPair": 2,
+      "datasetSha256": "cec6e6563d81a1799a1eeed9328a9c19558a9ce6fadc265901529c8bf79a2cc3"
+    }
+  },
+  "status": "unavailable_discovery",
+  "oracleGate": {
+    "passed": true,
+    "failures": []
+  },
+  "discovery": {
+    "policy": {
+      "id": "paired-discovery-retry-v1",
+      "maxAttempts": 2,
+      "retryOn": [
+        "invalid_taxonomy",
+        "provider_error"
+      ],
+      "feedback": "production structured validation feedback (toValidationFeedback), as analyzeTopics sends it",
+      "exhausted": "pair unavailable: no consolidation arm runs; never scored for either contract"
+    },
+    "status": "unavailable",
+    "attempts": [
+      {
+        "attempt": 1,
+        "outcome": "invalid_taxonomy",
+        "issueCodes": [
+          "invalid_topic_name"
+        ],
+        "feedbackSent": false,
+        "latencyMs": 10515,
+        "provider": "anthropic",
+        "model": "claude-sonnet-5-5",
+        "datasetFingerprint": "t5-topics-v1@sha256:cec6e6563d81a179",
+        "promptFingerprint": "sha256:7f01e2f9fdf31f5659f0f01823746f42c05d66d964caf251e45ed93e3f685af1",
+        "sampleFingerprint": "sha256:8d0b50b04faab18bf277b1bacfc1612f35b8646038d04519bbef893df5febee0",
+        "rawOutput": "{\"topics\":[{\"key\":\"shot_quality_taste\",\"name\":\"Espresso Shot Quality\",\"definition\":\"Taste and extraction results of the espresso: sourness, bitterness, balance, crema, channeling, uneven extraction, dialing in beans and flavor of light or dark roasts.\",\"exampleCommentIds\":[\"t5-156\",\"t5-159\",\"t5-196\"]},{\"key\":\"temperature_stability\",\"name\":\"Temperature Stability and Accuracy\",\"definition\":\"How steady and accurate brew temperature is across shots, display versus measured readings, PID control, temperature sag or swings, and boiler behavior.\",\"exampleCommentIds\":[\"t5-050\",\"t5-054\",\"t5-067\"]},{\"key\":\"heat_up_time\",\"name\":\"Warm-Up Time and Scheduling\",\"definition\":\"How long the machine takes to heat from cold or standby, plus timers, wake schedules and eco or sleep modes.\",\"exampleCommentIds\":[\"t5-089\",\"t5-131\",\"t5-180\"]},{\"key\":\"grinder_performance\",\"name\":\"Built-In Grinder Performance\",\"definition\":\"Grind consistency, step size, retention, clumping, burr type, dosing accuracy, static and how different roasts behave in the integrated grinder.\",\"exampleCommentIds\":[\"t5-149\",\"t5-173\",\"t5-174\"]},{\"key\":\"steam_wand_milk\",\"name\":\"Steam Wand and Milk Texturing\",\"definition\":\"Steam power, microfoam quality, wand ergonomics and articulation, spraying or sputtering, milk temperature, purge and milk drink speed.\",\"exampleCommentIds\":[\"t5-043\",\"t5-032\",\"t5-119\"]},{\"key\":\"noise_vibration\",\"name\":\"Noise and Vibration\",\"definition\":\"Loudness of grinder, pump and steam, perceived quietness, decibel measurements, pump hum, vibration and the effect on neighbours or household.\",\"exampleCommentIds\":[\"t5-030\",\"t5-118\",\"t5-114\"]},{\"key\":\"interface_controls\",\"name\":\"Touchscreen, Controls and Programming\",\"definition\":\"Display usability, responsiveness, menus, buttons, dials, profile programming, shot profiles, firmware updates, screen lock and other interface features.\",\"exampleCommentIds\":[\"t5-070\",\"t5-031\",\"t5-188\"]},{\"key\":\"cleaning_maintenance\",\"name\":\"Cleaning, Descaling and Maintenance\",\"definition\":\"Routine upkeep: descaling effort, backflush, self-clean, drip tray and puck drawer emptying, filters, cleaning supplies, reminders and mold or buildup.\",\"exampleCommentIds\":[\"t5-061\",\"t5-190\",\"t5-081\"]},{\"key\":\"customer_support_warranty\",\"name\":\"Support, Warranty and Repairs\",\"definition\":\"Experiences with customer service, warranty claims, repair turnaround and availability, spare parts and replacement parts.\",\"exampleCommentIds\":[\"t5-022\",\"t5-084\",\"t5-107\"]},{\"key\":\"design_size_physical\",\"name\":\"Design, Size and Physical Build\",\"definition\":\"Machine footprint, color options, water tank and hopper capacity or access, power cable, packaging, shipping condition, manual and accessories.\",\"exampleCommentIds\":[\"t5-144\",\"t5-106\",\"t5-170\"]},{\"key\":\"purchase_value_verdict\",\"name\":\"Overall Verdict and Value\",\"definition\":\"Whether the machine is worth buying or keeping, returns, price versus value and mixed overall recommendations.\",\"exampleCommentIds\":[\"t5-017\",\"t5-060\",\"t5-086\"]},{\"key\":\"content_requests\",\"name\":\"Video Requests and Follow-Up Tests\",\"definition\":\"Suggestions for future comparisons, tests, tutorials and episodes, such as side-by-side roasts, decibel readings, warm-up timing, cleaning walkthroughs and programming demos.\",\"exampleCommentIds\":[\"t5-024\",\"t5-141\",\"t5-082\"]}]}",
+        "rawOutputChars": 3315,
+        "rawOutputTruncated": false,
+        "taxonomyFingerprint": null
+      },
+      {
+        "attempt": 2,
+        "outcome": "invalid_taxonomy",
+        "issueCodes": [
+          "invalid_topic_name"
+        ],
+        "feedbackSent": true,
+        "latencyMs": 8836,
+        "provider": "anthropic",
+        "model": "claude-sonnet-5-5",
+        "datasetFingerprint": "t5-topics-v1@sha256:cec6e6563d81a179",
+        "promptFingerprint": "sha256:3b4a0ffb463ac0921327b1d92def71ec8a745626c5008e19c6bd353aff75002a",
+        "sampleFingerprint": "sha256:8d0b50b04faab18bf277b1bacfc1612f35b8646038d04519bbef893df5febee0",
+        "rawOutput": "{\"topics\":[{\"key\":\"shot_quality\",\"name\":\"Espresso Taste and Extraction\",\"definition\":\"How shots taste and extract: sourness, bitterness, crema, channeling, syrupy or watery results, pre-infusion and flow profiling effects on flavor.\"},{\"key\":\"temperature_stability\",\"name\":\"Temperature Accuracy and Stability\",\"definition\":\"Brew temperature control, PID settings, display accuracy versus measured values, stability across back-to-back shots and boiler behavior.\"},{\"key\":\"heat_up_time\",\"name\":\"Heat-Up and Warm-Up Time\",\"definition\":\"How long the machine takes to become ready from cold or standby, including scheduling, wake timers and eco mode.\"},{\"key\":\"steam_wand_milk\",\"name\":\"Steam Wand and Milk Texturing\",\"definition\":\"Steam wand power, microfoam quality, milk heating speed, wand articulation, spraying, purge and milk alternatives.\"},{\"key\":\"grinder_performance\",\"name\":\"Built-in Grinder Performance\",\"definition\":\"Grind consistency, adjustment steps, retention, clumping, burr type, dosing and hopper features of the integrated grinder.\"},{\"key\":\"noise_vibration\",\"name\":\"Noise and Vibration Levels\",\"definition\":\"Loudness of grinding, pump and steaming, decibel measurements, pump hum or rattle, and ways to reduce vibration.\"},{\"key\":\"interface_controls\",\"name\":\"Screen, Controls and Profiles\",\"definition\":\"Touchscreen responsiveness, menus, buttons, dials, profile programming, display readability, firmware updates and screen lock.\"},{\"key\":\"cleaning_maintenance\",\"name\":\"Cleaning, Descaling and Upkeep\",\"definition\":\"Routine cleaning, descaling effort, backflush, drip tray and puck drawer emptying, filters, consumables and maintenance reminders.\"},{\"key\":\"support_warranty_repair\",\"name\":\"Support, Warranty and Repairs\",\"definition\":\"Customer service experiences, warranty claims, repair availability and turnaround, spare parts and replacement parts.\"},{\"key\":\"design_size_logistics\",\"name\":\"Design, Size and Shipping\",\"definition\":\"Physical size and footprint, colors and finish, water tank, power cable, accessories in the box, packaging and delivery condition.\"},{\"key\":\"purchase_value_verdict\",\"name\":\"Value and Buying Verdicts\",\"definition\":\"Overall judgments about whether the machine is worth its price, return or keep decisions and recommendations.\"},{\"key\":\"content_requests\",\"name\":\"Video Content Requests\",\"definition\":\"Viewer requests for additional tests, comparisons, tutorials, future episodes and rating-style feedback on the video's production.\"}]}",
+        "rawOutputChars": 2485,
+        "rawOutputTruncated": false,
+        "taxonomyFingerprint": null
+      }
+    ],
+    "settings": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-5-5",
+      "contract": "topic-discovery-v2",
+      "maxOutputTokens": 16000,
+      "effort": "high",
+      "refusalFallback": "off"
+    },
+    "inputs": {
+      "dataset": "t5-topics-v1@sha256:cec6e6563d81a179",
+      "sample": "sha256:8d0b50b04faab18bf277b1bacfc1612f35b8646038d04519bbef893df5febee0",
+      "prompt": "sha256:841d13f6e07d8bc21777f0e19e5d2a2bb0712d5f5e1c99585edeb8421ff1b001",
+      "promptFirst": "sha256:7f01e2f9fdf31f5659f0f01823746f42c05d66d964caf251e45ed93e3f685af1",
+      "promptRetry": "sha256:3b4a0ffb463ac0921327b1d92def71ec8a745626c5008e19c6bd353aff75002a"
+    },
+    "taxonomy": null,
+    "taxonomyFingerprint": null,
+    "discoveryFingerprint": null,
+    "usage": {
+      "requests": 2,
+      "failedRequests": 0,
+      "inputTokens": 16865,
+      "outputTokens": 2218,
+      "estimatedCostUsd": 0.05591,
+      "latencyMs": {
+        "total": 19350,
+        "mean": 9675,
+        "p50": 8836,
+        "p95": 10514,
+        "max": 10514
+      }
+    }
+  },
+  "arms": [],
+  "totals": {
+    "discovery": {
+      "requests": 2,
+      "failedRequests": 0,
+      "inputTokens": 16865,
+      "outputTokens": 2218,
+      "estimatedCostUsd": 0.05591,
+      "latencyMs": {
+        "total": 19350,
+        "mean": 9675,
+        "p50": 8836,
+        "p95": 10514,
+        "max": 10514
+      }
+    },
+    "arms": []
+  },
+  "pairingValidation": {
+    "valid": true,
+    "problems": []
+  }
+}

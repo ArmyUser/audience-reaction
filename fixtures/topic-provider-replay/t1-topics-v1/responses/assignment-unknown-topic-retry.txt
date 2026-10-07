@@ -1,0 +1,7 @@
+{
+  "assignments": [
+    {"commentId":"t1-001","disposition":"primary_topic","topicKey":"braking","topicSentiment":"negative"},
+    {"commentId":"t1-003","disposition":"primary_topic","topicKey":"braking","topicSentiment":"negative"},
+    {"commentId":"t1-007","disposition":"primary_topic","topicKey":"ride_comfort","topicSentiment":"negative"}
+  ]
+}

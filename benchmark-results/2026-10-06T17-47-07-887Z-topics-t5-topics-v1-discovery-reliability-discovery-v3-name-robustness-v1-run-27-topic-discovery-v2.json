@@ -1,0 +1,290 @@
+{
+  "kind": "discovery-reliability-run",
+  "stamp": {
+    "experiment": "discovery-v3-name-robustness-v1",
+    "definitionFingerprint": "sha256:17aa3db369cc0ae836655e01132d2144f6f5f7cf4b19de88117b9075b2dda4fe",
+    "scheduledRun": 27,
+    "dataset": "t5-topics-v1",
+    "datasetSha256": "cec6e6563d81a1799a1eeed9328a9c19558a9ce6fadc265901529c8bf79a2cc3",
+    "contract": "topic-discovery-v2",
+    "runNumber": 7
+  },
+  "result": {
+    "meta": {
+      "kind": "discovery-only",
+      "notice": "DISCOVERY-ONLY RESULT: taxonomy discovery and validation only. Topic assignment (Jev) was NOT run; this is not a full topic benchmark report.",
+      "timestamp": "2026-10-06T17:47:07.887Z",
+      "dataset": "t5-topics-v1",
+      "datasetVersion": "sha256:cec6e6563d81a179",
+      "topicBase": 194,
+      "sampleSize": 194,
+      "sampleSeed": "t1-topics-v1/ds1",
+      "repeats": 1,
+      "discovery": {
+        "provider": "anthropic",
+        "modelRequested": "claude-sonnet-5-5",
+        "contract": "topic-discovery-v2",
+        "settings": {
+          "effort": "high",
+          "refusalFallback": "off"
+        }
+      },
+      "assignment": "not run",
+      "validation": "production taxonomy validator (validateTopicTaxonomy), at most 2 attempts with structured feedback",
+      "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard."
+    },
+    "oracleGate": {
+      "passed": true,
+      "failures": []
+    },
+    "runs": [
+      {
+        "repeat": 1,
+        "status": "valid",
+        "attempts": [
+          {
+            "attempt": 1,
+            "outcome": "invalid_taxonomy",
+            "issueCodes": [
+              "invalid_topic_name"
+            ],
+            "feedbackSent": false,
+            "latencyMs": 8486
+          },
+          {
+            "attempt": 2,
+            "outcome": "valid",
+            "issueCodes": [],
+            "feedbackSent": true,
+            "topics": 12,
+            "latencyMs": 8395
+          }
+        ],
+        "topics": 12,
+        "latencyMs": 16881,
+        "taxonomy": {
+          "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard.",
+          "predictedTopics": 12,
+          "topicsWithExamples": 0,
+          "matchedTopics": 0,
+          "topicPrecision": 0,
+          "conceptRecall": 0,
+          "mergeErrors": 0,
+          "splitErrors": 0,
+          "definitionValidity": 1,
+          "definitionIssues": [],
+          "matches": [
+            {
+              "key": "espresso_taste_extraction",
+              "name": "Shot taste and extraction",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "temperature_stability",
+              "name": "Brew temperature stability",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "heat_up_time",
+              "name": "Warm-up speed",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "steam_wand_milk",
+              "name": "Steam wand and milk",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "grinder_performance",
+              "name": "Built-in grinder performance",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "noise_vibration",
+              "name": "Noise and vibration",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "touchscreen_controls",
+              "name": "Interface and controls",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "cleaning_maintenance",
+              "name": "Cleaning and maintenance",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "support_warranty_repair",
+              "name": "Support, warranty and repairs",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "design_size_water_tank",
+              "name": "Design, size and practicalities",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "viewer_requests_content",
+              "name": "Video requests and suggestions",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            },
+            {
+              "key": "purchase_value_verdict",
+              "name": "Value and buying verdict",
+              "examples": 0,
+              "exampleGold": [],
+              "goldKey": null
+            }
+          ]
+        },
+        "topicList": [
+          {
+            "key": "espresso_taste_extraction",
+            "name": "Shot taste and extraction"
+          },
+          {
+            "key": "temperature_stability",
+            "name": "Brew temperature stability"
+          },
+          {
+            "key": "heat_up_time",
+            "name": "Warm-up speed"
+          },
+          {
+            "key": "steam_wand_milk",
+            "name": "Steam wand and milk"
+          },
+          {
+            "key": "grinder_performance",
+            "name": "Built-in grinder performance"
+          },
+          {
+            "key": "noise_vibration",
+            "name": "Noise and vibration"
+          },
+          {
+            "key": "touchscreen_controls",
+            "name": "Interface and controls"
+          },
+          {
+            "key": "cleaning_maintenance",
+            "name": "Cleaning and maintenance"
+          },
+          {
+            "key": "support_warranty_repair",
+            "name": "Support, warranty and repairs"
+          },
+          {
+            "key": "design_size_water_tank",
+            "name": "Design, size and practicalities"
+          },
+          {
+            "key": "viewer_requests_content",
+            "name": "Video requests and suggestions"
+          },
+          {
+            "key": "purchase_value_verdict",
+            "name": "Value and buying verdict"
+          }
+        ],
+        "rejectedOutputs": [
+          {
+            "call": 1,
+            "issueCodes": [
+              "invalid_topic_name"
+            ],
+            "rawOutput": "{\"topics\":[{\"key\":\"temp_stability\",\"name\":\"Temperature Accuracy and Stability\",\"definition\":\"Brew and group temperature accuracy, stability across consecutive shots, PID setpoints, boiler behaviour and display versus measured temperature.\"},{\"key\":\"warmup_time\",\"name\":\"Warm-up and Heat-up Time\",\"definition\":\"How long the machine takes to become ready from cold or standby, plus scheduling, wake timers and eco sleep behaviour.\"},{\"key\":\"noise_vibration\",\"name\":\"Noise and Vibration\",\"definition\":\"Loudness of the grinder, pump and steam, how disruptive the sound is to household or neighbours, plus vibration and noise measurements.\"},{\"key\":\"grinder_performance\",\"name\":\"Built-in Grinder Performance\",\"definition\":\"Grind consistency, adjustment steps, retention, static and clumping, hopper and dosing behaviour, burr options and grinding speed by bean type.\"},{\"key\":\"steam_wand_milk\",\"name\":\"Steam Wand and Milk Texturing\",\"definition\":\"Steam power, microfoam quality, wand articulation, spraying, milk temperature, steam tips, oat milk and milk drink timing.\"},{\"key\":\"espresso_quality\",\"name\":\"Espresso Shot Quality and Dialing In\",\"definition\":\"Taste and extraction of shots including sour, bitter, thin or syrupy results, channeling, pre-infusion, flow profiling, consistency of dose or shot weight and difficulty dialing in.\"},{\"key\":\"ui_controls\",\"name\":\"Touchscreen, Controls and Profiles\",\"definition\":\"Display responsiveness and readability, menus, buttons, dials, programmable profiles, firmware updates, screen lock and shot timer readouts.\"},{\"key\":\"cleaning_maintenance\",\"name\":\"Cleaning, Descaling and Maintenance\",\"definition\":\"Descaling effort, backflush and self-clean routines, drip tray and puck drawer emptying, water filters, cleaning supplies and scale buildup.\"},{\"key\":\"service_warranty\",\"name\":\"Customer Support, Warranty and Repairs\",\"definition\":\"Experiences with support quality, wait times, warranty terms and claims, repair turnaround, repair centre availability, and spare part supply.\"},{\"key\":\"design_size_physical\",\"name\":\"Design, Size and Physical Build\",\"definition\":\"Machine footprint, finish options, tank capacity and refilling, power cable, accessories included, packaging and shipping condition, and manual quality.\"},{\"key\":\"value_overall_verdict\",\"name\":\"Value and Overall Verdict\",\"definition\":\"Overall judgments on whether the machine is worth its price, recommendations, returning or keeping it, and comparisons to cafés or other gear.\"},{\"key\":\"viewer_requests\",\"name\":\"Requests for Future Video Content\",\"definition\":\"Suggestions and requests for additional tests, comparisons, tutorials, routines or follow-up episodes related to the machine and coffee.\"}]}",
+            "rawOutputChars": 2711,
+            "rawOutputTruncated": false
+          }
+        ],
+        "usage": {
+          "requests": 2,
+          "failedRequests": 0,
+          "inputTokens": 16873,
+          "outputTokens": 1898,
+          "estimatedCostUsd": 0.052726,
+          "latencyMs": {
+            "total": 16879,
+            "mean": 8439.5,
+            "p50": 8393,
+            "p95": 8486,
+            "max": 8486
+          },
+          "modelsServed": [
+            "claude-sonnet-5-5"
+          ]
+        },
+        "records": [
+          {
+            "provider": "anthropic",
+            "model": "claude-sonnet-5-5",
+            "modelVersion": "claude-sonnet-5-5",
+            "promptVersion": "topic-discovery-v2",
+            "schemaVersion": "topic-discovery-v2",
+            "batchSize": 194,
+            "attempt": 1,
+            "outcome": "ok",
+            "inputTokens": 8223,
+            "outputTokens": 983,
+            "estimatedCostUsd": 0.026276,
+            "latencyMs": 8486,
+            "timestamp": "2026-10-06T17:46:59.485Z"
+          },
+          {
+            "provider": "anthropic",
+            "model": "claude-sonnet-5-5",
+            "modelVersion": "claude-sonnet-5-5",
+            "promptVersion": "topic-discovery-v2",
+            "schemaVersion": "topic-discovery-v2",
+            "batchSize": 194,
+            "attempt": 2,
+            "outcome": "ok",
+            "inputTokens": 8650,
+            "outputTokens": 915,
+            "estimatedCostUsd": 0.02645,
+            "latencyMs": 8393,
+            "timestamp": "2026-10-06T17:47:07.879Z"
+          }
+        ]
+      }
+    ],
+    "totals": {
+      "requests": 2,
+      "failedRequests": 0,
+      "inputTokens": 16873,
+      "outputTokens": 1898,
+      "estimatedCostUsd": 0.052726,
+      "latencyMs": {
+        "total": 16879,
+        "mean": 8439.5,
+        "p50": 8393,
+        "p95": 8486,
+        "max": 8486
+      }
+    }
+  }
+}

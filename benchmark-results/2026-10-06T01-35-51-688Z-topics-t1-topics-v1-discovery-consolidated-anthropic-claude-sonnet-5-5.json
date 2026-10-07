@@ -1,0 +1,575 @@
+{
+  "meta": {
+    "kind": "discovery-consolidated",
+    "experimental": true,
+    "notice": "EXPERIMENTAL CONSOLIDATED RESULT: discovery → taxonomy consolidation (topic-consolidation-v1, experimental) → validation. Not part of the production pipeline; topic assignment (Jev) was NOT run. Metrics use the discovery-only example-based proxy and are NOT comparable with the real suite until the stage is integrated.",
+    "timestamp": "2026-10-06T01:35:51.688Z",
+    "dataset": "t1-topics-v1",
+    "datasetVersion": "sha256:e44ac9d63b94ebc9",
+    "topicBase": 188,
+    "sampleSize": 188,
+    "sampleSeed": "t1-topics-v1/ds1",
+    "repeats": 1,
+    "provider": "anthropic",
+    "modelRequested": "claude-sonnet-5-5",
+    "settings": {
+      "effort": "high",
+      "refusalFallback": "off"
+    },
+    "contracts": {
+      "discovery": "topic-discovery-v2",
+      "consolidation": "topic-consolidation-v1"
+    },
+    "assignment": "not run",
+    "validation": "frozen taxonomy validator (validateTopicTaxonomy) for both phases, at most 2 attempts each with structured feedback; consolidation may cite only the candidates' example IDs and has at most as many topics as candidates",
+    "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard."
+  },
+  "oracleGate": {
+    "passed": true,
+    "failures": []
+  },
+  "runs": [
+    {
+      "repeat": 1,
+      "discovery": {
+        "status": "valid",
+        "attempts": [
+          {
+            "attempt": 1,
+            "outcome": "valid",
+            "issueCodes": [],
+            "feedbackSent": false,
+            "topics": 12,
+            "latencyMs": 10023
+          }
+        ],
+        "retried": false,
+        "topics": 12,
+        "latencyMs": 10023,
+        "taxonomy": {
+          "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard.",
+          "predictedTopics": 12,
+          "topicsWithExamples": 12,
+          "matchedTopics": 9,
+          "topicPrecision": 0.75,
+          "conceptRecall": 1,
+          "mergeErrors": 0,
+          "splitErrors": 1,
+          "definitionValidity": 1,
+          "definitionIssues": [],
+          "matches": [
+            {
+              "key": "range_per_charge",
+              "name": "Range per charge",
+              "examples": 3,
+              "exampleGold": [
+                "range",
+                "range",
+                "range"
+              ],
+              "goldKey": "range"
+            },
+            {
+              "key": "charging_battery_hardware",
+              "name": "Charging and battery design",
+              "examples": 3,
+              "exampleGold": [
+                "charging",
+                "charging",
+                "charging"
+              ],
+              "goldKey": "charging"
+            },
+            {
+              "key": "brakes",
+              "name": "Brakes and stopping",
+              "examples": 3,
+              "exampleGold": [
+                "brakes",
+                "brakes",
+                "brakes"
+              ],
+              "goldKey": "brakes"
+            },
+            {
+              "key": "motor_assist",
+              "name": "Motor and assist behaviour",
+              "examples": 3,
+              "exampleGold": [
+                "motor",
+                "motor",
+                "motor"
+              ],
+              "goldKey": "motor"
+            },
+            {
+              "key": "folding_mechanism",
+              "name": "Folding mechanism and latches",
+              "examples": 3,
+              "exampleGold": [
+                "folding",
+                "folding",
+                "folding"
+              ],
+              "goldKey": "folding"
+            },
+            {
+              "key": "portability_storage",
+              "name": "Portability, size and storage",
+              "examples": 3,
+              "exampleGold": [
+                "folding",
+                "folding",
+                "folding"
+              ],
+              "goldKey": "folding"
+            },
+            {
+              "key": "ride_comfort_fit",
+              "name": "Ride comfort and rider fit",
+              "examples": 3,
+              "exampleGold": [
+                "comfort",
+                "comfort",
+                "comfort"
+              ],
+              "goldKey": "comfort"
+            },
+            {
+              "key": "price_value",
+              "name": "Price and value",
+              "examples": 3,
+              "exampleGold": [
+                "value",
+                "value",
+                "value"
+              ],
+              "goldKey": "value"
+            },
+            {
+              "key": "app_connectivity",
+              "name": "App and connected features",
+              "examples": 3,
+              "exampleGold": [
+                "app",
+                "app",
+                "app"
+              ],
+              "goldKey": "app"
+            },
+            {
+              "key": "build_quality_weather",
+              "name": "Build quality and durability",
+              "examples": 3,
+              "exampleGold": [
+                "other",
+                "other",
+                "other"
+              ],
+              "goldKey": null
+            },
+            {
+              "key": "service_delivery_support",
+              "name": "Customer service and delivery",
+              "examples": 3,
+              "exampleGold": [
+                "other",
+                "other",
+                "folding"
+              ],
+              "goldKey": null
+            },
+            {
+              "key": "sponsorship_review_content",
+              "name": "Sponsorship and review quality",
+              "examples": 3,
+              "exampleGold": [
+                "other",
+                "other",
+                "other"
+              ],
+              "goldKey": null
+            }
+          ]
+        },
+        "topicList": [
+          {
+            "key": "range_per_charge",
+            "name": "Range per charge"
+          },
+          {
+            "key": "charging_battery_hardware",
+            "name": "Charging and battery design"
+          },
+          {
+            "key": "brakes",
+            "name": "Brakes and stopping"
+          },
+          {
+            "key": "motor_assist",
+            "name": "Motor and assist behaviour"
+          },
+          {
+            "key": "folding_mechanism",
+            "name": "Folding mechanism and latches"
+          },
+          {
+            "key": "portability_storage",
+            "name": "Portability, size and storage"
+          },
+          {
+            "key": "ride_comfort_fit",
+            "name": "Ride comfort and rider fit"
+          },
+          {
+            "key": "price_value",
+            "name": "Price and value"
+          },
+          {
+            "key": "app_connectivity",
+            "name": "App and connected features"
+          },
+          {
+            "key": "build_quality_weather",
+            "name": "Build quality and durability"
+          },
+          {
+            "key": "service_delivery_support",
+            "name": "Customer service and delivery"
+          },
+          {
+            "key": "sponsorship_review_content",
+            "name": "Sponsorship and review quality"
+          }
+        ],
+        "usage": {
+          "requests": 1,
+          "failedRequests": 0,
+          "inputTokens": 7757,
+          "outputTokens": 1164,
+          "estimatedCostUsd": 0.027154,
+          "latencyMs": {
+            "total": 10021,
+            "mean": 10021,
+            "p50": 10021,
+            "p95": 10021,
+            "max": 10021
+          },
+          "modelsServed": [
+            "claude-sonnet-5-5"
+          ]
+        }
+      },
+      "consolidation": {
+        "status": "valid",
+        "attempts": [
+          {
+            "attempt": 1,
+            "outcome": "valid",
+            "issueCodes": [],
+            "feedbackSent": false,
+            "topics": 12,
+            "latencyMs": 5997
+          }
+        ],
+        "retried": false,
+        "topics": 12,
+        "latencyMs": 5997,
+        "taxonomy": {
+          "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard.",
+          "predictedTopics": 12,
+          "topicsWithExamples": 12,
+          "matchedTopics": 9,
+          "topicPrecision": 0.75,
+          "conceptRecall": 1,
+          "mergeErrors": 0,
+          "splitErrors": 1,
+          "definitionValidity": 1,
+          "definitionIssues": [],
+          "matches": [
+            {
+              "key": "range_per_charge",
+              "name": "Range and battery life",
+              "examples": 3,
+              "exampleGold": [
+                "range",
+                "range",
+                "range"
+              ],
+              "goldKey": "range"
+            },
+            {
+              "key": "charging_battery_hardware",
+              "name": "Charging and battery design",
+              "examples": 3,
+              "exampleGold": [
+                "charging",
+                "charging",
+                "charging"
+              ],
+              "goldKey": "charging"
+            },
+            {
+              "key": "brakes",
+              "name": "Brakes and stopping",
+              "examples": 3,
+              "exampleGold": [
+                "brakes",
+                "brakes",
+                "brakes"
+              ],
+              "goldKey": "brakes"
+            },
+            {
+              "key": "motor_assist",
+              "name": "Motor and assist behaviour",
+              "examples": 3,
+              "exampleGold": [
+                "motor",
+                "motor",
+                "motor"
+              ],
+              "goldKey": "motor"
+            },
+            {
+              "key": "folding_mechanism",
+              "name": "Folding mechanism and latches",
+              "examples": 3,
+              "exampleGold": [
+                "folding",
+                "folding",
+                "folding"
+              ],
+              "goldKey": "folding"
+            },
+            {
+              "key": "portability_storage",
+              "name": "Portability, size and storage",
+              "examples": 3,
+              "exampleGold": [
+                "folding",
+                "folding",
+                "folding"
+              ],
+              "goldKey": "folding"
+            },
+            {
+              "key": "ride_comfort_fit",
+              "name": "Ride comfort and rider fit",
+              "examples": 3,
+              "exampleGold": [
+                "comfort",
+                "comfort",
+                "comfort"
+              ],
+              "goldKey": "comfort"
+            },
+            {
+              "key": "price_value",
+              "name": "Price and value",
+              "examples": 3,
+              "exampleGold": [
+                "value",
+                "value",
+                "value"
+              ],
+              "goldKey": "value"
+            },
+            {
+              "key": "app_connectivity",
+              "name": "App and connected features",
+              "examples": 3,
+              "exampleGold": [
+                "app",
+                "app",
+                "app"
+              ],
+              "goldKey": "app"
+            },
+            {
+              "key": "build_quality_weather",
+              "name": "Build quality and durability",
+              "examples": 3,
+              "exampleGold": [
+                "other",
+                "other",
+                "other"
+              ],
+              "goldKey": null
+            },
+            {
+              "key": "service_delivery_support",
+              "name": "Customer service and delivery",
+              "examples": 3,
+              "exampleGold": [
+                "other",
+                "other",
+                "folding"
+              ],
+              "goldKey": null
+            },
+            {
+              "key": "sponsorship_review_content",
+              "name": "Sponsorship and review quality",
+              "examples": 3,
+              "exampleGold": [
+                "other",
+                "other",
+                "other"
+              ],
+              "goldKey": null
+            }
+          ]
+        },
+        "topicList": [
+          {
+            "key": "range_per_charge",
+            "name": "Range and battery life"
+          },
+          {
+            "key": "charging_battery_hardware",
+            "name": "Charging and battery design"
+          },
+          {
+            "key": "brakes",
+            "name": "Brakes and stopping"
+          },
+          {
+            "key": "motor_assist",
+            "name": "Motor and assist behaviour"
+          },
+          {
+            "key": "folding_mechanism",
+            "name": "Folding mechanism and latches"
+          },
+          {
+            "key": "portability_storage",
+            "name": "Portability, size and storage"
+          },
+          {
+            "key": "ride_comfort_fit",
+            "name": "Ride comfort and rider fit"
+          },
+          {
+            "key": "price_value",
+            "name": "Price and value"
+          },
+          {
+            "key": "app_connectivity",
+            "name": "App and connected features"
+          },
+          {
+            "key": "build_quality_weather",
+            "name": "Build quality and durability"
+          },
+          {
+            "key": "service_delivery_support",
+            "name": "Customer service and delivery"
+          },
+          {
+            "key": "sponsorship_review_content",
+            "name": "Sponsorship and review quality"
+          }
+        ],
+        "usage": {
+          "requests": 1,
+          "failedRequests": 0,
+          "inputTokens": 2552,
+          "outputTokens": 1155,
+          "estimatedCostUsd": 0.016654,
+          "latencyMs": {
+            "total": 5996,
+            "mean": 5996,
+            "p50": 5996,
+            "p95": 5996,
+            "max": 5996
+          },
+          "modelsServed": [
+            "claude-sonnet-5-5"
+          ]
+        },
+        "coverage": {
+          "covered": 12,
+          "withExamples": 12,
+          "uncoveredKeys": []
+        }
+      },
+      "records": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5-5",
+          "modelVersion": "claude-sonnet-5-5",
+          "promptVersion": "topic-discovery-v2",
+          "schemaVersion": "topic-discovery-v2",
+          "batchSize": 188,
+          "attempt": 1,
+          "outcome": "ok",
+          "inputTokens": 7757,
+          "outputTokens": 1164,
+          "estimatedCostUsd": 0.027154,
+          "latencyMs": 10021,
+          "timestamp": "2026-10-06T01:35:45.677Z"
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5-5",
+          "modelVersion": "claude-sonnet-5-5",
+          "promptVersion": "topic-consolidation-v1",
+          "schemaVersion": "topic-consolidation-v1",
+          "batchSize": 0,
+          "attempt": 1,
+          "outcome": "ok",
+          "inputTokens": 2552,
+          "outputTokens": 1155,
+          "estimatedCostUsd": 0.016654,
+          "latencyMs": 5996,
+          "timestamp": "2026-10-06T01:35:51.675Z"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "discovery": {
+      "requests": 1,
+      "failedRequests": 0,
+      "inputTokens": 7757,
+      "outputTokens": 1164,
+      "estimatedCostUsd": 0.027154,
+      "latencyMs": {
+        "total": 10021,
+        "mean": 10021,
+        "p50": 10021,
+        "p95": 10021,
+        "max": 10021
+      }
+    },
+    "consolidation": {
+      "requests": 1,
+      "failedRequests": 0,
+      "inputTokens": 2552,
+      "outputTokens": 1155,
+      "estimatedCostUsd": 0.016654,
+      "latencyMs": {
+        "total": 5996,
+        "mean": 5996,
+        "p50": 5996,
+        "p95": 5996,
+        "max": 5996
+      }
+    },
+    "all": {
+      "requests": 2,
+      "failedRequests": 0,
+      "inputTokens": 10309,
+      "outputTokens": 2319,
+      "estimatedCostUsd": 0.043808,
+      "latencyMs": {
+        "total": 16017,
+        "mean": 8008.5,
+        "p50": 5996,
+        "p95": 10021,
+        "max": 10021
+      }
+    }
+  }
+}

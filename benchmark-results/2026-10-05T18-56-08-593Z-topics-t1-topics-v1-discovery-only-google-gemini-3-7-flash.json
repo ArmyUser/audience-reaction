@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "kind": "discovery-only",
+    "notice": "DISCOVERY-ONLY RESULT: taxonomy discovery and validation only. Topic assignment (Jev) was NOT run; this is not a full topic benchmark report.",
+    "timestamp": "2026-10-05T18:56:08.593Z",
+    "dataset": "t1-topics-v1",
+    "datasetVersion": "sha256:e44ac9d63b94ebc9",
+    "topicBase": 188,
+    "sampleSize": 188,
+    "sampleSeed": "t1-topics-v1/ds1",
+    "repeats": 1,
+    "discovery": {
+      "provider": "google",
+      "modelRequested": "gemini-3.7-flash",
+      "contract": "topic-discovery-v2",
+      "settings": {
+        "thinkingLevel": "low"
+      }
+    },
+    "assignment": "not run",
+    "validation": "production taxonomy validator (validateTopicTaxonomy), at most 2 attempts with structured feedback",
+    "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard."
+  },
+  "oracleGate": {
+    "passed": true,
+    "failures": []
+  },
+  "runs": [
+    {
+      "repeat": 1,
+      "status": "unavailable",
+      "attempts": [
+        {
+          "attempt": 1,
+          "outcome": "provider_error",
+          "issueCodes": [
+            "provider_error"
+          ],
+          "providerFailure": "rate_limited",
+          "feedbackSent": false,
+          "latencyMs": 42689
+        },
+        {
+          "attempt": 2,
+          "outcome": "provider_error",
+          "issueCodes": [
+            "provider_error"
+          ],
+          "providerFailure": "rate_limited",
+          "feedbackSent": true,
+          "latencyMs": 5129
+        }
+      ],
+      "topics": null,
+      "latencyMs": 47818,
+      "taxonomy": null,
+      "topicList": [],
+      "usage": {
+        "requests": 2,
+        "failedRequests": 2,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "latencyMs": {
+          "total": 47814,
+          "mean": 23907,
+          "p50": 5128,
+          "p95": 42686,
+          "max": 42686
+        },
+        "modelsServed": []
+      },
+      "records": [
+        {
+          "provider": "google",
+          "model": "gemini-3.7-flash",
+          "promptVersion": "topic-discovery-v2",
+          "schemaVersion": "topic-discovery-v2",
+          "batchSize": 188,
+          "attempt": 1,
+          "outcome": "provider_error",
+          "errorType": "HTTP429",
+          "latencyMs": 42686,
+          "timestamp": "2026-10-05T18:56:03.459Z"
+        },
+        {
+          "provider": "google",
+          "model": "gemini-3.7-flash",
+          "promptVersion": "topic-discovery-v2",
+          "schemaVersion": "topic-discovery-v2",
+          "batchSize": 188,
+          "attempt": 2,
+          "outcome": "provider_error",
+          "errorType": "HTTP429",
+          "latencyMs": 5128,
+          "timestamp": "2026-10-05T18:56:08.591Z"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "requests": 2,
+    "failedRequests": 2,
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "latencyMs": {
+      "total": 47814,
+      "mean": 23907,
+      "p50": 5128,
+      "p95": 42686,
+      "max": 42686
+    }
+  }
+}

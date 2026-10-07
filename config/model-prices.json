@@ -1,0 +1,35 @@
+{
+  "description": "USD per million tokens. Configuration for cost estimates only; verify against the provider's current price list before relying on it.",
+  "prices": {
+    "claude-sonnet-5-5": {
+      "inputPerMTok": 2.0,
+      "outputPerMTok": 10.0,
+      "source": "Anthropic first-party API list price for Claude Sonnet 5.5 (claude-api reference, cached 2026-09-25; matches the price given for this task); output includes adaptive-thinking tokens"
+    },
+    "claude-haiku-4-5": {
+      "inputPerMTok": 1.0,
+      "outputPerMTok": 5.0,
+      "source": "Anthropic first-party API list price (claude-api reference, cached 2026-09-25)"
+    },
+    "gemini-3.8-flash": {
+      "inputPerMTok": 0.75,
+      "outputPerMTok": 3.75,
+      "source": "Google Gemini API paid-tier introductory price, valid through 2026-12-31 (ai.google.dev, checked 2026-10-05; $1.50 / $7.50 from 2027-01-01); output includes thinking tokens. The Gemini API free tier is not billed: this schema has no tiers, so estimates use the paid rate as an upper bound"
+    },
+    "gemini-3.7-flash": {
+      "inputPerMTok": 0.75,
+      "outputPerMTok": 3.75,
+      "source": "Google Gemini API paid-tier introductory price, valid through 2026-12-31 (ai.google.dev/gemini-api/docs/pricing, checked 2026-10-05; $1.50 / $7.50 from 2027-01-01); output includes thinking tokens. The Gemini API free tier is not billed: this schema has no tiers, so estimates use the paid rate as an upper bound"
+    },
+    "jev-latest": {
+      "inputPerMTok": 0.042,
+      "outputPerMTok": 0.0,
+      "source": "TypeSafe Jev 1.13 list price as published by Cloudflare and DigitalOcean model pages (output tokens unbilled), checked 2026-10-03; assumed to apply to the jev-latest alias reported by GET /v1/models"
+    },
+    "jev-preview": {
+      "inputPerMTok": 0.042,
+      "outputPerMTok": 0.0,
+      "source": "Unverified: no published price for jev-preview; assumed equal to the Jev list price so the explicit --jev-model override passes the cost guard"
+    }
+  }
+}

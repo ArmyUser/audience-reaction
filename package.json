@@ -1,0 +1,37 @@
+{
+  "name": "audience-reaction",
+  "version": "0.0.0",
+  "private": true,
+  "description": "AI-powered audience intelligence from comments: sentiment, topics, targets, and evaluation.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 3000",
+    "build": "tsc --noEmit && next build",
+    "start": "next start --hostname 127.0.0.1 --port 3000",
+    "test": "vitest run",
+    "benchmark": "tsx --env-file-if-exists=.env src/benchmark/cli.ts",
+    "jev:models": "tsx --env-file-if-exists=.env src/benchmark/jev-preflight.ts",
+    "benchmark-topics": "tsx --env-file-if-exists=.env src/benchmark/topics-cli.ts",
+    "youtube:fetch-smoke": "tsx --env-file-if-exists=.env src/benchmark/youtube-fetch-smoke-cli.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.131.0",
+    "@google/genai": "2.27.0",
+    "next": "16.3.8",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "server-only": "0.0.1",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vitest": "5.0.3"
+  }
+}

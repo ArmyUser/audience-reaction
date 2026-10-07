@@ -1,0 +1,39 @@
+# dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# test coverage
+coverage/
+
+# local data (SQLite files, exports): never commit
+data/
+*.db
+*.db-journal
+
+# secrets: never commit
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+
+# OS / editor / local tooling
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+.claude/
+
+# Internal/private compliance artifacts
+config/compliance/cg1-internal-testing-exception.json
+docs/compliance/cg1-internal-testing-exception.md
+docs/compliance/youtube-derived-metrics-application.md
+tests/local/cg1-internal-testing.test.ts

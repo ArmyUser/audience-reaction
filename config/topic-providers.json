@@ -1,0 +1,49 @@
+{
+  "description": "Real topic providers behind the topic-discovery-v2 / topic-assignment-v1 contracts. `discovery` is the default discovery provider; `discoveryProviders` holds optional alternatives selected with --provider <name>. No secrets here: API keys are read from the named environment variables (local .env, never committed). Prices live in config/model-prices.json.",
+  "discovery": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-5-5",
+    "apiKeyEnv": "ANTHROPIC_API_KEY",
+    "contract": "topic-discovery-v2",
+    "effort": "high",
+    "refusalFallback": "off",
+    "maxOutputTokens": 16000,
+    "expectedOutputTokens": 8000,
+    "timeoutMs": 180000,
+    "maxTransportRetries": 2
+  },
+  "discoveryProviders": {
+    "gemini": {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "alternativeModels": ["gemini-3.7-flash"],
+      "apiKeyEnv": "GEMINI_API_KEY",
+      "contract": "topic-discovery-v2",
+      "thinkingLevel": "low",
+      "maxOutputTokens": 16000,
+      "expectedOutputTokens": 4000,
+      "timeoutMs": 180000,
+      "maxTransportRetries": 2
+    }
+  },
+  "assignment": {
+    "provider": "typesafe",
+    "model": "jev-latest",
+    "apiKeyEnv": "JEV_API_KEY",
+    "contract": "topic-assignment-v1",
+    "questionSet": "jev-topic-a1",
+    "baseUrl": "https://api.typesafe.ai",
+    "maxCommentsPerBatch": 25,
+    "concurrency": 4,
+    "timeoutMs": 30000,
+    "maxTransportRetries": 3
+  },
+  "estimation": {
+    "charsPerToken": 4,
+    "retryHeadroom": 1.5,
+    "sentimentStepShare": 1.0
+  },
+  "limits": {
+    "maxCostUsd": 1.0
+  }
+}

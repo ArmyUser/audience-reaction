@@ -1,0 +1,254 @@
+{
+  "schema": "audit-source-manifest-v1",
+  "datasetId": "t2-topics-v1",
+  "datasetVersion": "sha256:c0087c94db1713b2",
+  "auditArtifact": {
+    "path": "fixtures/t2-topics-v1/leakage-audit.json",
+    "sha256": "2aa670b95293a77113186419f9ab9a1f745e7151ebe061a162bc280c31840f70"
+  },
+  "derivation": [
+    "Sources the completed t2-topics-v1 audit compared against, listed explicitly with SHA-256; later artifacts are never added.",
+    "Stored model outputs: the first 23 result files of the audit's own sorted listing, i.e. the 23 files the artifact recorded in provenance.storedResultFiles (no result of t2-topics-v1 existed).",
+    "Accepted only because this set reproduces every frozen segment count recorded in the artifact's sourceSegments (model-output, t1-replay, prompt, t1, t1-gold).",
+    "Prompt sources: every topic prompt the audit rendered (stable id, SHA-256 of the text) and the prompt sources among the t1 audit's repository texts (stable id, segment count, SHA-256); together they reproduce the recorded prompt segment count. Prompts added later are never part of the set.",
+    "Algorithm, thresholds and structural checks: unchanged (the audit's own module)."
+  ],
+  "references": [
+    {
+      "id": "t1-topics-v1",
+      "path": "fixtures/t1-topics-v1/comments.json",
+      "sha256": "e44ac9d63b94ebc903b8bbfc1df738ac0498bc2d0b63a18497581473b5247aa8"
+    }
+  ],
+  "prompts": [
+    {
+      "source": "prompt:discovery",
+      "sha256": "7b5421df82fd44f17aa3747dd6baecce4ae9d670019a3a5f573787e30ed8436c"
+    },
+    {
+      "source": "prompt:consolidation",
+      "sha256": "cc6956d20176f69e35e72ff5580b620bccf728510c548b69ee98a1e3eb7f19ea"
+    },
+    {
+      "source": "prompt:assignment",
+      "sha256": "bd4d45cfc9b1bf96b6adddef9ab2f95876d1a748210d0b08faee1c7a12d35019"
+    },
+    {
+      "source": "prompt:discovery:retry",
+      "sha256": "faea2a22d337939e1155a53e019b35d5bcce4f1d87217ebcb417c29255de09d1"
+    },
+    {
+      "source": "prompt:consolidation:retry",
+      "sha256": "50e5cf59939489f26a427c2775aefea1a14ddabb1fc0005d847d20a448c1c14e"
+    },
+    {
+      "source": "prompt:assignment:retry",
+      "sha256": "79895cbb10ebf3ac35cc58aa7206e205c8f5afb6857271ba566fa06d7356b61c"
+    },
+    {
+      "source": "prompt:untrusted-data-rules",
+      "sha256": "0e50fad95a9579d0322e77f9051273fda06193b31dc0d2ded6c02a27a287ae63"
+    }
+  ],
+  "repositoryPrompts": [
+    {
+      "source": "prompt:llm",
+      "segments": 237,
+      "sha256": "0515bf609ac5860ca33cd8b303ddd93535cf307e3462a43da0fbb03486202a72"
+    }
+  ],
+  "replay": [
+    {
+      "path": "fixtures/topic-provider-replay/t1-topics-v1/responses/assignment-injection-obeyed.txt",
+      "sha256": "225465921bc7e8035b084afcedb0e0703d3ac74c69ac74378baa06771777ff98",
+      "segments": 644
+    },
+    {
+      "path": "fixtures/topic-provider-replay/t1-topics-v1/responses/assignment-malformed-fenced.txt",
+      "sha256": "45c037635154e146dfe4c014691388c5d9b951274d3670abb3a6b8681d9d4a02",
+      "segments": 644
+    },
+    {
+      "path": "fixtures/topic-provider-replay/t1-topics-v1/responses/assignment-malformed-truncated.txt",
+      "sha256": "e208df8e60e751f99f197ff6890dcf699a5d7b21165d7f749c90d1a253d187e0",
+      "segments": 1
+    },
+    {
+      "path": "fixtures/topic-provider-replay/t1-topics-v1/responses/assignment-missing-comment-retry.txt",
+      "sha256": "1d68810f540064d959b36de15691ac597009bd2782a319b12876fe674e680b69",
+      "segments": 6
+    },
+    {
+      "path": "fixtures/topic-provider-replay/t1-topics-v1/responses/assignment-missing-comment.txt",
+      "sha256": "2d79351b64792154984c80bc7e8e181a2df127a239d4061b2accaf2a78ce0740",
+      "segments": 638
+    },
+    {
+      "path": "fixtures/topic-provider-replay/t1-topics-v1/responses/assignment-perfect.txt",
+      "sha256": "61a604105965cb9d988e840e00cba8745b89d7815acae119ee9a36373fb98240",
+      "segments": 644
+    },
+    {
+      "path": "fixtures/topic-provider-replay/t1-topics-v1/responses/assignment-unknown-topic-retry.txt",
+      "sha256": "7db157933c8841059249470fdfd37eedc12ad9730bbdd3d83b3832f38a9f188a",
+      "segments": 12
+    },
+    {
+      "path": "fixtures/topic-provider-replay/t1-topics-v1/responses/assignment-unknown-topic.txt",
+      "sha256": "d5dc28761cf4772c2b5c12f53b3c2608ecfe74e180a48a98e0c5d989b0a63ab4",
+      "segments": 644
+    },
+    {
+      "path": "fixtures/topic-provider-replay/t1-topics-v1/responses/assignment-wrong-sentiment.txt",
+      "sha256": "b1f8d311f4589c4bd7224dfd51c0f632e7f01747a3a6cf94e9b5e084d38ff541",
+      "segments": 644
+    },
+    {
+      "path": "fixtures/topic-provider-replay/t1-topics-v1/responses/taxonomy-duplicate-name.txt",
+      "sha256": "1d7bfc3babfce0b29795428a301c9d6809bd5d621bed077a3fdd07877d33e63d",
+      "segments": 43
+    },
+    {
+      "path": "fixtures/topic-provider-replay/t1-topics-v1/responses/taxonomy-malformed-prose.txt",
+      "sha256": "1cb18b44abb2d8c232336e6a9c47dd134f3c48261fe3e16d644241732b0c17b9",
+      "segments": 1
+    },
+    {
+      "path": "fixtures/topic-provider-replay/t1-topics-v1/responses/taxonomy-missing-definition.txt",
+      "sha256": "7d28a6592ca5454eab6ec7157113c22bfe869bb064c84a799994898563073181",
+      "segments": 39
+    },
+    {
+      "path": "fixtures/topic-provider-replay/t1-topics-v1/responses/taxonomy-perfect.txt",
+      "sha256": "8af2745f322cd9b567cdf30e43089bb46654afe1990ad14408c24962cdb23798",
+      "segments": 40
+    }
+  ],
+  "modelOutputs": [
+    {
+      "path": "benchmark-results/2026-10-04T18-46-14-156Z-typesafe-jev-latest.json",
+      "sha256": "69ad56b787ab249beab6767da16e351e60dc5cdd83d3ecb39d4bc19b70a571dd",
+      "segments": 85
+    },
+    {
+      "path": "benchmark-results/2026-10-04T19-41-36-484Z-typesafe-jev-latest.json",
+      "sha256": "cdeceeda9d80f91578e994ba9c6d132a40c516894be0db706c3b03aa142b73df",
+      "segments": 1242
+    },
+    {
+      "path": "benchmark-results/2026-10-04T20-53-54-865Z-typesafe-jev-latest-jev-q2.json",
+      "sha256": "35cc00d701dee6608716bfc9d7006dcf391e8bb8a8490624cf55ff10f0d7e45c",
+      "segments": 1515
+    },
+    {
+      "path": "benchmark-results/2026-10-04T20-59-44-171Z-typesafe-jev-latest-jev-q2.json",
+      "sha256": "7548a8815974b278c2e0b600d45b9b47d60ce58c3af774afcdc283818f7edc3e",
+      "segments": 3014
+    },
+    {
+      "path": "benchmark-results/2026-10-04T21-18-55-516Z-typesafe-jev-latest-jev-q2-1.json",
+      "sha256": "9978ee79866ec25195455dad88f0006e3c62500384e3b86e0797e0c44cd45b84",
+      "segments": 2996
+    },
+    {
+      "path": "benchmark-results/2026-10-04T21-30-33-901Z-typesafe-jev-latest-jev-q2-2.json",
+      "sha256": "5e00855722cbfc33b90aa72405884b64999c04109e1621ea00166a8b33f40a7f",
+      "segments": 2970
+    },
+    {
+      "path": "benchmark-results/2026-10-04T23-34-13-973Z-typesafe-jev-latest-jev-q2-2-m2-heldout-v1.json",
+      "sha256": "b65cb7cc8ea13c1ff67b7a8428f54e688b7a96029364471b074a1ae268db3ccb",
+      "segments": 5115
+    },
+    {
+      "path": "benchmark-results/2026-10-04T23-36-58-310Z-typesafe-jev-latest-jev-q2-m2-heldout-v1.json",
+      "sha256": "e9d1f44359c9ec69b7640e0d39bb32468acc4ddb20ebedfaf45890d06648a422",
+      "segments": 5166
+    },
+    {
+      "path": "benchmark-results/2026-10-05T15-16-43-911Z-topics-t1-topics-v1-google-gemini-3-8-flash-typesafe-jev-latest.json",
+      "sha256": "476d25d55c9c8903f061af600db26d3aceda7b297ee0d7bf4c3c922bdf3a7c98",
+      "segments": 399
+    },
+    {
+      "path": "benchmark-results/2026-10-05T15-30-18-497Z-topics-t1-topics-v1-google-gemini-3-7-flash-typesafe-jev-latest.json",
+      "sha256": "48ff956a42f54b0add7775a5db05c479cfb2fadd3b7488cd2e148c5a13792f60",
+      "segments": 2645
+    },
+    {
+      "path": "benchmark-results/2026-10-05T15-39-33-575Z-topics-t1-topics-v1-google-gemini-3-7-flash-typesafe-jev-latest.json",
+      "sha256": "962dd24c2cbb2ae4db9957911db30118998eb39f7b632a0c66d0e5d78bcc7e4e",
+      "segments": 2680
+    },
+    {
+      "path": "benchmark-results/2026-10-05T18-43-12-795Z-topics-t1-topics-v1-discovery-only-anthropic-claude-sonnet-5-5.json",
+      "sha256": "71f08b7d4f113e516719b527f4fab7f52bb7c374a9839dd85f834a86e9da8e30",
+      "segments": 117
+    },
+    {
+      "path": "benchmark-results/2026-10-05T18-45-08-194Z-topics-t1-topics-v1-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "sha256": "ec476be76e8859280fa8830d7ee398559a475bbf7b4f32bedee1e0230c3b5555",
+      "segments": 2746
+    },
+    {
+      "path": "benchmark-results/2026-10-05T18-47-15-042Z-topics-t1-topics-v1-discovery-only-anthropic-claude-sonnet-5-5.json",
+      "sha256": "375d104e00ba50d7adf4acb442279a19aab749d563a026dad44e1c0673fb5e0f",
+      "segments": 117
+    },
+    {
+      "path": "benchmark-results/2026-10-05T18-53-50-759Z-topics-t1-topics-v1-discovery-only-anthropic-claude-sonnet-5-5.json",
+      "sha256": "e83ecca7256587b74400697b2433a96b81067b43da9c5602e8823b78d9699d35",
+      "segments": 117
+    },
+    {
+      "path": "benchmark-results/2026-10-05T18-56-08-593Z-topics-t1-topics-v1-discovery-only-google-gemini-3-7-flash.json",
+      "sha256": "22bd07f25ac88533b13be3acca713da230ed44d5b707a7a8608ab4969ba6295b",
+      "segments": 34
+    },
+    {
+      "path": "benchmark-results/2026-10-06T01-35-51-688Z-topics-t1-topics-v1-discovery-consolidated-anthropic-claude-sonnet-5-5.json",
+      "sha256": "cd8be4984f7e3d7997f6aeca678405993ccee9493d8eafad95476d503df72c5f",
+      "segments": 221
+    },
+    {
+      "path": "benchmark-results/2026-10-06T01-42-57-029Z-topics-t1-topics-v1-discovery-consolidated-anthropic-claude-sonnet-5-5.json",
+      "sha256": "e599d7f2f29b2395c60792655d2814438f48429d3b75f94d95a45eea92cd4546",
+      "segments": 225
+    },
+    {
+      "path": "benchmark-results/2026-10-06T01-48-29-157Z-topics-t1-topics-v1-discovery-consolidated-anthropic-claude-sonnet-5-5.json",
+      "sha256": "f5d1fe41361f6bea5e04109402dde5eb03fb5ac77ccfa9f6b3bc950c0068a24c",
+      "segments": 213
+    },
+    {
+      "path": "benchmark-results/2026-10-06T01-50-06-623Z-topics-t1-topics-v1-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "sha256": "973344b5870674fb53ca74c30b5b9544a406591cc0ff7461cac5a4a95d8a90bc",
+      "segments": 2764
+    },
+    {
+      "path": "benchmark-results/2026-10-06T01-58-38-547Z-topics-t1-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "sha256": "bb809f7ce58d1a35a38a7bc972d9940e37952fb0ff575129c6a71b0aa8a3231a",
+      "segments": 2726
+    },
+    {
+      "path": "benchmark-results/2026-10-06T02-02-58-518Z-topics-t1-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "sha256": "b77688441d44a27940fd6d388d08ffe544af27b187d93c9a5fe5672e54b31187",
+      "segments": 2773
+    },
+    {
+      "path": "benchmark-results/2026-10-06T02-04-50-024Z-topics-t1-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "sha256": "cdcc2c8bf022613ff619d9040fcddadc1c97144771cb260c4847b5bc4d4c5f2d",
+      "segments": 2640
+    }
+  ],
+  "recordedInArtifact": {
+    "storedResultFiles": 23,
+    "sourceSegments": {
+      "model-output": 42520,
+      "t1-replay": 4000,
+      "prompt": 598,
+      "t1": 200,
+      "t1-gold": 40
+    }
+  }
+}

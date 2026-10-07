@@ -1,0 +1,81 @@
+{
+  "topics": [
+    {
+      "key": "battery_range",
+      "name": "Battery range",
+      "definition": "Distance the bike covers per charge, range estimates and how fast the battery drains.",
+      "exampleCommentIds": [
+        "t1-009",
+        "t1-013"
+      ]
+    },
+    {
+      "key": "range_per_charge",
+      "name": "Battery Range",
+      "definition": "How many kilometres riders get from one full charge."
+    },
+    {
+      "key": "pedal_assist",
+      "name": "Pedal assist and motor",
+      "definition": "Power and feel of the electric assist, including climbing, assist modes and motor noise.",
+      "exampleCommentIds": [
+        "t1-022",
+        "t1-041"
+      ]
+    },
+    {
+      "key": "fold_portability",
+      "name": "Folding and portability",
+      "definition": "The fold mechanism and latches, folded size, and carrying or storing the bike.",
+      "exampleCommentIds": [
+        "t1-011",
+        "t1-030"
+      ]
+    },
+    {
+      "key": "ride_comfort",
+      "name": "Comfort",
+      "definition": "Comfort while riding, covering saddle, suspension, tyres, handlebars and fit.",
+      "exampleCommentIds": [
+        "t1-007",
+        "t1-057"
+      ]
+    },
+    {
+      "key": "charging",
+      "name": "Charging",
+      "definition": "Charging time, the charger and port, and removing the battery to charge it.",
+      "exampleCommentIds": [
+        "t1-014",
+        "t1-016"
+      ]
+    },
+    {
+      "key": "price_value",
+      "name": "Cost and value",
+      "definition": "The price of the bike and its accessories and whether it is worth paying.",
+      "exampleCommentIds": [
+        "t1-024",
+        "t1-026"
+      ]
+    },
+    {
+      "key": "braking",
+      "name": "Braking",
+      "definition": "Brake performance, lever feel and noise, and stopping distance.",
+      "exampleCommentIds": [
+        "t1-001",
+        "t1-003"
+      ]
+    },
+    {
+      "key": "phone_app",
+      "name": "Phone app",
+      "definition": "The phone app for pairing, firmware updates, settings and locking the motor.",
+      "exampleCommentIds": [
+        "t1-018",
+        "t1-052"
+      ]
+    }
+  ]
+}

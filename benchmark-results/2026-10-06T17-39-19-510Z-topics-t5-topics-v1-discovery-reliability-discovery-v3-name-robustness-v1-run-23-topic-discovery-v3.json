@@ -1,0 +1,304 @@
+{
+  "kind": "discovery-reliability-run",
+  "stamp": {
+    "experiment": "discovery-v3-name-robustness-v1",
+    "definitionFingerprint": "sha256:17aa3db369cc0ae836655e01132d2144f6f5f7cf4b19de88117b9075b2dda4fe",
+    "scheduledRun": 23,
+    "dataset": "t5-topics-v1",
+    "datasetSha256": "cec6e6563d81a1799a1eeed9328a9c19558a9ce6fadc265901529c8bf79a2cc3",
+    "contract": "topic-discovery-v3",
+    "runNumber": 6
+  },
+  "result": {
+    "meta": {
+      "kind": "discovery-only",
+      "notice": "DISCOVERY-ONLY RESULT: taxonomy discovery and validation only. Topic assignment (Jev) was NOT run; this is not a full topic benchmark report.",
+      "timestamp": "2026-10-06T17:39:19.510Z",
+      "dataset": "t5-topics-v1",
+      "datasetVersion": "sha256:cec6e6563d81a179",
+      "topicBase": 194,
+      "sampleSize": 194,
+      "sampleSeed": "t1-topics-v1/ds1",
+      "repeats": 1,
+      "discovery": {
+        "provider": "anthropic",
+        "modelRequested": "claude-sonnet-5-5",
+        "contract": "topic-discovery-v3",
+        "settings": {
+          "effort": "high",
+          "refusalFallback": "off"
+        }
+      },
+      "assignment": "not run",
+      "validation": "production taxonomy validator (validateTopicTaxonomy), at most 2 attempts with structured feedback",
+      "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard."
+    },
+    "oracleGate": {
+      "passed": true,
+      "failures": []
+    },
+    "runs": [
+      {
+        "repeat": 1,
+        "status": "valid",
+        "attempts": [
+          {
+            "attempt": 1,
+            "outcome": "valid",
+            "issueCodes": [],
+            "feedbackSent": false,
+            "topics": 12,
+            "latencyMs": 11041
+          }
+        ],
+        "topics": 12,
+        "latencyMs": 11041,
+        "taxonomy": {
+          "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard.",
+          "predictedTopics": 12,
+          "topicsWithExamples": 12,
+          "matchedTopics": 9,
+          "topicPrecision": 0.75,
+          "conceptRecall": 1,
+          "mergeErrors": 1,
+          "splitErrors": 0,
+          "definitionValidity": 1,
+          "definitionIssues": [],
+          "matches": [
+            {
+              "key": "temp_stability",
+              "name": "Brew Temperature Stability",
+              "examples": 3,
+              "exampleGold": [
+                "thermal",
+                "thermal",
+                "thermal"
+              ],
+              "goldKey": "thermal"
+            },
+            {
+              "key": "heat_up_time",
+              "name": "Warm-Up Time and Scheduling",
+              "examples": 3,
+              "exampleGold": [
+                "warmup",
+                "warmup",
+                "warmup"
+              ],
+              "goldKey": "warmup"
+            },
+            {
+              "key": "noise_vibration",
+              "name": "Noise and Vibration",
+              "examples": 3,
+              "exampleGold": [
+                "noise",
+                "noise",
+                "noise"
+              ],
+              "goldKey": "noise"
+            },
+            {
+              "key": "steam_wand",
+              "name": "Steam Wand and Milk",
+              "examples": 3,
+              "exampleGold": [
+                "steam_wand",
+                "steam_wand",
+                "steam_wand"
+              ],
+              "goldKey": "steam_wand"
+            },
+            {
+              "key": "grinder_performance",
+              "name": "Grinder Performance",
+              "examples": 3,
+              "exampleGold": [
+                "grinder",
+                "grinder",
+                "grinder"
+              ],
+              "goldKey": "grinder"
+            },
+            {
+              "key": "shot_quality",
+              "name": "Espresso Shot Quality",
+              "examples": 3,
+              "exampleGold": [
+                "extraction",
+                "extraction",
+                "extraction"
+              ],
+              "goldKey": "extraction"
+            },
+            {
+              "key": "controls_interface",
+              "name": "Controls and Touchscreen",
+              "examples": 3,
+              "exampleGold": [
+                "interface",
+                "interface",
+                "interface"
+              ],
+              "goldKey": "interface"
+            },
+            {
+              "key": "cleaning_maintenance",
+              "name": "Cleaning and Descaling",
+              "examples": 3,
+              "exampleGold": [
+                "upkeep",
+                "upkeep",
+                "upkeep"
+              ],
+              "goldKey": "upkeep"
+            },
+            {
+              "key": "support_warranty",
+              "name": "Support, Warranty and Repairs",
+              "examples": 3,
+              "exampleGold": [
+                "aftercare",
+                "aftercare",
+                "aftercare"
+              ],
+              "goldKey": "aftercare"
+            },
+            {
+              "key": "design_practicality",
+              "name": "Design, Size and Practicality",
+              "examples": 3,
+              "exampleGold": [
+                "other",
+                "upkeep",
+                "other"
+              ],
+              "goldKey": null
+            },
+            {
+              "key": "purchase_value",
+              "name": "Value and Buying Verdict",
+              "examples": 3,
+              "exampleGold": [
+                "other",
+                "no_specific_topic",
+                "grinder"
+              ],
+              "goldKey": null
+            },
+            {
+              "key": "video_requests",
+              "name": "Requests for Future Videos",
+              "examples": 3,
+              "exampleGold": [
+                "noise",
+                "steam_wand",
+                "thermal"
+              ],
+              "goldKey": null
+            }
+          ]
+        },
+        "topicList": [
+          {
+            "key": "temp_stability",
+            "name": "Brew Temperature Stability"
+          },
+          {
+            "key": "heat_up_time",
+            "name": "Warm-Up Time and Scheduling"
+          },
+          {
+            "key": "noise_vibration",
+            "name": "Noise and Vibration"
+          },
+          {
+            "key": "steam_wand",
+            "name": "Steam Wand and Milk"
+          },
+          {
+            "key": "grinder_performance",
+            "name": "Grinder Performance"
+          },
+          {
+            "key": "shot_quality",
+            "name": "Espresso Shot Quality"
+          },
+          {
+            "key": "controls_interface",
+            "name": "Controls and Touchscreen"
+          },
+          {
+            "key": "cleaning_maintenance",
+            "name": "Cleaning and Descaling"
+          },
+          {
+            "key": "support_warranty",
+            "name": "Support, Warranty and Repairs"
+          },
+          {
+            "key": "design_practicality",
+            "name": "Design, Size and Practicality"
+          },
+          {
+            "key": "purchase_value",
+            "name": "Value and Buying Verdict"
+          },
+          {
+            "key": "video_requests",
+            "name": "Requests for Future Videos"
+          }
+        ],
+        "rejectedOutputs": [],
+        "usage": {
+          "requests": 1,
+          "failedRequests": 0,
+          "inputTokens": 8412,
+          "outputTokens": 1222,
+          "estimatedCostUsd": 0.029044,
+          "latencyMs": {
+            "total": 11040,
+            "mean": 11040,
+            "p50": 11040,
+            "p95": 11040,
+            "max": 11040
+          },
+          "modelsServed": [
+            "claude-sonnet-5-5"
+          ]
+        },
+        "records": [
+          {
+            "provider": "anthropic",
+            "model": "claude-sonnet-5-5",
+            "modelVersion": "claude-sonnet-5-5",
+            "promptVersion": "topic-discovery-v3",
+            "schemaVersion": "topic-discovery-v3",
+            "batchSize": 194,
+            "attempt": 1,
+            "outcome": "ok",
+            "inputTokens": 8412,
+            "outputTokens": 1222,
+            "estimatedCostUsd": 0.029044,
+            "latencyMs": 11040,
+            "timestamp": "2026-10-06T17:39:19.505Z"
+          }
+        ]
+      }
+    ],
+    "totals": {
+      "requests": 1,
+      "failedRequests": 0,
+      "inputTokens": 8412,
+      "outputTokens": 1222,
+      "estimatedCostUsd": 0.029044,
+      "latencyMs": {
+        "total": 11040,
+        "mean": 11040,
+        "p50": 11040,
+        "p95": 11040,
+        "max": 11040
+      }
+    }
+  }
+}

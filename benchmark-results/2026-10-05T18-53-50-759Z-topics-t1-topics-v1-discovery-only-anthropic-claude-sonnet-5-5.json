@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "kind": "discovery-only",
+    "notice": "DISCOVERY-ONLY RESULT: taxonomy discovery and validation only. Topic assignment (Jev) was NOT run; this is not a full topic benchmark report.",
+    "timestamp": "2026-10-05T18:53:50.759Z",
+    "dataset": "t1-topics-v1",
+    "datasetVersion": "sha256:e44ac9d63b94ebc9",
+    "topicBase": 188,
+    "sampleSize": 188,
+    "sampleSeed": "t1-topics-v1/ds1",
+    "repeats": 1,
+    "discovery": {
+      "provider": "anthropic",
+      "modelRequested": "claude-sonnet-5-5",
+      "contract": "topic-discovery-v2",
+      "settings": {
+        "effort": "high",
+        "refusalFallback": "off"
+      }
+    },
+    "assignment": "not run",
+    "validation": "production taxonomy validator (validateTopicTaxonomy), at most 2 attempts with structured feedback",
+    "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard."
+  },
+  "oracleGate": {
+    "passed": true,
+    "failures": []
+  },
+  "runs": [
+    {
+      "repeat": 1,
+      "status": "valid",
+      "attempts": [
+        {
+          "attempt": 1,
+          "outcome": "valid",
+          "issueCodes": [],
+          "feedbackSent": false,
+          "topics": 12,
+          "latencyMs": 9185
+        }
+      ],
+      "topics": 12,
+      "latencyMs": 9185,
+      "taxonomy": {
+        "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard.",
+        "predictedTopics": 12,
+        "topicsWithExamples": 12,
+        "matchedTopics": 9,
+        "topicPrecision": 0.75,
+        "conceptRecall": 1,
+        "mergeErrors": 0,
+        "splitErrors": 1,
+        "definitionValidity": 1,
+        "definitionIssues": [],
+        "matches": [
+          {
+            "key": "battery_range",
+            "name": "Range per charge",
+            "examples": 3,
+            "exampleGold": [
+              "range",
+              "range",
+              "range"
+            ],
+            "goldKey": "range"
+          },
+          {
+            "key": "charging_battery_handling",
+            "name": "Charging and battery pack",
+            "examples": 3,
+            "exampleGold": [
+              "charging",
+              "charging",
+              "charging"
+            ],
+            "goldKey": "charging"
+          },
+          {
+            "key": "brakes",
+            "name": "Braking performance",
+            "examples": 3,
+            "exampleGold": [
+              "brakes",
+              "brakes",
+              "brakes"
+            ],
+            "goldKey": "brakes"
+          },
+          {
+            "key": "motor_assist",
+            "name": "Motor and assist behaviour",
+            "examples": 3,
+            "exampleGold": [
+              "motor",
+              "motor",
+              "motor"
+            ],
+            "goldKey": "motor"
+          },
+          {
+            "key": "folding_mechanism",
+            "name": "Folding mechanism and latches",
+            "examples": 3,
+            "exampleGold": [
+              "folding",
+              "folding",
+              "folding"
+            ],
+            "goldKey": "folding"
+          },
+          {
+            "key": "portability_storage",
+            "name": "Portability and storage",
+            "examples": 3,
+            "exampleGold": [
+              "folding",
+              "folding",
+              "folding"
+            ],
+            "goldKey": "folding"
+          },
+          {
+            "key": "ride_comfort_fit",
+            "name": "Ride comfort and ergonomics",
+            "examples": 3,
+            "exampleGold": [
+              "comfort",
+              "comfort",
+              "comfort"
+            ],
+            "goldKey": "comfort"
+          },
+          {
+            "key": "price_value",
+            "name": "Price and value",
+            "examples": 3,
+            "exampleGold": [
+              "value",
+              "value",
+              "value"
+            ],
+            "goldKey": "value"
+          },
+          {
+            "key": "app_electronics",
+            "name": "App, display and connectivity",
+            "examples": 3,
+            "exampleGold": [
+              "app",
+              "app",
+              "app"
+            ],
+            "goldKey": "app"
+          },
+          {
+            "key": "build_durability_service",
+            "name": "Build quality and support",
+            "examples": 3,
+            "exampleGold": [
+              "other",
+              "other",
+              "other"
+            ],
+            "goldKey": null
+          },
+          {
+            "key": "sponsorship_review_quality",
+            "name": "Sponsorship and review content",
+            "examples": 3,
+            "exampleGold": [
+              "other",
+              "other",
+              "other"
+            ],
+            "goldKey": null
+          },
+          {
+            "key": "practical_use_security",
+            "name": "Everyday use and security",
+            "examples": 3,
+            "exampleGold": [
+              "other",
+              "other",
+              "other"
+            ],
+            "goldKey": null
+          }
+        ]
+      },
+      "topicList": [
+        {
+          "key": "battery_range",
+          "name": "Range per charge"
+        },
+        {
+          "key": "charging_battery_handling",
+          "name": "Charging and battery pack"
+        },
+        {
+          "key": "brakes",
+          "name": "Braking performance"
+        },
+        {
+          "key": "motor_assist",
+          "name": "Motor and assist behaviour"
+        },
+        {
+          "key": "folding_mechanism",
+          "name": "Folding mechanism and latches"
+        },
+        {
+          "key": "portability_storage",
+          "name": "Portability and storage"
+        },
+        {
+          "key": "ride_comfort_fit",
+          "name": "Ride comfort and ergonomics"
+        },
+        {
+          "key": "price_value",
+          "name": "Price and value"
+        },
+        {
+          "key": "app_electronics",
+          "name": "App, display and connectivity"
+        },
+        {
+          "key": "build_durability_service",
+          "name": "Build quality and support"
+        },
+        {
+          "key": "sponsorship_review_quality",
+          "name": "Sponsorship and review content"
+        },
+        {
+          "key": "practical_use_security",
+          "name": "Everyday use and security"
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "failedRequests": 0,
+        "inputTokens": 7757,
+        "outputTokens": 1186,
+        "estimatedCostUsd": 0.027374,
+        "latencyMs": {
+          "total": 9184,
+          "mean": 9184,
+          "p50": 9184,
+          "p95": 9184,
+          "max": 9184
+        },
+        "modelsServed": [
+          "claude-sonnet-5-5"
+        ]
+      },
+      "records": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5-5",
+          "modelVersion": "claude-sonnet-5-5",
+          "promptVersion": "topic-discovery-v2",
+          "schemaVersion": "topic-discovery-v2",
+          "batchSize": 188,
+          "attempt": 1,
+          "outcome": "ok",
+          "inputTokens": 7757,
+          "outputTokens": 1186,
+          "estimatedCostUsd": 0.027374,
+          "latencyMs": 9184,
+          "timestamp": "2026-10-05T18:53:50.754Z"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "requests": 1,
+    "failedRequests": 0,
+    "inputTokens": 7757,
+    "outputTokens": 1186,
+    "estimatedCostUsd": 0.027374,
+    "latencyMs": {
+      "total": 9184,
+      "mean": 9184,
+      "p50": 9184,
+      "p95": 9184,
+      "max": 9184
+    }
+  }
+}

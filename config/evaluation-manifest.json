@@ -1,0 +1,38 @@
+{
+  "description": "Internal evaluation view (/evaluation): which saved benchmark results to show and the role of each dataset. Only files listed here are read, from benchmark-results/. Roles: development = used to build and tune; validation = independent check, not for tuning; held-out = final evaluation data, never for tuning. Fixture mode in the web app accepts only the development topic/classifier sets m2-synthetic and t1-topics-v1.",
+  "datasets": [
+    { "id": "m2-synthetic", "role": "development", "kind": "classifier", "note": "Classifier development set (60 comments)." },
+    { "id": "m2-heldout-v1", "role": "held-out", "kind": "classifier", "note": "Classifier hold-out set (100 comments)." },
+    { "id": "t1-topics-v1", "role": "development", "kind": "topics", "note": "Topic prompts were iterated on it." },
+    { "id": "t2-topics-v1", "role": "validation", "kind": "topics", "note": "First independent validation set." },
+    { "id": "t3-topics-v1", "role": "held-out", "kind": "topics", "note": "Final hold-out of the t1–t3 validation; inspected in detail since, so now a regression set." },
+    { "id": "t4-topics-v1", "role": "held-out", "kind": "topics", "note": "Pre-registered hold-out of the consolidation-v4 experiment (v3 baseline arm shown)." },
+    { "id": "t5-topics-v1", "role": "held-out", "kind": "topics", "note": "Hold-out of the paired consolidation comparison (INCOMPLETE); not shown." }
+  ],
+  "classifier": [
+    { "dataset": "m2-synthetic", "file": "2026-10-04T21-30-33-901Z-typesafe-jev-latest-jev-q2-2.json" },
+    { "dataset": "m2-heldout-v1", "file": "2026-10-04T23-34-13-973Z-typesafe-jev-latest-jev-q2-2-m2-heldout-v1.json" }
+  ],
+  "topics": [
+    { "dataset": "t1-topics-v1", "files": [
+      "2026-10-06T01-58-38-547Z-topics-t1-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "2026-10-06T02-02-58-518Z-topics-t1-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "2026-10-06T02-04-50-024Z-topics-t1-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json"
+    ] },
+    { "dataset": "t2-topics-v1", "files": [
+      "2026-10-06T02-23-52-912Z-topics-t2-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "2026-10-06T02-25-46-602Z-topics-t2-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "2026-10-06T02-27-15-801Z-topics-t2-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json"
+    ] },
+    { "dataset": "t3-topics-v1", "files": [
+      "2026-10-06T10-22-21-047Z-topics-t3-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "2026-10-06T10-25-38-764Z-topics-t3-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "2026-10-06T10-27-11-252Z-topics-t3-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json"
+    ] },
+    { "dataset": "t4-topics-v1", "files": [
+      "2026-10-06T11-01-44-015Z-topics-t4-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "2026-10-06T11-07-25-102Z-topics-t4-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "2026-10-06T11-11-00-740Z-topics-t4-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json"
+    ] }
+  ]
+}

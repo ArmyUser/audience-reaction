@@ -1,0 +1,1873 @@
+{
+  "datasetId": "t5-topics-v1",
+  "datasetVersion": "sha256:cec6e6563d81a179",
+  "references": [
+    "t1-topics-v1",
+    "t2-topics-v1",
+    "t3-topics-v1",
+    "t4-topics-v1"
+  ],
+  "thresholds": {
+    "tokenJaccard": 0.4,
+    "trigramJaccard": 0.4,
+    "substringMinChars": 10
+  },
+  "methods": [
+    "exact normalised match",
+    "substring containment (either direction, ≥ 10 normalised chars)",
+    "content-word Jaccard",
+    "character trigram Jaccard",
+    "structural independence checks against t1, t2, t3 and t4 (IDs, gold labels, schema fields, provider vocabulary, prompt text of every contract version, stored model outputs)",
+    "the committed t1-t4 analysis and experiment documents (whole text, lines and sentences) as an additional lexical source"
+  ],
+  "sourceSegments": {
+    "m2": 60,
+    "guideline": 152,
+    "question": 939,
+    "prompt": 754,
+    "spec.md": 101,
+    "test": 8166,
+    "m2-heldout-v1": 100,
+    "design": 517,
+    "fake": 102,
+    "t1": 200,
+    "t1-gold": 40,
+    "t2": 201,
+    "t2-gold": 45,
+    "t3": 204,
+    "t3-gold": 43,
+    "t4": 201,
+    "t4-gold": 44,
+    "t1-replay": 4000,
+    "model-output": 86588,
+    "doc": 1414
+  },
+  "frozenDataset": {
+    "fileSha256": "cec6e6563d81a1799a1eeed9328a9c19558a9ce6fadc265901529c8bf79a2cc3",
+    "comments": 206,
+    "topicBase": 194,
+    "spam": 12,
+    "goldTopics": 9,
+    "dispositions": {
+      "other": 26,
+      "primary_topic": 143,
+      "no_specific_topic": 25
+    },
+    "topicSizes": {
+      "extraction": 19,
+      "thermal": 14,
+      "grinder": 17,
+      "steam_wand": 16,
+      "upkeep": 21,
+      "warmup": 12,
+      "noise": 13,
+      "interface": 15,
+      "aftercare": 16
+    },
+    "sentimentDisagreements": 18
+  },
+  "summary": {
+    "comments": 206,
+    "goldDefinitions": 9,
+    "violations": 0,
+    "maxTokenJaccard": 0.375,
+    "maxTrigramJaccard": 0.383,
+    "independenceChecksPassed": 8,
+    "independenceChecksFailed": 0
+  },
+  "independence": [
+    {
+      "check": "no comment IDs of t1-topics-v1, t2-topics-v1, t3-topics-v1, t4-topics-v1; own IDs are t5-NNN",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "no comment text of t1-topics-v1, t2-topics-v1, t3-topics-v1, t4-topics-v1 (exact normalised)",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "no gold topic key, name or accepted name of t1-topics-v1, t2-topics-v1, t3-topics-v1, t4-topics-v1 in the taxonomy",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "no multi-word gold label of t1-topics-v1, t2-topics-v1, t3-topics-v1, t4-topics-v1 in a comment",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "only the shared dataset schema fields (no model, provider or prompt metadata)",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "no provider, model or contract vocabulary in the fixture",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "no topic prompt text (any contract version) in a comment or gold text (exact or contained)",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "no stored model output embedded in the gold (exact or contained, either direction)",
+      "passed": true,
+      "details": []
+    }
+  ],
+  "provenance": {
+    "storedResultFiles": 36,
+    "ownResultFiles": [],
+    "note": "Gold authored by hand before any provider run on this dataset version; no result file was consulted."
+  },
+  "history": {
+    "automatedAuditRounds": [
+      {
+        "round": 1,
+        "rejected": [
+          "five comments and two gold definitions containing a word or phrase that is a test literal or a stored model-output label",
+          "three comments containing another test literal (a spam phrase, a video-section phrase, a script tag)",
+          "four comments too close to t1, t3 and t4 comments (one exact)",
+          "one comment too close to a test literal (token and trigram similarity)",
+          "gold topic name and one accepted name equal to topic labels in stored model outputs"
+        ]
+      },
+      {
+        "round": 2,
+        "rejected": [
+          "spam comment too close to a t2 comment"
+        ]
+      }
+    ],
+    "authoringOnlyCheck": "The final comments and gold were also audited, with the same algorithm and thresholds, against every committed Markdown document at the time (the six frozen analysis documents plus nine living documents): no overlap. The living documents are not frozen sources.",
+    "regeneratedCommentsAfterAutomatedAudit": 14,
+    "changedGoldDefinitionsAfterAutomatedAudit": 2,
+    "changedGoldLabelsAfterAutomatedAudit": 2
+  },
+  "comments": [
+    {
+      "id": "t5-001",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "test:tests/adapters/jev-classifier.test.ts",
+      "maxTrigramJaccard": 0.222,
+      "maxTrigramSource": "test:tests/adapters/jev-q2.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-002",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/unit/t2-topics-dataset.test.ts",
+      "maxTrigramJaccard": 0.191,
+      "maxTrigramSource": "t2:t2-130",
+      "violations": []
+    },
+    {
+      "id": "t5-003",
+      "maxTokenJaccard": 0.154,
+      "maxTokenSource": "test:tests/application/two-phase-topic-discoverer.test.ts",
+      "maxTrigramJaccard": 0.181,
+      "maxTrigramSource": "t1:t1-034",
+      "violations": []
+    },
+    {
+      "id": "t5-004",
+      "maxTokenJaccard": 0.214,
+      "maxTokenSource": "m2-heldout-v1:h1-070",
+      "maxTrigramJaccard": 0.173,
+      "maxTrigramSource": "t3:t3-196",
+      "violations": []
+    },
+    {
+      "id": "t5-005",
+      "maxTokenJaccard": 0.182,
+      "maxTokenSource": "m2-heldout-v1:h1-077",
+      "maxTrigramJaccard": 0.154,
+      "maxTrigramSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-006",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.186,
+      "maxTrigramSource": "t4:t4-100",
+      "violations": []
+    },
+    {
+      "id": "t5-007",
+      "maxTokenJaccard": 0.111,
+      "maxTokenSource": "question:jev-q2:is_question",
+      "maxTrigramJaccard": 0.142,
+      "maxTrigramSource": "doc:docs/topic-consolidation-paired-experiment.md",
+      "violations": []
+    },
+    {
+      "id": "t5-008",
+      "maxTokenJaccard": 0.222,
+      "maxTokenSource": "t1:t1-181",
+      "maxTrigramJaccard": 0.255,
+      "maxTrigramSource": "t3:t3-146",
+      "violations": []
+    },
+    {
+      "id": "t5-009",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "t4:t4-020",
+      "maxTrigramJaccard": 0.208,
+      "maxTrigramSource": "t4:t4-020",
+      "violations": []
+    },
+    {
+      "id": "t5-010",
+      "maxTokenJaccard": 0.1,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "maxTrigramJaccard": 0.167,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-011",
+      "maxTokenJaccard": 0.133,
+      "maxTokenSource": "t1:t1-130",
+      "maxTrigramJaccard": 0.17,
+      "maxTrigramSource": "t1:t1-106",
+      "violations": []
+    },
+    {
+      "id": "t5-012",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "doc:docs/topic-consolidation-paired-experiment.md",
+      "maxTrigramJaccard": 0.13,
+      "maxTrigramSource": "m2:m2-c29",
+      "violations": []
+    },
+    {
+      "id": "t5-013",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "t3:t3-145",
+      "maxTrigramJaccard": 0.219,
+      "maxTrigramSource": "t2:t2-180",
+      "violations": []
+    },
+    {
+      "id": "t5-014",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "test:tests/application/two-phase-topic-discoverer.test.ts",
+      "maxTrigramJaccard": 0.141,
+      "maxTrigramSource": "t3:t3-015",
+      "violations": []
+    },
+    {
+      "id": "t5-015",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/application/analyze-topics.test.ts",
+      "maxTrigramJaccard": 0.175,
+      "maxTrigramSource": "t4:t4-164",
+      "violations": []
+    },
+    {
+      "id": "t5-016",
+      "maxTokenJaccard": 0.333,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.212,
+      "maxTrigramSource": "t4:t4-164",
+      "violations": []
+    },
+    {
+      "id": "t5-017",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "t1:t1-165",
+      "maxTrigramJaccard": 0.181,
+      "maxTrigramSource": "t1:t1-165",
+      "violations": []
+    },
+    {
+      "id": "t5-018",
+      "maxTokenJaccard": 0.111,
+      "maxTokenSource": "doc:docs/topic-validation-t1-t2-sonnet-v3.md",
+      "maxTrigramJaccard": 0.157,
+      "maxTrigramSource": "model-output:benchmark-results/2026-10-05T15-16-43-911Z-topics-t1-topics-v1-google-gemini-3-8-flash-typesafe-jev-latest.json",
+      "violations": []
+    },
+    {
+      "id": "t5-019",
+      "maxTokenJaccard": 0.222,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.256,
+      "maxTrigramSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-020",
+      "maxTokenJaccard": 0.25,
+      "maxTokenSource": "test:tests/benchmark/topic-paired-consolidation.test.ts",
+      "maxTrigramJaccard": 0.15,
+      "maxTrigramSource": "spec.md",
+      "violations": []
+    },
+    {
+      "id": "t5-021",
+      "maxTokenJaccard": 0.214,
+      "maxTokenSource": "t2:t2-138",
+      "maxTrigramJaccard": 0.258,
+      "maxTrigramSource": "t2:t2-150",
+      "violations": []
+    },
+    {
+      "id": "t5-022",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/unit/topic-normalization.test.ts",
+      "maxTrigramJaccard": 0.162,
+      "maxTrigramSource": "t1:t1-137",
+      "violations": []
+    },
+    {
+      "id": "t5-023",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.204,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-024",
+      "maxTokenJaccard": 0.222,
+      "maxTokenSource": "spec.md",
+      "maxTrigramJaccard": 0.221,
+      "maxTrigramSource": "t1:t1-154",
+      "violations": []
+    },
+    {
+      "id": "t5-025",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "t2:t2-090",
+      "maxTrigramJaccard": 0.224,
+      "maxTrigramSource": "t3:t3-168",
+      "violations": []
+    },
+    {
+      "id": "t5-026",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.145,
+      "maxTrigramSource": "t3:t3-098",
+      "violations": []
+    },
+    {
+      "id": "t5-027",
+      "maxTokenJaccard": 0.222,
+      "maxTokenSource": "t2:t2-039",
+      "maxTrigramJaccard": 0.239,
+      "maxTrigramSource": "t2:t2-039",
+      "violations": []
+    },
+    {
+      "id": "t5-028",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "t1:t1-051",
+      "maxTrigramJaccard": 0.157,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-029",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/unit/topic-reportability.test.ts",
+      "maxTrigramJaccard": 0.16,
+      "maxTrigramSource": "t3:t3-185",
+      "violations": []
+    },
+    {
+      "id": "t5-030",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "t3:t3-095",
+      "maxTrigramJaccard": 0.165,
+      "maxTrigramSource": "t3:t3-095",
+      "violations": []
+    },
+    {
+      "id": "t5-031",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "design:m4-topic-provider-design.md",
+      "maxTrigramJaccard": 0.173,
+      "maxTrigramSource": "doc:docs/topic-consolidation-v4-postmortem.md",
+      "violations": []
+    },
+    {
+      "id": "t5-032",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/unit/topic-reportability.test.ts",
+      "maxTrigramJaccard": 0.16,
+      "maxTrigramSource": "t2:t2-057",
+      "violations": []
+    },
+    {
+      "id": "t5-033",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "question:jev-q2:content_addressed",
+      "maxTrigramJaccard": 0.2,
+      "maxTrigramSource": "spec.md",
+      "violations": []
+    },
+    {
+      "id": "t5-034",
+      "maxTokenJaccard": 0.222,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "maxTrigramJaccard": 0.139,
+      "maxTrigramSource": "t2:t2-174",
+      "violations": []
+    },
+    {
+      "id": "t5-035",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "t4:t4-115",
+      "maxTrigramJaccard": 0.133,
+      "maxTrigramSource": "t4:t4-115",
+      "violations": []
+    },
+    {
+      "id": "t5-036",
+      "maxTokenJaccard": 0.176,
+      "maxTokenSource": "doc:docs/topic-validation-t1-t2-sonnet-v3.md",
+      "maxTrigramJaccard": 0.143,
+      "maxTrigramSource": "t3:t3-005",
+      "violations": []
+    },
+    {
+      "id": "t5-037",
+      "maxTokenJaccard": 0.158,
+      "maxTokenSource": "doc:docs/topic-validation-t1-t2-sonnet-v3.md",
+      "maxTrigramJaccard": 0.134,
+      "maxTrigramSource": "t3:t3-153",
+      "violations": []
+    },
+    {
+      "id": "t5-038",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "t3:t3-050",
+      "maxTrigramJaccard": 0.135,
+      "maxTrigramSource": "t1:t1-159",
+      "violations": []
+    },
+    {
+      "id": "t5-039",
+      "maxTokenJaccard": 0.111,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.162,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-040",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.158,
+      "maxTrigramSource": "t2:t2-015",
+      "violations": []
+    },
+    {
+      "id": "t5-041",
+      "maxTokenJaccard": 0.273,
+      "maxTokenSource": "t3:t3-110",
+      "maxTrigramJaccard": 0.239,
+      "maxTrigramSource": "t3:t3-110",
+      "violations": []
+    },
+    {
+      "id": "t5-042",
+      "maxTokenJaccard": 0.077,
+      "maxTokenSource": "t4:t4-162",
+      "maxTrigramJaccard": 0.128,
+      "maxTrigramSource": "test:tests/unit/distribution.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-043",
+      "maxTokenJaccard": 0.1,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.167,
+      "maxTrigramSource": "t1:t1-034",
+      "violations": []
+    },
+    {
+      "id": "t5-044",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.198,
+      "maxTrigramSource": "t1:t1-045",
+      "violations": []
+    },
+    {
+      "id": "t5-045",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "t2-gold:viewfinder",
+      "maxTrigramJaccard": 0.146,
+      "maxTrigramSource": "t3:t3-015",
+      "violations": []
+    },
+    {
+      "id": "t5-046",
+      "maxTokenJaccard": 0.111,
+      "maxTokenSource": "doc:docs/topic-validation-t1-t2-sonnet-v3.md",
+      "maxTrigramJaccard": 0.138,
+      "maxTrigramSource": "test:tests/unit/topic-provider-contracts.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-047",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.221,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-048",
+      "maxTokenJaccard": 0.182,
+      "maxTokenSource": "t2:t2-107",
+      "maxTrigramJaccard": 0.25,
+      "maxTrigramSource": "t2:t2-107",
+      "violations": []
+    },
+    {
+      "id": "t5-049",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "t2:t2-055",
+      "maxTrigramJaccard": 0.128,
+      "maxTrigramSource": "t3:t3-204",
+      "violations": []
+    },
+    {
+      "id": "t5-050",
+      "maxTokenJaccard": 0.111,
+      "maxTokenSource": "test:tests/adapters/jev-classifier.test.ts",
+      "maxTrigramJaccard": 0.159,
+      "maxTrigramSource": "t3:t3-201",
+      "violations": []
+    },
+    {
+      "id": "t5-051",
+      "maxTokenJaccard": 0.25,
+      "maxTokenSource": "guideline:TIMESTAMP_RULE",
+      "maxTrigramJaccard": 0.174,
+      "maxTrigramSource": "t1-gold:value",
+      "violations": []
+    },
+    {
+      "id": "t5-052",
+      "maxTokenJaccard": 0.133,
+      "maxTokenSource": "t1:t1-032",
+      "maxTrigramJaccard": 0.171,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-053",
+      "maxTokenJaccard": 0.222,
+      "maxTokenSource": "doc:docs/topic-validation-t1-t2-t3-sonnet-v3.md",
+      "maxTrigramJaccard": 0.114,
+      "maxTrigramSource": "test:tests/unit/topic-discovery-validation.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-054",
+      "maxTokenJaccard": 0.214,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.16,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-055",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.14,
+      "maxTrigramSource": "doc:docs/topic-validation-t1-t2-sonnet-v3.md",
+      "violations": []
+    },
+    {
+      "id": "t5-056",
+      "maxTokenJaccard": 0.182,
+      "maxTokenSource": "guideline:SPONSOR_AD_EXPERIENCE_RULE",
+      "maxTrigramJaccard": 0.215,
+      "maxTrigramSource": "guideline:SPONSOR_AD_EXPERIENCE_RULE",
+      "violations": []
+    },
+    {
+      "id": "t5-057",
+      "maxTokenJaccard": 0.308,
+      "maxTokenSource": "m2:m2-c44",
+      "maxTrigramJaccard": 0.303,
+      "maxTrigramSource": "m2:m2-c44",
+      "violations": []
+    },
+    {
+      "id": "t5-058",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.16,
+      "maxTrigramSource": "t1:t1-095",
+      "violations": []
+    },
+    {
+      "id": "t5-059",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "doc:docs/topic-consolidation-v4-postmortem.md",
+      "maxTrigramJaccard": 0.197,
+      "maxTrigramSource": "t1:t1-085",
+      "violations": []
+    },
+    {
+      "id": "t5-060",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/adapters/fixture-topic-discoverer.test.ts",
+      "maxTrigramJaccard": 0.171,
+      "maxTrigramSource": "t2:t2-035",
+      "violations": []
+    },
+    {
+      "id": "t5-061",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "doc:docs/topic-consolidation-paired-experiment.md",
+      "maxTrigramJaccard": 0.186,
+      "maxTrigramSource": "t3:t3-004",
+      "violations": []
+    },
+    {
+      "id": "t5-062",
+      "maxTokenJaccard": 0.333,
+      "maxTokenSource": "t3:t3-080",
+      "maxTrigramJaccard": 0.286,
+      "maxTrigramSource": "t3:t3-080",
+      "violations": []
+    },
+    {
+      "id": "t5-063",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "spec.md",
+      "maxTrigramJaccard": 0.153,
+      "maxTrigramSource": "t2:t2-119",
+      "violations": []
+    },
+    {
+      "id": "t5-064",
+      "maxTokenJaccard": 0.375,
+      "maxTokenSource": "t1:t1-129",
+      "maxTrigramJaccard": 0.27,
+      "maxTrigramSource": "t1:t1-129",
+      "violations": []
+    },
+    {
+      "id": "t5-065",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.135,
+      "maxTrigramSource": "t1:t1-056",
+      "violations": []
+    },
+    {
+      "id": "t5-066",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "t4:t4-157",
+      "maxTrigramJaccard": 0.169,
+      "maxTrigramSource": "t4:t4-157",
+      "violations": []
+    },
+    {
+      "id": "t5-067",
+      "maxTokenJaccard": 0.111,
+      "maxTokenSource": "t2-gold:viewfinder",
+      "maxTrigramJaccard": 0.144,
+      "maxTrigramSource": "doc:docs/topic-validation-t1-t2-sonnet-v3.md",
+      "violations": []
+    },
+    {
+      "id": "t5-068",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "t2:t2-032",
+      "maxTrigramJaccard": 0.153,
+      "maxTrigramSource": "test:tests/unit/policy.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-069",
+      "maxTokenJaccard": 0.1,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.151,
+      "maxTrigramSource": "t2:t2-059",
+      "violations": []
+    },
+    {
+      "id": "t5-070",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "t1:t1-008",
+      "maxTrigramJaccard": 0.275,
+      "maxTrigramSource": "m2:m2-c32",
+      "violations": []
+    },
+    {
+      "id": "t5-071",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "m2-heldout-v1:h1-045",
+      "maxTrigramJaccard": 0.195,
+      "maxTrigramSource": "t1:t1-052",
+      "violations": []
+    },
+    {
+      "id": "t5-072",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "maxTrigramJaccard": 0.383,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-073",
+      "maxTokenJaccard": 0.182,
+      "maxTokenSource": "m2-heldout-v1:h1-097",
+      "maxTrigramJaccard": 0.211,
+      "maxTrigramSource": "m2-heldout-v1:h1-097",
+      "violations": []
+    },
+    {
+      "id": "t5-074",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "t2:t2-156",
+      "maxTrigramJaccard": 0.2,
+      "maxTrigramSource": "t2:t2-156",
+      "violations": []
+    },
+    {
+      "id": "t5-075",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/adapters/jev-q2.test.ts",
+      "maxTrigramJaccard": 0.174,
+      "maxTrigramSource": "t4:t4-179",
+      "violations": []
+    },
+    {
+      "id": "t5-076",
+      "maxTokenJaccard": 0.25,
+      "maxTokenSource": "t3:t3-167",
+      "maxTrigramJaccard": 0.195,
+      "maxTrigramSource": "t3:t3-174",
+      "violations": []
+    },
+    {
+      "id": "t5-077",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/application/analyze-topics.test.ts",
+      "maxTrigramJaccard": 0.157,
+      "maxTrigramSource": "test:tests/adapters/fixture-topic-discoverer.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-078",
+      "maxTokenJaccard": 0.154,
+      "maxTokenSource": "t1:t1-012",
+      "maxTrigramJaccard": 0.191,
+      "maxTrigramSource": "t2:t2-150",
+      "violations": []
+    },
+    {
+      "id": "t5-079",
+      "maxTokenJaccard": 0.182,
+      "maxTokenSource": "doc:docs/topic-validation-t1-t2-t3-sonnet-v3.md",
+      "maxTrigramJaccard": 0.185,
+      "maxTrigramSource": "test:tests/unit/topic-provider-contracts.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-080",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.306,
+      "maxTrigramSource": "m2-heldout-v1:h1-016",
+      "violations": []
+    },
+    {
+      "id": "t5-081",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "t1:t1-054",
+      "maxTrigramJaccard": 0.165,
+      "maxTrigramSource": "t1:t1-054",
+      "violations": []
+    },
+    {
+      "id": "t5-082",
+      "maxTokenJaccard": 0.375,
+      "maxTokenSource": "t3:t3-013",
+      "maxTrigramJaccard": 0.263,
+      "maxTrigramSource": "t3:t3-013",
+      "violations": []
+    },
+    {
+      "id": "t5-083",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "t3:t3-013",
+      "maxTrigramJaccard": 0.192,
+      "maxTrigramSource": "t3:t3-013",
+      "violations": []
+    },
+    {
+      "id": "t5-084",
+      "maxTokenJaccard": 0.273,
+      "maxTokenSource": "t3:t3-015",
+      "maxTrigramJaccard": 0.278,
+      "maxTrigramSource": "t3:t3-015",
+      "violations": []
+    },
+    {
+      "id": "t5-085",
+      "maxTokenJaccard": 0.1,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "maxTrigramJaccard": 0.162,
+      "maxTrigramSource": "model-output:benchmark-results/2026-10-06T11-05-08-433Z-topics-t4-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest-topic-consolidation-v4.json",
+      "violations": []
+    },
+    {
+      "id": "t5-086",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/unit/focus-matcher.test.ts",
+      "maxTrigramJaccard": 0.173,
+      "maxTrigramSource": "t2:t2-189",
+      "violations": []
+    },
+    {
+      "id": "t5-087",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/application/analyze-topics.test.ts",
+      "maxTrigramJaccard": 0.162,
+      "maxTrigramSource": "spec.md",
+      "violations": []
+    },
+    {
+      "id": "t5-088",
+      "maxTokenJaccard": 0.182,
+      "maxTokenSource": "model-output:benchmark-results/2026-10-06T11-01-44-015Z-topics-t4-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "maxTrigramJaccard": 0.163,
+      "maxTrigramSource": "model-output:benchmark-results/2026-10-06T10-27-11-252Z-topics-t3-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "violations": []
+    },
+    {
+      "id": "t5-089",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "t4:t4-179",
+      "maxTrigramJaccard": 0.163,
+      "maxTrigramSource": "t3:t3-197",
+      "violations": []
+    },
+    {
+      "id": "t5-090",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "question:jev-q2:content_addressed",
+      "maxTrigramJaccard": 0.186,
+      "maxTrigramSource": "t4:t4-180",
+      "violations": []
+    },
+    {
+      "id": "t5-091",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "t1:t1-189",
+      "maxTrigramJaccard": 0.143,
+      "maxTrigramSource": "doc:docs/topic-consolidation-v4-postmortem.md",
+      "violations": []
+    },
+    {
+      "id": "t5-092",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "t2:t2-049",
+      "maxTrigramJaccard": 0.179,
+      "maxTrigramSource": "t2:t2-049",
+      "violations": []
+    },
+    {
+      "id": "t5-093",
+      "maxTokenJaccard": 0.231,
+      "maxTokenSource": "t1:t1-022",
+      "maxTrigramJaccard": 0.25,
+      "maxTrigramSource": "t1:t1-022",
+      "violations": []
+    },
+    {
+      "id": "t5-094",
+      "maxTokenJaccard": 0.1,
+      "maxTokenSource": "test:tests/benchmark/topic-real-consolidated.test.ts",
+      "maxTrigramJaccard": 0.183,
+      "maxTrigramSource": "doc:docs/topic-consolidation-v4-experiment.md",
+      "violations": []
+    },
+    {
+      "id": "t5-095",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.181,
+      "maxTrigramSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-096",
+      "maxTokenJaccard": 0.154,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.17,
+      "maxTrigramSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-097",
+      "maxTokenJaccard": 0.133,
+      "maxTokenSource": "t2:t2-038",
+      "maxTrigramJaccard": 0.176,
+      "maxTrigramSource": "prompt:assignment",
+      "violations": []
+    },
+    {
+      "id": "t5-098",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "t3:t3-033",
+      "maxTrigramJaccard": 0.188,
+      "maxTrigramSource": "t3:t3-033",
+      "violations": []
+    },
+    {
+      "id": "t5-099",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.185,
+      "maxTrigramSource": "model-output:benchmark-results/2026-10-06T02-23-52-912Z-topics-t2-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "violations": []
+    },
+    {
+      "id": "t5-100",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "t1:t1-051",
+      "maxTrigramJaccard": 0.226,
+      "maxTrigramSource": "t1:t1-051",
+      "violations": []
+    },
+    {
+      "id": "t5-101",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "t3:t3-080",
+      "maxTrigramJaccard": 0.19,
+      "maxTrigramSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-102",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/benchmark/topic-paired-consolidation.test.ts",
+      "maxTrigramJaccard": 0.278,
+      "maxTrigramSource": "t1:t1-044",
+      "violations": []
+    },
+    {
+      "id": "t5-103",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/benchmark/topic-real.test.ts",
+      "maxTrigramJaccard": 0.111,
+      "maxTrigramSource": "t3:t3-155",
+      "violations": []
+    },
+    {
+      "id": "t5-104",
+      "maxTokenJaccard": 0.182,
+      "maxTokenSource": "design:m4-topic-provider-design.md",
+      "maxTrigramJaccard": 0.162,
+      "maxTrigramSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-105",
+      "maxTokenJaccard": 0.25,
+      "maxTokenSource": "t2:t2-156",
+      "maxTrigramJaccard": 0.299,
+      "maxTrigramSource": "t2:t2-156",
+      "violations": []
+    },
+    {
+      "id": "t5-106",
+      "maxTokenJaccard": 0.154,
+      "maxTokenSource": "test:tests/application/two-phase-topic-discoverer.test.ts",
+      "maxTrigramJaccard": 0.131,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-107",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "t4:t4-031",
+      "maxTrigramJaccard": 0.176,
+      "maxTrigramSource": "t2:t2-152",
+      "violations": []
+    },
+    {
+      "id": "t5-108",
+      "maxTokenJaccard": 0.333,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.182,
+      "maxTrigramSource": "t3:t3-159",
+      "violations": []
+    },
+    {
+      "id": "t5-109",
+      "maxTokenJaccard": 0.154,
+      "maxTokenSource": "m2-heldout-v1:h1-041",
+      "maxTrigramJaccard": 0.274,
+      "maxTrigramSource": "t4:t4-096",
+      "violations": []
+    },
+    {
+      "id": "t5-110",
+      "maxTokenJaccard": 0.25,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.16,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-111",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.188,
+      "maxTrigramSource": "t3:t3-061",
+      "violations": []
+    },
+    {
+      "id": "t5-112",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "t1:t1-178",
+      "maxTrigramJaccard": 0.185,
+      "maxTrigramSource": "t2:t2-157",
+      "violations": []
+    },
+    {
+      "id": "t5-113",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "t2:t2-054",
+      "maxTrigramJaccard": 0.171,
+      "maxTrigramSource": "design:m4-topic-provider-design.md",
+      "violations": []
+    },
+    {
+      "id": "t5-114",
+      "maxTokenJaccard": 0.111,
+      "maxTokenSource": "test:tests/unit/topic-provider-contracts.test.ts",
+      "maxTrigramJaccard": 0.157,
+      "maxTrigramSource": "test:tests/adapters/anthropic-classifier.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-115",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "t1:t1-097",
+      "maxTrigramJaccard": 0.149,
+      "maxTrigramSource": "guideline:AMBIGUOUS_TARGET_RULE",
+      "violations": []
+    },
+    {
+      "id": "t5-116",
+      "maxTokenJaccard": 0.154,
+      "maxTokenSource": "m2-heldout-v1:h1-005",
+      "maxTrigramJaccard": 0.152,
+      "maxTrigramSource": "t3:t3-130",
+      "violations": []
+    },
+    {
+      "id": "t5-117",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "spec.md",
+      "maxTrigramJaccard": 0.216,
+      "maxTrigramSource": "m2-heldout-v1:h1-066",
+      "violations": []
+    },
+    {
+      "id": "t5-118",
+      "maxTokenJaccard": 0.111,
+      "maxTokenSource": "test:tests/unit/t4-topics-dataset.test.ts",
+      "maxTrigramJaccard": 0.162,
+      "maxTrigramSource": "t1:t1-144",
+      "violations": []
+    },
+    {
+      "id": "t5-119",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.181,
+      "maxTrigramSource": "prompt:discovery",
+      "violations": []
+    },
+    {
+      "id": "t5-120",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.188,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-121",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/smoke/http.test.ts",
+      "maxTrigramJaccard": 0.186,
+      "maxTrigramSource": "t4:t4-156",
+      "violations": []
+    },
+    {
+      "id": "t5-122",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/benchmark/jev-cli.test.ts",
+      "maxTrigramJaccard": 0.133,
+      "maxTrigramSource": "t2:t2-051",
+      "violations": []
+    },
+    {
+      "id": "t5-123",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "t3:t3-072",
+      "maxTrigramJaccard": 0.195,
+      "maxTrigramSource": "t3:t3-072",
+      "violations": []
+    },
+    {
+      "id": "t5-124",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "prompt:assignment",
+      "maxTrigramJaccard": 0.179,
+      "maxTrigramSource": "test:tests/adapters/gemini-topic-transport.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-125",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "spec.md",
+      "maxTrigramJaccard": 0.164,
+      "maxTrigramSource": "t3:t3-138",
+      "violations": []
+    },
+    {
+      "id": "t5-126",
+      "maxTokenJaccard": 0.154,
+      "maxTokenSource": "test:tests/unit/audit-prompt-sources.test.ts",
+      "maxTrigramJaccard": 0.183,
+      "maxTrigramSource": "test:tests/unit/audit-source-manifests.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-127",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "m2-heldout-v1:h1-059",
+      "maxTrigramJaccard": 0.172,
+      "maxTrigramSource": "m2-heldout-v1:h1-086",
+      "violations": []
+    },
+    {
+      "id": "t5-128",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "maxTrigramJaccard": 0.141,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-129",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "maxTrigramJaccard": 0.185,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-130",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/unit/topic-taxonomy.test.ts",
+      "maxTrigramJaccard": 0.211,
+      "maxTrigramSource": "t1:t1-120",
+      "violations": []
+    },
+    {
+      "id": "t5-131",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.164,
+      "maxTrigramSource": "t2:t2-062",
+      "violations": []
+    },
+    {
+      "id": "t5-132",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "t1:t1-130",
+      "maxTrigramJaccard": 0.194,
+      "maxTrigramSource": "t1:t1-130",
+      "violations": []
+    },
+    {
+      "id": "t5-133",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "maxTrigramJaccard": 0.131,
+      "maxTrigramSource": "t1:t1-194",
+      "violations": []
+    },
+    {
+      "id": "t5-134",
+      "maxTokenJaccard": 0.105,
+      "maxTokenSource": "t1:t1-043",
+      "maxTrigramJaccard": 0.154,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-135",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/benchmark/topic-real.test.ts",
+      "maxTrigramJaccard": 0.2,
+      "maxTrigramSource": "t1:t1-111",
+      "violations": []
+    },
+    {
+      "id": "t5-136",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "doc:docs/topic-validation-t1-t2-sonnet-v3.md",
+      "maxTrigramJaccard": 0.121,
+      "maxTrigramSource": "t3:t3-088",
+      "violations": []
+    },
+    {
+      "id": "t5-137",
+      "maxTokenJaccard": 0.231,
+      "maxTokenSource": "t2:t2-152",
+      "maxTrigramJaccard": 0.179,
+      "maxTrigramSource": "m2-heldout-v1:h1-057",
+      "violations": []
+    },
+    {
+      "id": "t5-138",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "design:m4-topic-provider-design.md",
+      "maxTrigramJaccard": 0.165,
+      "maxTrigramSource": "t2:t2-188",
+      "violations": []
+    },
+    {
+      "id": "t5-139",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.265,
+      "maxTrigramSource": "t2:t2-092",
+      "violations": []
+    },
+    {
+      "id": "t5-140",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/unit/topic-provider-contracts.test.ts",
+      "maxTrigramJaccard": 0.153,
+      "maxTrigramSource": "t3:t3-133",
+      "violations": []
+    },
+    {
+      "id": "t5-141",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "t2:t2-090",
+      "maxTrigramJaccard": 0.169,
+      "maxTrigramSource": "spec.md",
+      "violations": []
+    },
+    {
+      "id": "t5-142",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "m2-heldout-v1:h1-084",
+      "maxTrigramJaccard": 0.277,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-143",
+      "maxTokenJaccard": 0.375,
+      "maxTokenSource": "t1:t1-149",
+      "maxTrigramJaccard": 0.305,
+      "maxTrigramSource": "t1:t1-149",
+      "violations": []
+    },
+    {
+      "id": "t5-144",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "t3:t3-174",
+      "maxTrigramJaccard": 0.168,
+      "maxTrigramSource": "t2:t2-074",
+      "violations": []
+    },
+    {
+      "id": "t5-145",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-only.test.ts",
+      "maxTrigramJaccard": 0.156,
+      "maxTrigramSource": "m2-heldout-v1:h1-059",
+      "violations": []
+    },
+    {
+      "id": "t5-146",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "t3:t3-128",
+      "maxTrigramJaccard": 0.268,
+      "maxTrigramSource": "t3:t3-128",
+      "violations": []
+    },
+    {
+      "id": "t5-147",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "maxTrigramJaccard": 0.152,
+      "maxTrigramSource": "test:tests/unit/audit-source-manifests.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-148",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-only.test.ts",
+      "maxTrigramJaccard": 0.101,
+      "maxTrigramSource": "t1:t1-087",
+      "violations": []
+    },
+    {
+      "id": "t5-149",
+      "maxTokenJaccard": 0.273,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.174,
+      "maxTrigramSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-150",
+      "maxTokenJaccard": 0.286,
+      "maxTokenSource": "test:tests/unit/topic-provider-contracts.test.ts",
+      "maxTrigramJaccard": 0.302,
+      "maxTrigramSource": "test:tests/unit/topic-provider-contracts.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-151",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "model-output:benchmark-results/2026-10-05T18-43-12-795Z-topics-t1-topics-v1-discovery-only-anthropic-claude-sonnet-5-5.json",
+      "maxTrigramJaccard": 0.224,
+      "maxTrigramSource": "design:m4-topic-provider-design.md",
+      "violations": []
+    },
+    {
+      "id": "t5-152",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "t1:t1-017",
+      "maxTrigramJaccard": 0.139,
+      "maxTrigramSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-153",
+      "maxTokenJaccard": 0.182,
+      "maxTokenSource": "m2-heldout-v1:h1-026",
+      "maxTrigramJaccard": 0.148,
+      "maxTrigramSource": "t3:t3-176",
+      "violations": []
+    },
+    {
+      "id": "t5-154",
+      "maxTokenJaccard": 0.154,
+      "maxTokenSource": "t1:t1-177",
+      "maxTrigramJaccard": 0.152,
+      "maxTrigramSource": "t1:t1-177",
+      "violations": []
+    },
+    {
+      "id": "t5-155",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "m2:m2-c51",
+      "maxTrigramJaccard": 0.173,
+      "maxTrigramSource": "m2:m2-c51",
+      "violations": []
+    },
+    {
+      "id": "t5-156",
+      "maxTokenJaccard": 0.111,
+      "maxTokenSource": "t2:t2-164",
+      "maxTrigramJaccard": 0.138,
+      "maxTrigramSource": "t4:t4-021",
+      "violations": []
+    },
+    {
+      "id": "t5-157",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/unit/topic-provider-contracts.test.ts",
+      "maxTrigramJaccard": 0.152,
+      "maxTrigramSource": "t3:t3-091",
+      "violations": []
+    },
+    {
+      "id": "t5-158",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-only.test.ts",
+      "maxTrigramJaccard": 0.198,
+      "maxTrigramSource": "t1:t1-027",
+      "violations": []
+    },
+    {
+      "id": "t5-159",
+      "maxTokenJaccard": 0.154,
+      "maxTokenSource": "model-output:benchmark-results/2026-10-05T15-16-43-911Z-topics-t1-topics-v1-google-gemini-3-8-flash-typesafe-jev-latest.json",
+      "maxTrigramJaccard": 0.162,
+      "maxTrigramSource": "t4:t4-142",
+      "violations": []
+    },
+    {
+      "id": "t5-160",
+      "maxTokenJaccard": 0.286,
+      "maxTokenSource": "t1:t1-006",
+      "maxTrigramJaccard": 0.167,
+      "maxTrigramSource": "t2:t2-110",
+      "violations": []
+    },
+    {
+      "id": "t5-161",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/unit/topic-normalization.test.ts",
+      "maxTrigramJaccard": 0.223,
+      "maxTrigramSource": "t3:t3-073",
+      "violations": []
+    },
+    {
+      "id": "t5-162",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "t3:t3-204",
+      "maxTrigramJaccard": 0.158,
+      "maxTrigramSource": "t3:t3-204",
+      "violations": []
+    },
+    {
+      "id": "t5-163",
+      "maxTokenJaccard": 0.25,
+      "maxTokenSource": "guideline:QUESTION_VS_REQUEST_RULE",
+      "maxTrigramJaccard": 0.13,
+      "maxTrigramSource": "t2:t2-107",
+      "violations": []
+    },
+    {
+      "id": "t5-164",
+      "maxTokenJaccard": 0.273,
+      "maxTokenSource": "spec.md",
+      "maxTrigramJaccard": 0.257,
+      "maxTrigramSource": "spec.md",
+      "violations": []
+    },
+    {
+      "id": "t5-165",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.132,
+      "maxTrigramSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-166",
+      "maxTokenJaccard": 0.1,
+      "maxTokenSource": "design:m4-topic-provider-design.md",
+      "maxTrigramJaccard": 0.146,
+      "maxTrigramSource": "t1:t1-034",
+      "violations": []
+    },
+    {
+      "id": "t5-167",
+      "maxTokenJaccard": 0.222,
+      "maxTokenSource": "test:tests/unit/topic-normalization.test.ts",
+      "maxTrigramJaccard": 0.169,
+      "maxTrigramSource": "t2:t2-190",
+      "violations": []
+    },
+    {
+      "id": "t5-168",
+      "maxTokenJaccard": 0.25,
+      "maxTokenSource": "test:tests/benchmark/topic-real.test.ts",
+      "maxTrigramJaccard": 0.182,
+      "maxTrigramSource": "m2:m2-c34",
+      "violations": []
+    },
+    {
+      "id": "t5-169",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "question:jev-q2:is_question",
+      "maxTrigramJaccard": 0.125,
+      "maxTrigramSource": "m2:m2-c27",
+      "violations": []
+    },
+    {
+      "id": "t5-170",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "t2:t2-009",
+      "maxTrigramJaccard": 0.215,
+      "maxTrigramSource": "t2:t2-009",
+      "violations": []
+    },
+    {
+      "id": "t5-171",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "doc:docs/topic-consolidation-v4-postmortem.md",
+      "maxTrigramJaccard": 0.148,
+      "maxTrigramSource": "test:tests/unit/classification-schema.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-172",
+      "maxTokenJaccard": 0.25,
+      "maxTokenSource": "t4:t4-042",
+      "maxTrigramJaccard": 0.277,
+      "maxTrigramSource": "t4:t4-042",
+      "violations": []
+    },
+    {
+      "id": "t5-173",
+      "maxTokenJaccard": 0.222,
+      "maxTokenSource": "test:tests/unit/topic-provider-contracts.test.ts",
+      "maxTrigramJaccard": 0.197,
+      "maxTrigramSource": "test:tests/unit/topic-provider-contracts.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-174",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "m2-heldout-v1:h1-002",
+      "maxTrigramJaccard": 0.183,
+      "maxTrigramSource": "t2:t2-134",
+      "violations": []
+    },
+    {
+      "id": "t5-175",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "m2:m2-c21",
+      "maxTrigramJaccard": 0.158,
+      "maxTrigramSource": "t2:t2-068",
+      "violations": []
+    },
+    {
+      "id": "t5-176",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "test:tests/adapters/jev-classifier.test.ts",
+      "maxTrigramJaccard": 0.19,
+      "maxTrigramSource": "t2:t2-174",
+      "violations": []
+    },
+    {
+      "id": "t5-177",
+      "maxTokenJaccard": 0.111,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.141,
+      "maxTrigramSource": "question:jev-q2:content_sentiment",
+      "violations": []
+    },
+    {
+      "id": "t5-178",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "t2:t2-110",
+      "maxTrigramJaccard": 0.19,
+      "maxTrigramSource": "t2:t2-110",
+      "violations": []
+    },
+    {
+      "id": "t5-179",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.211,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-180",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "t4:t4-186",
+      "maxTrigramJaccard": 0.17,
+      "maxTrigramSource": "t2:t2-135",
+      "violations": []
+    },
+    {
+      "id": "t5-181",
+      "maxTokenJaccard": 0.1,
+      "maxTokenSource": "m2-heldout-v1:h1-091",
+      "maxTrigramJaccard": 0.128,
+      "maxTrigramSource": "t4:t4-184",
+      "violations": []
+    },
+    {
+      "id": "t5-182",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "test:tests/adapters/jev-spam-and-models.test.ts",
+      "maxTrigramJaccard": 0.153,
+      "maxTrigramSource": "t2:t2-152",
+      "violations": []
+    },
+    {
+      "id": "t5-183",
+      "maxTokenJaccard": 0.133,
+      "maxTokenSource": "t1:t1-097",
+      "maxTrigramJaccard": 0.149,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-184",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "t4:t4-182",
+      "maxTrigramJaccard": 0.186,
+      "maxTrigramSource": "t3:t3-174",
+      "violations": []
+    },
+    {
+      "id": "t5-185",
+      "maxTokenJaccard": 0.2,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.19,
+      "maxTrigramSource": "t2:t2-010",
+      "violations": []
+    },
+    {
+      "id": "t5-186",
+      "maxTokenJaccard": 0.1,
+      "maxTokenSource": "test:tests/adapters/anthropic-topic-transport.test.ts",
+      "maxTrigramJaccard": 0.111,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-187",
+      "maxTokenJaccard": 0.286,
+      "maxTokenSource": "m2-heldout-v1:h1-077",
+      "maxTrigramJaccard": 0.333,
+      "maxTrigramSource": "m2-heldout-v1:h1-077",
+      "violations": []
+    },
+    {
+      "id": "t5-188",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "question:jev-q2:is_question",
+      "maxTrigramJaccard": 0.165,
+      "maxTrigramSource": "test:tests/unit/topic-provider-contracts.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-189",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/application/two-phase-topic-discoverer.test.ts",
+      "maxTrigramJaccard": 0.177,
+      "maxTrigramSource": "t4:t4-045",
+      "violations": []
+    },
+    {
+      "id": "t5-190",
+      "maxTokenJaccard": 0.182,
+      "maxTokenSource": "t3:t3-202",
+      "maxTrigramJaccard": 0.214,
+      "maxTrigramSource": "t3:t3-197",
+      "violations": []
+    },
+    {
+      "id": "t5-191",
+      "maxTokenJaccard": 0.182,
+      "maxTokenSource": "t3:t3-182",
+      "maxTrigramJaccard": 0.229,
+      "maxTrigramSource": "design:m4-topic-provider-design.md",
+      "violations": []
+    },
+    {
+      "id": "t5-192",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.136,
+      "maxTrigramSource": "t1:t1-014",
+      "violations": []
+    },
+    {
+      "id": "t5-193",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "maxTrigramJaccard": 0.186,
+      "maxTrigramSource": "doc:docs/topic-validation-t1-t2-t3-sonnet-v3.md",
+      "violations": []
+    },
+    {
+      "id": "t5-194",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "m2:m2-c39",
+      "maxTrigramJaccard": 0.159,
+      "maxTrigramSource": "t4:t4-019",
+      "violations": []
+    },
+    {
+      "id": "t5-195",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.169,
+      "maxTrigramSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-196",
+      "maxTokenJaccard": 0.1,
+      "maxTokenSource": "test:tests/adapters/jev-spam-and-models.test.ts",
+      "maxTrigramJaccard": 0.125,
+      "maxTrigramSource": "t3:t3-186",
+      "violations": []
+    },
+    {
+      "id": "t5-197",
+      "maxTokenJaccard": 0.182,
+      "maxTokenSource": "doc:docs/topic-consolidation-v4-postmortem.md",
+      "maxTrigramJaccard": 0.161,
+      "maxTrigramSource": "doc:docs/topic-validation-t1-t2-sonnet-v3.md",
+      "violations": []
+    },
+    {
+      "id": "t5-198",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "maxTrigramJaccard": 0.183,
+      "maxTrigramSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-199",
+      "maxTokenJaccard": 0.167,
+      "maxTokenSource": "test:tests/adapters/jev-topic-assigner.test.ts",
+      "maxTrigramJaccard": 0.156,
+      "maxTrigramSource": "test:tests/unit/llm-prompt-and-schema.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-200",
+      "maxTokenJaccard": 0.286,
+      "maxTokenSource": "m2:m2-c23",
+      "maxTrigramJaccard": 0.175,
+      "maxTrigramSource": "m2:m2-c23",
+      "violations": []
+    },
+    {
+      "id": "t5-201",
+      "maxTokenJaccard": 0.222,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.145,
+      "maxTrigramSource": "t3:t3-075",
+      "violations": []
+    },
+    {
+      "id": "t5-202",
+      "maxTokenJaccard": 0.222,
+      "maxTokenSource": "m2:m2-c38",
+      "maxTrigramJaccard": 0.226,
+      "maxTrigramSource": "m2:m2-c38",
+      "violations": []
+    },
+    {
+      "id": "t5-203",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.231,
+      "maxTrigramSource": "t1:t1-064",
+      "violations": []
+    },
+    {
+      "id": "t5-204",
+      "maxTokenJaccard": 0.083,
+      "maxTokenSource": "prompt:llm",
+      "maxTrigramJaccard": 0.171,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidation-v4.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-205",
+      "maxTokenJaccard": 0.25,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.277,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "t5-206",
+      "maxTokenJaccard": 0.143,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.161,
+      "maxTrigramSource": "t2:t2-156",
+      "violations": []
+    }
+  ],
+  "gold": [
+    {
+      "id": "gold:extraction:definition",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.163,
+      "maxTrigramSource": "test:tests/unit/t2-topics-dataset.test.ts",
+      "violations": []
+    },
+    {
+      "id": "gold:thermal:definition",
+      "maxTokenJaccard": 0.133,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.214,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "gold:grinder:definition",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "test:tests/unit/topic-provider-contracts.test.ts",
+      "maxTrigramJaccard": 0.179,
+      "maxTrigramSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "violations": []
+    },
+    {
+      "id": "gold:steam_wand:definition",
+      "maxTokenJaccard": 0.182,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.258,
+      "maxTrigramSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "violations": []
+    },
+    {
+      "id": "gold:upkeep:definition",
+      "maxTokenJaccard": 0.063,
+      "maxTokenSource": "test:tests/benchmark/topic-consolidated-diagnostics.test.ts",
+      "maxTrigramJaccard": 0.166,
+      "maxTrigramSource": "t1-gold:range",
+      "violations": []
+    },
+    {
+      "id": "gold:warmup:definition",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "t1:t1-094",
+      "maxTrigramJaccard": 0.191,
+      "maxTrigramSource": "t2:t2-009",
+      "violations": []
+    },
+    {
+      "id": "gold:noise:definition",
+      "maxTokenJaccard": 0.154,
+      "maxTokenSource": "t2:t2-173",
+      "maxTrigramJaccard": 0.254,
+      "maxTrigramSource": "test:tests/unit/topic-provider-contracts.test.ts",
+      "violations": []
+    },
+    {
+      "id": "gold:interface:definition",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "test:tests/benchmark/topic-discovery-consolidated.test.ts",
+      "maxTrigramJaccard": 0.178,
+      "maxTrigramSource": "model-output:benchmark-results/2026-10-06T02-27-15-801Z-topics-t2-topics-v1-real-consolidated-anthropic-claude-sonnet-5-5-typesafe-jev-latest.json",
+      "violations": []
+    },
+    {
+      "id": "gold:aftercare:definition",
+      "maxTokenJaccard": 0.125,
+      "maxTokenSource": "prompt:llm",
+      "maxTrigramJaccard": 0.164,
+      "maxTrigramSource": "test:tests/unit/topic-discovery-validation.test.ts",
+      "violations": []
+    }
+  ]
+}

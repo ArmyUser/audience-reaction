@@ -1,0 +1,330 @@
+{
+  "kind": "discovery-reliability-run",
+  "stamp": {
+    "experiment": "discovery-v3-name-robustness-v1",
+    "definitionFingerprint": "sha256:17aa3db369cc0ae836655e01132d2144f6f5f7cf4b19de88117b9075b2dda4fe",
+    "scheduledRun": 33,
+    "dataset": "t4-topics-v1",
+    "datasetSha256": "58e225f986238591de8687faab59b9445e5d22088d1a3666382ba5e2043292fd",
+    "contract": "topic-discovery-v2",
+    "runNumber": 9
+  },
+  "result": {
+    "meta": {
+      "kind": "discovery-only",
+      "notice": "DISCOVERY-ONLY RESULT: taxonomy discovery and validation only. Topic assignment (Jev) was NOT run; this is not a full topic benchmark report.",
+      "timestamp": "2026-10-06T18:03:11.312Z",
+      "dataset": "t4-topics-v1",
+      "datasetVersion": "sha256:58e225f986238591",
+      "topicBase": 189,
+      "sampleSize": 189,
+      "sampleSeed": "t1-topics-v1/ds1",
+      "repeats": 1,
+      "discovery": {
+        "provider": "anthropic",
+        "modelRequested": "claude-sonnet-5-5",
+        "contract": "topic-discovery-v2",
+        "settings": {
+          "effort": "high",
+          "refusalFallback": "off"
+        }
+      },
+      "assignment": "not run",
+      "validation": "production taxonomy validator (validateTopicTaxonomy), at most 2 attempts with structured feedback",
+      "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard."
+    },
+    "oracleGate": {
+      "passed": true,
+      "failures": []
+    },
+    "runs": [
+      {
+        "repeat": 1,
+        "status": "valid",
+        "attempts": [
+          {
+            "attempt": 1,
+            "outcome": "invalid_taxonomy",
+            "issueCodes": [
+              "invalid_topic_name"
+            ],
+            "feedbackSent": false,
+            "latencyMs": 9032
+          },
+          {
+            "attempt": 2,
+            "outcome": "valid",
+            "issueCodes": [],
+            "feedbackSent": true,
+            "topics": 11,
+            "latencyMs": 10703
+          }
+        ],
+        "topics": 11,
+        "latencyMs": 19735,
+        "taxonomy": {
+          "matching": "example-based proxy: a topic matches the gold concept that holds a strict majority of its exampleCommentIds; topics without examples match nothing. Not comparable with the real suite's member-comment Jaccard.",
+          "predictedTopics": 11,
+          "topicsWithExamples": 11,
+          "matchedTopics": 9,
+          "topicPrecision": 0.8181818181818182,
+          "conceptRecall": 1,
+          "mergeErrors": 1,
+          "splitErrors": 0,
+          "definitionValidity": 0.9090909090909091,
+          "definitionIssues": [
+            {
+              "key": "offline_technical",
+              "issues": [
+                "sentiment_word_in_name"
+              ]
+            }
+          ],
+          "matches": [
+            {
+              "key": "streaks_gamification",
+              "name": "Streaks and gamification",
+              "examples": 3,
+              "exampleGold": [
+                "motivation",
+                "motivation",
+                "motivation"
+              ],
+              "goldKey": "motivation"
+            },
+            {
+              "key": "pronunciation_scoring",
+              "name": "Pronunciation and speech scoring",
+              "examples": 3,
+              "exampleGold": [
+                "pronunciation",
+                "pronunciation",
+                "pronunciation"
+              ],
+              "goldKey": "pronunciation"
+            },
+            {
+              "key": "chatbot_practice",
+              "name": "Conversation chatbot practice",
+              "examples": 3,
+              "exampleGold": [
+                "chat_partner",
+                "chat_partner",
+                "chat_partner"
+              ],
+              "goldKey": "chat_partner"
+            },
+            {
+              "key": "human_tutors",
+              "name": "Live tutor sessions",
+              "examples": 3,
+              "exampleGold": [
+                "tutors",
+                "tutors",
+                "tutors"
+              ],
+              "goldKey": "tutors"
+            },
+            {
+              "key": "grammar_explanations",
+              "name": "Grammar teaching and explanations",
+              "examples": 3,
+              "exampleGold": [
+                "grammar",
+                "grammar",
+                "grammar"
+              ],
+              "goldKey": "grammar"
+            },
+            {
+              "key": "lesson_design_content",
+              "name": "Lesson design and pacing",
+              "examples": 3,
+              "exampleGold": [
+                "lessons",
+                "lessons",
+                "lessons"
+              ],
+              "goldKey": "lessons"
+            },
+            {
+              "key": "language_course_coverage",
+              "name": "Language and course coverage",
+              "examples": 3,
+              "exampleGold": [
+                "course_catalog",
+                "course_catalog",
+                "course_catalog"
+              ],
+              "goldKey": "course_catalog"
+            },
+            {
+              "key": "progress_tracking",
+              "name": "Progress tracking and assessment",
+              "examples": 3,
+              "exampleGold": [
+                "progress",
+                "progress",
+                "progress"
+              ],
+              "goldKey": "progress"
+            },
+            {
+              "key": "offline_technical",
+              "name": "Offline mode and technical issues",
+              "examples": 3,
+              "exampleGold": [
+                "offline",
+                "offline",
+                "other"
+              ],
+              "goldKey": "offline"
+            },
+            {
+              "key": "pricing_account",
+              "name": "Pricing, billing and accounts",
+              "examples": 3,
+              "exampleGold": [
+                "other",
+                "other",
+                "other"
+              ],
+              "goldKey": null
+            },
+            {
+              "key": "video_content_requests",
+              "name": "Requests for video content",
+              "examples": 3,
+              "exampleGold": [
+                "course_catalog",
+                "lessons",
+                "chat_partner"
+              ],
+              "goldKey": null
+            }
+          ]
+        },
+        "topicList": [
+          {
+            "key": "streaks_gamification",
+            "name": "Streaks and gamification"
+          },
+          {
+            "key": "pronunciation_scoring",
+            "name": "Pronunciation and speech scoring"
+          },
+          {
+            "key": "chatbot_practice",
+            "name": "Conversation chatbot practice"
+          },
+          {
+            "key": "human_tutors",
+            "name": "Live tutor sessions"
+          },
+          {
+            "key": "grammar_explanations",
+            "name": "Grammar teaching and explanations"
+          },
+          {
+            "key": "lesson_design_content",
+            "name": "Lesson design and pacing"
+          },
+          {
+            "key": "language_course_coverage",
+            "name": "Language and course coverage"
+          },
+          {
+            "key": "progress_tracking",
+            "name": "Progress tracking and assessment"
+          },
+          {
+            "key": "offline_technical",
+            "name": "Offline mode and technical issues"
+          },
+          {
+            "key": "pricing_account",
+            "name": "Pricing, billing and accounts"
+          },
+          {
+            "key": "video_content_requests",
+            "name": "Requests for video content"
+          }
+        ],
+        "rejectedOutputs": [
+          {
+            "call": 1,
+            "issueCodes": [
+              "invalid_topic_name"
+            ],
+            "rawOutput": "{\"topics\":[{\"key\":\"pronunciation_feedback\",\"name\":\"Pronunciation and speech scoring\",\"definition\":\"Speaking exercises, mic and speech recognition accuracy, accent coaching, and how useful or unreliable the pronunciation feedback and scores are.\",\"exampleCommentIds\":[\"t4-011\",\"t4-086\",\"t4-109\"]},{\"key\":\"grammar_explanations\",\"name\":\"Grammar teaching and explanations\",\"definition\":\"How well the course explains grammar rules, tables, reference material and why forms change, including missing, unclear or helpful explanations.\",\"exampleCommentIds\":[\"t4-078\",\"t4-134\",\"t4-120\"]},{\"key\":\"ai_chat_partner\",\"name\":\"Conversation bot practice\",\"definition\":\"Using the chatbot or practice partner for conversation and roleplay, including its realism, memory, error correction, scenarios and limits.\",\"exampleCommentIds\":[\"t4-049\",\"t4-082\",\"t4-063\"]},{\"key\":\"human_tutors\",\"name\":\"Live tutor sessions\",\"definition\":\"Quality, booking, availability, cancellation rules, reliability and format of live human tutor and teacher sessions.\",\"exampleCommentIds\":[\"t4-058\",\"t4-077\",\"t4-072\"]},{\"key\":\"gamification_streaks\",\"name\":\"Streaks, gamification and motivation\",\"definition\":\"Streaks, badges, leagues, XP, gems, reminders and other game mechanics, and whether they motivate learners, pressure them or feel manipulative.\",\"exampleCommentIds\":[\"t4-012\",\"t4-054\",\"t4-068\"]},{\"key\":\"language_coverage\",\"name\":\"Language and course coverage\",\"definition\":\"Which languages, dialects and course depth are offered, including gaps in content for certain languages or levels.\",\"exampleCommentIds\":[\"t4-041\",\"t4-097\",\"t4-181\"]},{\"key\":\"lesson_design\",\"name\":\"Lesson structure and content quality\",\"definition\":\"Lesson length, pacing, curriculum flow, exercise variety, repetition, filler and difficulty progression within the course material.\",\"exampleCommentIds\":[\"t4-001\",\"t4-188\",\"t4-160\"]},{\"key\":\"progress_tracking\",\"name\":\"Progress tracking and placement\",\"definition\":\"Placement tests, level estimates, skill charts, dashboards, reports and whether measures of progress are accurate or informative.\",\"exampleCommentIds\":[\"t4-013\",\"t4-200\",\"t4-186\"]},{\"key\":\"offline_sync_technical\",\"name\":\"Offline mode, sync and app issues\",\"definition\":\"Offline downloads, device syncing, installation, login and account technical problems, and platform availability.\",\"exampleCommentIds\":[\"t4-046\",\"t4-032\",\"t4-177\"]},{\"key\":\"pricing_billing_support\",\"name\":\"Pricing, billing and account service\",\"definition\":\"Subscription cost, plans, renewals, refunds, charges, cancellation or deletion hassles and customer support.\",\"exampleCommentIds\":[\"t4-037\",\"t4-079\",\"t4-196\"]},{\"key\":\"viewer_requests\",\"name\":\"Requests for video content\",\"definition\":\"Viewers asking the creator to review, test or show specific features, courses or lessons, or asking whether the product is worth it.\",\"exampleCommentIds\":[\"t4-118\",\"t4-055\",\"t4-096\"]}]}",
+            "rawOutputChars": 2903,
+            "rawOutputTruncated": false
+          }
+        ],
+        "usage": {
+          "requests": 2,
+          "failedRequests": 0,
+          "inputTokens": 15907,
+          "outputTokens": 2688,
+          "estimatedCostUsd": 0.058694,
+          "latencyMs": {
+            "total": 19733,
+            "mean": 9866.5,
+            "p50": 9031,
+            "p95": 10702,
+            "max": 10702
+          },
+          "modelsServed": [
+            "claude-sonnet-5-5"
+          ]
+        },
+        "records": [
+          {
+            "provider": "anthropic",
+            "model": "claude-sonnet-5-5",
+            "modelVersion": "claude-sonnet-5-5",
+            "promptVersion": "topic-discovery-v2",
+            "schemaVersion": "topic-discovery-v2",
+            "batchSize": 189,
+            "attempt": 1,
+            "outcome": "ok",
+            "inputTokens": 7742,
+            "outputTokens": 1084,
+            "estimatedCostUsd": 0.026324,
+            "latencyMs": 9031,
+            "timestamp": "2026-10-06T18:03:00.601Z"
+          },
+          {
+            "provider": "anthropic",
+            "model": "claude-sonnet-5-5",
+            "modelVersion": "claude-sonnet-5-5",
+            "promptVersion": "topic-discovery-v2",
+            "schemaVersion": "topic-discovery-v2",
+            "batchSize": 189,
+            "attempt": 2,
+            "outcome": "ok",
+            "inputTokens": 8165,
+            "outputTokens": 1604,
+            "estimatedCostUsd": 0.03237,
+            "latencyMs": 10702,
+            "timestamp": "2026-10-06T18:03:11.304Z"
+          }
+        ]
+      }
+    ],
+    "totals": {
+      "requests": 2,
+      "failedRequests": 0,
+      "inputTokens": 15907,
+      "outputTokens": 2688,
+      "estimatedCostUsd": 0.058694,
+      "latencyMs": {
+        "total": 19733,
+        "mean": 9866.5,
+        "p50": 9031,
+        "p95": 10702,
+        "max": 10702
+      }
+    }
+  }
+}

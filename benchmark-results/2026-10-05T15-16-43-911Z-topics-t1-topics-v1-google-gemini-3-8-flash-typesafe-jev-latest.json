@@ -1,0 +1,1231 @@
+{
+  "meta": {
+    "timestamp": "2026-10-05T15:16:43.911Z",
+    "dataset": "t1-topics-v1",
+    "datasetVersion": "sha256:e44ac9d63b94ebc9",
+    "repeats": 1,
+    "discovery": {
+      "provider": "google",
+      "modelRequested": "gemini-3.8-flash",
+      "contract": "topic-discovery-v1",
+      "thinkingLevel": "low"
+    },
+    "assignment": {
+      "provider": "typesafe",
+      "modelRequested": "jev-latest",
+      "contract": "topic-assignment-v1",
+      "questionSet": "jev-topic-a1",
+      "maxCommentsPerBatch": 25
+    },
+    "validation": "production (frozen M4 validators, two attempts)"
+  },
+  "report": {
+    "meta": {
+      "datasetId": "t1-topics-v1",
+      "datasetVersion": "sha256:e44ac9d63b94ebc9",
+      "comments": 200,
+      "parameters": {
+        "maxTopics": 12,
+        "evidencePerTopic": 3,
+        "smallSampleThreshold": 30,
+        "minTopicSizeFloor": 10,
+        "minTopicSizePercentOfBase": 1,
+        "otherWarningThresholdPercent": 35
+      },
+      "sampleSeed": "t1-topics-v1/ds1",
+      "repeats": 1,
+      "matching": "member-comment Jaccard ≥ 0.5, ties to the earlier gold topic; no name similarity"
+    },
+    "gold": {
+      "topicBase": 188,
+      "spamExcluded": 12,
+      "minTopicSize": 10,
+      "dispositions": {
+        "primary_topic": 134,
+        "other": 22,
+        "no_specific_topic": 32
+      },
+      "topicSizes": {
+        "range": 28,
+        "motor": 24,
+        "folding": 20,
+        "comfort": 16,
+        "charging": 14,
+        "value": 14,
+        "brakes": 12,
+        "app": 6
+      },
+      "namedTopics": [
+        "range",
+        "motor",
+        "folding",
+        "comfort",
+        "charging",
+        "value",
+        "brakes"
+      ],
+      "smallTopics": [
+        "app"
+      ],
+      "topicSentiment": {
+        "range": {
+          "positive": 11,
+          "neutral": 7,
+          "negative": 10
+        },
+        "motor": {
+          "positive": 10,
+          "neutral": 5,
+          "negative": 9
+        },
+        "folding": {
+          "positive": 9,
+          "neutral": 4,
+          "negative": 7
+        },
+        "comfort": {
+          "positive": 7,
+          "neutral": 3,
+          "negative": 6
+        },
+        "charging": {
+          "positive": 4,
+          "neutral": 3,
+          "negative": 7
+        },
+        "value": {
+          "positive": 4,
+          "neutral": 3,
+          "negative": 7
+        },
+        "brakes": {
+          "positive": 3,
+          "neutral": 3,
+          "negative": 6
+        },
+        "app": {
+          "positive": 2,
+          "neutral": 1,
+          "negative": 3
+        }
+      },
+      "topicSentimentDiffersFromOverall": 17,
+      "shares": {
+        "named": 68,
+        "other": 15,
+        "noSpecificTopic": 17
+      },
+      "highOtherShare": false
+    },
+    "oracleGate": {
+      "passed": true,
+      "failures": []
+    },
+    "scenarios": [
+      {
+        "id": "oracle",
+        "group": "oracle",
+        "description": "Gold taxonomy and gold dispositions (harness sanity check; must score 100%).",
+        "expected": {
+          "status": "available",
+          "attempts": 1,
+          "generatorCalls": 1,
+          "assignerCalls": 1,
+          "failedAttemptCodes": [],
+          "perfect": true,
+          "outcome": "accepted first time; every metric perfect"
+        },
+        "runs": [
+          {
+            "repeat": 1,
+            "status": "available",
+            "attempts": 1,
+            "generatorCalls": 1,
+            "assignerCalls": 1,
+            "phaseCalls": [
+              {
+                "phase": "taxonomy",
+                "attempt": 1,
+                "comments": 188,
+                "failed": false
+              },
+              {
+                "phase": "assignment",
+                "attempt": 1,
+                "comments": 188,
+                "failed": false
+              }
+            ],
+            "failedAttemptCodes": [],
+            "taxonomyProposals": [
+              {
+                "attempt": 1,
+                "valid": true,
+                "issueCodes": []
+              }
+            ],
+            "taxonomy": {
+              "predictedTopics": 8,
+              "matchedTopics": 8,
+              "topicPrecision": 1,
+              "conceptRecall": 1,
+              "mergeErrors": 0,
+              "splitErrors": 0,
+              "definitionValidity": 1,
+              "definitionIssues": [],
+              "exampleIdValidity": 1,
+              "exampleSupport": 1,
+              "matches": [
+                {
+                  "topicId": "topic:brakes-and-stopping",
+                  "name": "brakes and stopping",
+                  "members": 12,
+                  "goldKey": "brakes",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:charging-and-battery-removal",
+                  "name": "charging and battery removal",
+                  "members": 14,
+                  "goldKey": "charging",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:companion-app",
+                  "name": "companion app",
+                  "members": 6,
+                  "goldKey": "app",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:folding-and-carrying",
+                  "name": "folding and carrying",
+                  "members": 20,
+                  "goldKey": "folding",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:motor-assist",
+                  "name": "motor assist",
+                  "members": 24,
+                  "goldKey": "motor",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:price-and-value",
+                  "name": "price and value",
+                  "members": 14,
+                  "goldKey": "value",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:ride-comfort",
+                  "name": "ride comfort",
+                  "members": 16,
+                  "goldKey": "comfort",
+                  "jaccard": 1
+                },
+                {
+                  "topicId": "topic:riding-range",
+                  "name": "riding range",
+                  "members": 28,
+                  "goldKey": "range",
+                  "jaccard": 1
+                }
+              ]
+            },
+            "assignment": {
+              "dispositionAccuracy": 1,
+              "primaryTopicAccuracy": 1,
+              "otherAccuracy": 1,
+              "otherPrecision": 1,
+              "noSpecificTopicAccuracy": 1,
+              "noSpecificTopicPrecision": 1,
+              "topicSentimentAccuracy": 1,
+              "topicSentimentScored": 134,
+              "overallSentimentAgreement": 0.8731343283582089,
+              "fullValidity": 1
+            },
+            "report": {
+              "namedShareErrorPp": {
+                "range": 0,
+                "motor": 0,
+                "folding": 0,
+                "comfort": 0,
+                "charging": 0,
+                "value": 0,
+                "brakes": 0,
+                "app": 0
+              },
+              "namedShareErrorMaxPp": 0,
+              "unmatchedNamedSharePp": 0,
+              "otherShareErrorPp": 0,
+              "noSpecificTopicShareErrorPp": 0,
+              "highOtherShareExpected": false,
+              "highOtherShareReported": false,
+              "highOtherShareCorrect": true,
+              "evidenceCoverage": 1,
+              "evidenceSentimentCoverage": 1,
+              "evidencePrecision": 1,
+              "ac23Valid": true
+            },
+            "retry": {
+              "withinAttemptLimit": true,
+              "phaseCallsWithinLimit": true,
+              "feedbackSent": null,
+              "feedbackCorrect": null,
+              "feedbackSanitized": true,
+              "reportSanitized": true,
+              "noPartialTopics": null,
+              "diagnosticsMatch": true
+            },
+            "predictions": {
+              "t1-001": "primary_topic:topic:brakes-and-stopping:negative",
+              "t1-002": "no_specific_topic",
+              "t1-003": "primary_topic:topic:brakes-and-stopping:negative",
+              "t1-007": "primary_topic:topic:ride-comfort:negative",
+              "t1-008": "no_specific_topic",
+              "t1-009": "primary_topic:topic:riding-range:neutral",
+              "t1-010": "other",
+              "t1-011": "primary_topic:topic:folding-and-carrying:positive",
+              "t1-012": "other",
+              "t1-013": "primary_topic:topic:riding-range:negative",
+              "t1-014": "primary_topic:topic:charging-and-battery-removal:negative",
+              "t1-016": "primary_topic:topic:charging-and-battery-removal:neutral",
+              "t1-017": "no_specific_topic",
+              "t1-018": "primary_topic:topic:companion-app:negative",
+              "t1-019": "other",
+              "t1-020": "primary_topic:topic:riding-range:neutral",
+              "t1-021": "primary_topic:topic:charging-and-battery-removal:positive",
+              "t1-022": "primary_topic:topic:motor-assist:positive",
+              "t1-024": "primary_topic:topic:price-and-value:negative",
+              "t1-025": "no_specific_topic",
+              "t1-026": "primary_topic:topic:price-and-value:positive",
+              "t1-027": "primary_topic:topic:riding-range:negative",
+              "t1-028": "primary_topic:topic:riding-range:positive",
+              "t1-029": "primary_topic:topic:charging-and-battery-removal:negative",
+              "t1-030": "primary_topic:topic:folding-and-carrying:positive",
+              "t1-031": "no_specific_topic",
+              "t1-032": "primary_topic:topic:folding-and-carrying:positive",
+              "t1-033": "primary_topic:topic:folding-and-carrying:positive",
+              "t1-034": "primary_topic:topic:folding-and-carrying:neutral",
+              "t1-035": "primary_topic:topic:folding-and-carrying:negative",
+              "t1-036": "no_specific_topic",
+              "t1-037": "primary_topic:topic:price-and-value:positive",
+              "t1-038": "primary_topic:topic:folding-and-carrying:negative",
+              "t1-039": "no_specific_topic",
+              "t1-040": "other",
+              "t1-041": "primary_topic:topic:motor-assist:negative",
+              "t1-042": "no_specific_topic",
+              "t1-043": "primary_topic:topic:motor-assist:positive",
+              "t1-044": "primary_topic:topic:brakes-and-stopping:positive",
+              "t1-045": "primary_topic:topic:brakes-and-stopping:neutral",
+              "t1-046": "no_specific_topic",
+              "t1-047": "primary_topic:topic:riding-range:positive",
+              "t1-048": "no_specific_topic",
+              "t1-049": "other",
+              "t1-050": "primary_topic:topic:price-and-value:positive",
+              "t1-052": "primary_topic:topic:companion-app:positive",
+              "t1-053": "primary_topic:topic:riding-range:positive",
+              "t1-054": "primary_topic:topic:folding-and-carrying:positive",
+              "t1-055": "primary_topic:topic:riding-range:positive",
+              "t1-056": "primary_topic:topic:motor-assist:negative",
+              "t1-057": "primary_topic:topic:ride-comfort:negative",
+              "t1-058": "primary_topic:topic:brakes-and-stopping:neutral",
+              "t1-059": "no_specific_topic",
+              "t1-060": "primary_topic:topic:riding-range:negative",
+              "t1-061": "primary_topic:topic:brakes-and-stopping:negative",
+              "t1-062": "other",
+              "t1-063": "no_specific_topic",
+              "t1-064": "primary_topic:topic:price-and-value:negative",
+              "t1-065": "primary_topic:topic:riding-range:negative",
+              "t1-066": "primary_topic:topic:motor-assist:positive",
+              "t1-067": "other",
+              "t1-068": "other",
+              "t1-069": "primary_topic:topic:motor-assist:neutral",
+              "t1-070": "primary_topic:topic:motor-assist:positive",
+              "t1-071": "primary_topic:topic:ride-comfort:negative",
+              "t1-072": "primary_topic:topic:price-and-value:negative",
+              "t1-073": "other",
+              "t1-074": "primary_topic:topic:riding-range:negative",
+              "t1-075": "no_specific_topic",
+              "t1-076": "other",
+              "t1-077": "primary_topic:topic:folding-and-carrying:positive",
+              "t1-078": "other",
+              "t1-079": "primary_topic:topic:folding-and-carrying:negative",
+              "t1-080": "primary_topic:topic:folding-and-carrying:negative",
+              "t1-081": "primary_topic:topic:ride-comfort:negative",
+              "t1-082": "primary_topic:topic:motor-assist:negative",
+              "t1-083": "primary_topic:topic:companion-app:negative",
+              "t1-084": "primary_topic:topic:charging-and-battery-removal:negative",
+              "t1-085": "no_specific_topic",
+              "t1-086": "primary_topic:topic:riding-range:positive",
+              "t1-087": "primary_topic:topic:riding-range:negative",
+              "t1-088": "no_specific_topic",
+              "t1-089": "no_specific_topic",
+              "t1-090": "primary_topic:topic:motor-assist:positive",
+              "t1-091": "primary_topic:topic:motor-assist:neutral",
+              "t1-092": "other",
+              "t1-093": "primary_topic:topic:folding-and-carrying:positive",
+              "t1-094": "primary_topic:topic:charging-and-battery-removal:neutral",
+              "t1-095": "other",
+              "t1-096": "primary_topic:topic:brakes-and-stopping:negative",
+              "t1-097": "primary_topic:topic:brakes-and-stopping:positive",
+              "t1-098": "primary_topic:topic:ride-comfort:neutral",
+              "t1-099": "primary_topic:topic:ride-comfort:positive",
+              "t1-100": "primary_topic:topic:charging-and-battery-removal:positive",
+              "t1-101": "no_specific_topic",
+              "t1-102": "primary_topic:topic:charging-and-battery-removal:negative",
+              "t1-103": "primary_topic:topic:charging-and-battery-removal:negative",
+              "t1-104": "primary_topic:topic:motor-assist:negative",
+              "t1-105": "primary_topic:topic:ride-comfort:positive",
+              "t1-106": "primary_topic:topic:companion-app:positive",
+              "t1-107": "primary_topic:topic:price-and-value:neutral",
+              "t1-108": "primary_topic:topic:ride-comfort:neutral",
+              "t1-109": "no_specific_topic",
+              "t1-110": "no_specific_topic",
+              "t1-111": "primary_topic:topic:motor-assist:negative",
+              "t1-112": "primary_topic:topic:riding-range:neutral",
+              "t1-113": "primary_topic:topic:motor-assist:positive",
+              "t1-114": "primary_topic:topic:folding-and-carrying:negative",
+              "t1-115": "no_specific_topic",
+              "t1-116": "primary_topic:topic:motor-assist:negative",
+              "t1-117": "other",
+              "t1-118": "other",
+              "t1-119": "primary_topic:topic:brakes-and-stopping:negative",
+              "t1-120": "primary_topic:topic:riding-range:neutral",
+              "t1-121": "primary_topic:topic:brakes-and-stopping:neutral",
+              "t1-122": "primary_topic:topic:riding-range:negative",
+              "t1-124": "primary_topic:topic:companion-app:neutral",
+              "t1-125": "primary_topic:topic:motor-assist:negative",
+              "t1-126": "no_specific_topic",
+              "t1-127": "no_specific_topic",
+              "t1-128": "primary_topic:topic:riding-range:positive",
+              "t1-129": "primary_topic:topic:motor-assist:positive",
+              "t1-130": "primary_topic:topic:ride-comfort:positive",
+              "t1-131": "primary_topic:topic:folding-and-carrying:neutral",
+              "t1-132": "no_specific_topic",
+              "t1-133": "primary_topic:topic:ride-comfort:positive",
+              "t1-134": "primary_topic:topic:ride-comfort:positive",
+              "t1-135": "primary_topic:topic:riding-range:positive",
+              "t1-136": "primary_topic:topic:motor-assist:neutral",
+              "t1-137": "other",
+              "t1-138": "other",
+              "t1-139": "no_specific_topic",
+              "t1-140": "primary_topic:topic:motor-assist:positive",
+              "t1-141": "primary_topic:topic:riding-range:neutral",
+              "t1-142": "primary_topic:topic:price-and-value:negative",
+              "t1-143": "primary_topic:topic:riding-range:negative",
+              "t1-144": "primary_topic:topic:riding-range:positive",
+              "t1-145": "primary_topic:topic:price-and-value:negative",
+              "t1-146": "no_specific_topic",
+              "t1-148": "primary_topic:topic:riding-range:positive",
+              "t1-150": "primary_topic:topic:folding-and-carrying:negative",
+              "t1-151": "primary_topic:topic:charging-and-battery-removal:neutral",
+              "t1-152": "primary_topic:topic:ride-comfort:negative",
+              "t1-153": "other",
+              "t1-154": "primary_topic:topic:price-and-value:neutral",
+              "t1-155": "primary_topic:topic:motor-assist:negative",
+              "t1-156": "primary_topic:topic:brakes-and-stopping:positive",
+              "t1-157": "no_specific_topic",
+              "t1-158": "primary_topic:topic:motor-assist:positive",
+              "t1-159": "primary_topic:topic:riding-range:positive",
+              "t1-160": "primary_topic:topic:folding-and-carrying:neutral",
+              "t1-161": "primary_topic:topic:brakes-and-stopping:negative",
+              "t1-163": "no_specific_topic",
+              "t1-164": "primary_topic:topic:ride-comfort:neutral",
+              "t1-165": "primary_topic:topic:folding-and-carrying:positive",
+              "t1-166": "primary_topic:topic:motor-assist:negative",
+              "t1-167": "primary_topic:topic:folding-and-carrying:negative",
+              "t1-168": "primary_topic:topic:riding-range:positive",
+              "t1-169": "no_specific_topic",
+              "t1-170": "no_specific_topic",
+              "t1-172": "primary_topic:topic:charging-and-battery-removal:positive",
+              "t1-174": "primary_topic:topic:charging-and-battery-removal:positive",
+              "t1-175": "primary_topic:topic:price-and-value:positive",
+              "t1-176": "primary_topic:topic:charging-and-battery-removal:negative",
+              "t1-177": "primary_topic:topic:motor-assist:neutral",
+              "t1-178": "primary_topic:topic:riding-range:negative",
+              "t1-179": "primary_topic:topic:folding-and-carrying:neutral",
+              "t1-180": "primary_topic:topic:charging-and-battery-removal:negative",
+              "t1-181": "no_specific_topic",
+              "t1-182": "other",
+              "t1-183": "primary_topic:topic:price-and-value:negative",
+              "t1-184": "no_specific_topic",
+              "t1-185": "primary_topic:topic:price-and-value:neutral",
+              "t1-186": "primary_topic:topic:ride-comfort:negative",
+              "t1-187": "other",
+              "t1-188": "primary_topic:topic:ride-comfort:positive",
+              "t1-189": "no_specific_topic",
+              "t1-190": "primary_topic:topic:motor-assist:positive",
+              "t1-191": "primary_topic:topic:riding-range:negative",
+              "t1-192": "primary_topic:topic:riding-range:neutral",
+              "t1-193": "primary_topic:topic:companion-app:negative",
+              "t1-194": "other",
+              "t1-195": "primary_topic:topic:riding-range:neutral",
+              "t1-196": "primary_topic:topic:motor-assist:neutral",
+              "t1-197": "primary_topic:topic:price-and-value:negative",
+              "t1-198": "primary_topic:topic:ride-comfort:positive",
+              "t1-199": "other",
+              "t1-200": "primary_topic:topic:folding-and-carrying:positive"
+            },
+            "section": {
+              "status": "available",
+              "topics": [
+                {
+                  "id": "topic:riding-range",
+                  "name": "riding range",
+                  "description": "How far the bike travels on one charge, including range estimates and how quickly the battery drains.",
+                  "count": {
+                    "count": 28,
+                    "base": 188,
+                    "percent": 15
+                  },
+                  "topicSentiment": {
+                    "base": 28,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 11,
+                        "percent": 39
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 7,
+                        "percent": 25
+                      },
+                      {
+                        "label": "negative",
+                        "count": 10,
+                        "percent": 36
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t1-028",
+                      "topicSentiment": "positive",
+                      "rank": 1,
+                      "providerExample": false
+                    },
+                    {
+                      "commentId": "t1-013",
+                      "topicSentiment": "negative",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t1-009",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": true
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:motor-assist",
+                  "name": "motor assist",
+                  "description": "How the electric assist feels and performs, including power on hills, assist levels, pickup and motor sound.",
+                  "count": {
+                    "count": 24,
+                    "base": 188,
+                    "percent": 13
+                  },
+                  "topicSentiment": {
+                    "base": 24,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 10,
+                        "percent": 42
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 5,
+                        "percent": 21
+                      },
+                      {
+                        "label": "negative",
+                        "count": 9,
+                        "percent": 37
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t1-022",
+                      "topicSentiment": "positive",
+                      "rank": 1,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t1-041",
+                      "topicSentiment": "negative",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t1-069",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": false
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:folding-and-carrying",
+                  "name": "folding and carrying",
+                  "description": "The folding mechanism and latches, the folded size, and carrying or storing the folded bike.",
+                  "count": {
+                    "count": 20,
+                    "base": 188,
+                    "percent": 11
+                  },
+                  "topicSentiment": {
+                    "base": 20,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 9,
+                        "percent": 45
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 4,
+                        "percent": 20
+                      },
+                      {
+                        "label": "negative",
+                        "count": 7,
+                        "percent": 35
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t1-011",
+                      "topicSentiment": "positive",
+                      "rank": 1,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t1-035",
+                      "topicSentiment": "negative",
+                      "rank": 2,
+                      "providerExample": false
+                    },
+                    {
+                      "commentId": "t1-034",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": false
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:ride-comfort",
+                  "name": "ride comfort",
+                  "description": "How comfortable the bike is to ride, including saddle, suspension, tyres, handlebars and fit.",
+                  "count": {
+                    "count": 16,
+                    "base": 188,
+                    "percent": 9
+                  },
+                  "topicSentiment": {
+                    "base": 16,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 7,
+                        "percent": 44
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 3,
+                        "percent": 19
+                      },
+                      {
+                        "label": "negative",
+                        "count": 6,
+                        "percent": 37
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t1-099",
+                      "topicSentiment": "positive",
+                      "rank": 1,
+                      "providerExample": false
+                    },
+                    {
+                      "commentId": "t1-007",
+                      "topicSentiment": "negative",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t1-098",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": false
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:charging-and-battery-removal",
+                  "name": "charging and battery removal",
+                  "description": "The charger, charging time, the charging port and removing the battery to charge it.",
+                  "count": {
+                    "count": 14,
+                    "base": 188,
+                    "percent": 7
+                  },
+                  "topicSentiment": {
+                    "base": 14,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 4,
+                        "percent": 29
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 3,
+                        "percent": 21
+                      },
+                      {
+                        "label": "negative",
+                        "count": 7,
+                        "percent": 50
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t1-014",
+                      "topicSentiment": "negative",
+                      "rank": 1,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t1-021",
+                      "topicSentiment": "positive",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t1-016",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": true
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:price-and-value",
+                  "name": "price and value",
+                  "description": "What the bike and its accessories cost and whether that is worth the money.",
+                  "count": {
+                    "count": 14,
+                    "base": 188,
+                    "percent": 7
+                  },
+                  "topicSentiment": {
+                    "base": 14,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 4,
+                        "percent": 29
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 3,
+                        "percent": 21
+                      },
+                      {
+                        "label": "negative",
+                        "count": 7,
+                        "percent": 50
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t1-024",
+                      "topicSentiment": "negative",
+                      "rank": 1,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t1-026",
+                      "topicSentiment": "positive",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t1-107",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": false
+                    }
+                  ]
+                },
+                {
+                  "id": "topic:brakes-and-stopping",
+                  "name": "brakes and stopping",
+                  "description": "How the bike brakes and stops, including brake feel, brake noise, levers and stopping distance.",
+                  "count": {
+                    "count": 12,
+                    "base": 188,
+                    "percent": 6
+                  },
+                  "topicSentiment": {
+                    "base": 12,
+                    "rows": [
+                      {
+                        "label": "positive",
+                        "count": 3,
+                        "percent": 25
+                      },
+                      {
+                        "label": "neutral",
+                        "count": 3,
+                        "percent": 25
+                      },
+                      {
+                        "label": "negative",
+                        "count": 6,
+                        "percent": 50
+                      }
+                    ]
+                  },
+                  "smallSample": true,
+                  "evidence": [
+                    {
+                      "commentId": "t1-001",
+                      "topicSentiment": "negative",
+                      "rank": 1,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t1-044",
+                      "topicSentiment": "positive",
+                      "rank": 2,
+                      "providerExample": true
+                    },
+                    {
+                      "commentId": "t1-045",
+                      "topicSentiment": "neutral",
+                      "rank": 3,
+                      "providerExample": false
+                    }
+                  ]
+                }
+              ],
+              "other": {
+                "count": {
+                  "count": 28,
+                  "base": 188,
+                  "percent": 15
+                },
+                "providerOther": {
+                  "count": 22,
+                  "base": 188,
+                  "percent": 12
+                },
+                "smallTopics": {
+                  "count": 6,
+                  "base": 188,
+                  "percent": 3
+                },
+                "smallTopicSentiment": {
+                  "base": 6,
+                  "rows": [
+                    {
+                      "label": "positive",
+                      "count": 2,
+                      "percent": 33
+                    },
+                    {
+                      "label": "neutral",
+                      "count": 1,
+                      "percent": 17
+                    },
+                    {
+                      "label": "negative",
+                      "count": 3,
+                      "percent": 50
+                    }
+                  ]
+                },
+                "mergedTopics": [
+                  {
+                    "id": "topic:companion-app",
+                    "name": "companion app",
+                    "mentionCount": 6
+                  }
+                ]
+              },
+              "noSpecificTopic": {
+                "count": 32,
+                "base": 188,
+                "percent": 17
+              },
+              "coverage": {
+                "sentimentBase": 188,
+                "spamExcluded": 12,
+                "namedTopics": {
+                  "count": 128,
+                  "base": 188,
+                  "percent": 68
+                },
+                "other": {
+                  "count": 28,
+                  "base": 188,
+                  "percent": 15
+                },
+                "noSpecificTopic": {
+                  "count": 32,
+                  "base": 188,
+                  "percent": 17
+                }
+              },
+              "minTopicSize": 10,
+              "warnings": [],
+              "method": {
+                "providerLabel": "Two-phase topics (Oracle taxonomy generator (gold) + Oracle topic assigner (gold))",
+                "normalizationVersion": "tn1",
+                "commentsSent": 188,
+                "attempts": 1,
+                "parameters": {
+                  "maxTopics": 12,
+                  "evidencePerTopic": 3,
+                  "smallSampleThreshold": 30,
+                  "minTopicSizeFloor": 10,
+                  "minTopicSizePercentOfBase": 1,
+                  "otherWarningThresholdPercent": 35
+                },
+                "discoverySample": {
+                  "version": "ds1",
+                  "strategy": "seeded_stratified",
+                  "population": "non_spam_topic_base",
+                  "seed": "t1-topics-v1/ds1",
+                  "eligible": 188,
+                  "size": 188,
+                  "usedAll": true,
+                  "strata": [
+                    {
+                      "key": "focus:negative",
+                      "available": 53,
+                      "selected": 53
+                    },
+                    {
+                      "key": "focus:neutral",
+                      "available": 15,
+                      "selected": 15
+                    },
+                    {
+                      "key": "focus:positive",
+                      "available": 60,
+                      "selected": 60
+                    },
+                    {
+                      "key": "substantive:negative",
+                      "available": 7,
+                      "selected": 7
+                    },
+                    {
+                      "key": "substantive:neutral",
+                      "available": 31,
+                      "selected": 31
+                    },
+                    {
+                      "key": "substantive:positive",
+                      "available": 11,
+                      "selected": 11
+                    },
+                    {
+                      "key": "trivial:neutral",
+                      "available": 3,
+                      "selected": 3
+                    },
+                    {
+                      "key": "trivial:positive",
+                      "available": 8,
+                      "selected": 8
+                    }
+                  ],
+                  "parameters": {
+                    "maxSize": 400,
+                    "focusReservePercent": 15,
+                    "trivialMaxPercent": 10,
+                    "shortWordThreshold": 4,
+                    "minPerSentimentLabel": 10
+                  }
+                }
+              }
+            },
+            "fingerprint": "{\"status\":\"available\",\"attempts\":1,\"phaseCalls\":[{\"phase\":\"taxonomy\",\"attempt\":1,\"comments\":188,\"failed\":false},{\"phase\":\"assignment\",\"attempt\":1,\"comments\":188,\"failed\":false}],\"failedAttemptCodes\":[],\"topics\":[{\"id\":\"topic:riding-range\",\"name\":\"riding range\",\"formation\":{\"sourceNames\":[\"Riding range\"],\"providerKeys\":[\"range\"],\"providerExampleIds\":[\"t1-009\",\"t1-013\",\"t1-020\"]},\"description\":\"How far the bike travels on one charge, including range estimates and how quickly the battery drains.\"},{\"id\":\"topic:motor-assist\",\"name\":\"motor assist\",\"formation\":{\"sourceNames\":[\"Motor assist\"],\"providerKeys\":[\"motor\"],\"providerExampleIds\":[\"t1-022\",\"t1-041\",\"t1-043\"]},\"description\":\"How the electric assist feels and performs, including power on hills, assist levels, pickup and motor sound.\"},{\"id\":\"topic:folding-and-carrying\",\"name\":\"folding and carrying\",\"formation\":{\"sourceNames\":[\"Folding and carrying\"],\"providerKeys\":[\"folding\"],\"providerExampleIds\":[\"t1-011\",\"t1-030\",\"t1-032\"]},\"description\":\"The folding mechanism and latches, the folded size, and carrying or storing the folded bike.\"},{\"id\":\"topic:ride-comfort\",\"name\":\"ride comfort\",\"formation\":{\"sourceNames\":[\"Ride comfort\"],\"providerKeys\":[\"comfort\"],\"providerExampleIds\":[\"t1-007\",\"t1-057\",\"t1-071\"]},\"description\":\"How comfortable the bike is to ride, including saddle, suspension, tyres, handlebars and fit.\"},{\"id\":\"topic:charging-and-battery-removal\",\"name\":\"charging and battery removal\",\"formation\":{\"sourceNames\":[\"Charging and battery removal\"],\"providerKeys\":[\"charging\"],\"providerExampleIds\":[\"t1-014\",\"t1-016\",\"t1-021\"]},\"description\":\"The charger, charging time, the charging port and removing the battery to charge it.\"},{\"id\":\"topic:price-and-value\",\"name\":\"price and value\",\"formation\":{\"sourceNames\":[\"Price and value\"],\"providerKeys\":[\"value\"],\"providerExampleIds\":[\"t1-024\",\"t1-026\",\"t1-037\"]},\"description\":\"What the bike and its accessories cost and whether that is worth the money.\"},{\"id\":\"topic:brakes-and-stopping\",\"name\":\"brakes and stopping\",\"formation\":{\"sourceNames\":[\"Brakes and stopping\"],\"providerKeys\":[\"brakes\"],\"providerExampleIds\":[\"t1-001\",\"t1-003\",\"t1-044\"]},\"description\":\"How the bike brakes and stops, including brake feel, brake noise, levers and stopping distance.\"},{\"id\":\"topic:companion-app\",\"name\":\"companion app\",\"formation\":{\"sourceNames\":[\"Companion app\"],\"providerKeys\":[\"app\"],\"providerExampleIds\":[\"t1-018\",\"t1-052\",\"t1-083\"]},\"description\":\"The phone app used to pair with the bike, update firmware, change settings or lock the motor.\"}],\"predictions\":{\"t1-001\":\"primary_topic:topic:brakes-and-stopping:negative\",\"t1-002\":\"no_specific_topic\",\"t1-003\":\"primary_topic:topic:brakes-and-stopping:negative\",\"t1-007\":\"primary_topic:topic:ride-comfort:negative\",\"t1-008\":\"no_specific_topic\",\"t1-009\":\"primary_topic:topic:riding-range:neutral\",\"t1-010\":\"other\",\"t1-011\":\"primary_topic:topic:folding-and-carrying:positive\",\"t1-012\":\"other\",\"t1-013\":\"primary_topic:topic:riding-range:negative\",\"t1-014\":\"primary_topic:topic:charging-and-battery-removal:negative\",\"t1-016\":\"primary_topic:topic:charging-and-battery-removal:neutral\",\"t1-017\":\"no_specific_topic\",\"t1-018\":\"primary_topic:topic:companion-app:negative\",\"t1-019\":\"other\",\"t1-020\":\"primary_topic:topic:riding-range:neutral\",\"t1-021\":\"primary_topic:topic:charging-and-battery-removal:positive\",\"t1-022\":\"primary_topic:topic:motor-assist:positive\",\"t1-024\":\"primary_topic:topic:price-and-value:negative\",\"t1-025\":\"no_specific_topic\",\"t1-026\":\"primary_topic:topic:price-and-value:positive\",\"t1-027\":\"primary_topic:topic:riding-range:negative\",\"t1-028\":\"primary_topic:topic:riding-range:positive\",\"t1-029\":\"primary_topic:topic:charging-and-battery-removal:negative\",\"t1-030\":\"primary_topic:topic:folding-and-carrying:positive\",\"t1-031\":\"no_specific_topic\",\"t1-032\":\"primary_topic:topic:folding-and-carrying:positive\",\"t1-033\":\"primary_topic:topic:folding-and-carrying:positive\",\"t1-034\":\"primary_topic:topic:folding-and-carrying:neutral\",\"t1-035\":\"primary_topic:topic:folding-and-carrying:negative\",\"t1-036\":\"no_specific_topic\",\"t1-037\":\"primary_topic:topic:price-and-value:positive\",\"t1-038\":\"primary_topic:topic:folding-and-carrying:negative\",\"t1-039\":\"no_specific_topic\",\"t1-040\":\"other\",\"t1-041\":\"primary_topic:topic:motor-assist:negative\",\"t1-042\":\"no_specific_topic\",\"t1-043\":\"primary_topic:topic:motor-assist:positive\",\"t1-044\":\"primary_topic:topic:brakes-and-stopping:positive\",\"t1-045\":\"primary_topic:topic:brakes-and-stopping:neutral\",\"t1-046\":\"no_specific_topic\",\"t1-047\":\"primary_topic:topic:riding-range:positive\",\"t1-048\":\"no_specific_topic\",\"t1-049\":\"other\",\"t1-050\":\"primary_topic:topic:price-and-value:positive\",\"t1-052\":\"primary_topic:topic:companion-app:positive\",\"t1-053\":\"primary_topic:topic:riding-range:positive\",\"t1-054\":\"primary_topic:topic:folding-and-carrying:positive\",\"t1-055\":\"primary_topic:topic:riding-range:positive\",\"t1-056\":\"primary_topic:topic:motor-assist:negative\",\"t1-057\":\"primary_topic:topic:ride-comfort:negative\",\"t1-058\":\"primary_topic:topic:brakes-and-stopping:neutral\",\"t1-059\":\"no_specific_topic\",\"t1-060\":\"primary_topic:topic:riding-range:negative\",\"t1-061\":\"primary_topic:topic:brakes-and-stopping:negative\",\"t1-062\":\"other\",\"t1-063\":\"no_specific_topic\",\"t1-064\":\"primary_topic:topic:price-and-value:negative\",\"t1-065\":\"primary_topic:topic:riding-range:negative\",\"t1-066\":\"primary_topic:topic:motor-assist:positive\",\"t1-067\":\"other\",\"t1-068\":\"other\",\"t1-069\":\"primary_topic:topic:motor-assist:neutral\",\"t1-070\":\"primary_topic:topic:motor-assist:positive\",\"t1-071\":\"primary_topic:topic:ride-comfort:negative\",\"t1-072\":\"primary_topic:topic:price-and-value:negative\",\"t1-073\":\"other\",\"t1-074\":\"primary_topic:topic:riding-range:negative\",\"t1-075\":\"no_specific_topic\",\"t1-076\":\"other\",\"t1-077\":\"primary_topic:topic:folding-and-carrying:positive\",\"t1-078\":\"other\",\"t1-079\":\"primary_topic:topic:folding-and-carrying:negative\",\"t1-080\":\"primary_topic:topic:folding-and-carrying:negative\",\"t1-081\":\"primary_topic:topic:ride-comfort:negative\",\"t1-082\":\"primary_topic:topic:motor-assist:negative\",\"t1-083\":\"primary_topic:topic:companion-app:negative\",\"t1-084\":\"primary_topic:topic:charging-and-battery-removal:negative\",\"t1-085\":\"no_specific_topic\",\"t1-086\":\"primary_topic:topic:riding-range:positive\",\"t1-087\":\"primary_topic:topic:riding-range:negative\",\"t1-088\":\"no_specific_topic\",\"t1-089\":\"no_specific_topic\",\"t1-090\":\"primary_topic:topic:motor-assist:positive\",\"t1-091\":\"primary_topic:topic:motor-assist:neutral\",\"t1-092\":\"other\",\"t1-093\":\"primary_topic:topic:folding-and-carrying:positive\",\"t1-094\":\"primary_topic:topic:charging-and-battery-removal:neutral\",\"t1-095\":\"other\",\"t1-096\":\"primary_topic:topic:brakes-and-stopping:negative\",\"t1-097\":\"primary_topic:topic:brakes-and-stopping:positive\",\"t1-098\":\"primary_topic:topic:ride-comfort:neutral\",\"t1-099\":\"primary_topic:topic:ride-comfort:positive\",\"t1-100\":\"primary_topic:topic:charging-and-battery-removal:positive\",\"t1-101\":\"no_specific_topic\",\"t1-102\":\"primary_topic:topic:charging-and-battery-removal:negative\",\"t1-103\":\"primary_topic:topic:charging-and-battery-removal:negative\",\"t1-104\":\"primary_topic:topic:motor-assist:negative\",\"t1-105\":\"primary_topic:topic:ride-comfort:positive\",\"t1-106\":\"primary_topic:topic:companion-app:positive\",\"t1-107\":\"primary_topic:topic:price-and-value:neutral\",\"t1-108\":\"primary_topic:topic:ride-comfort:neutral\",\"t1-109\":\"no_specific_topic\",\"t1-110\":\"no_specific_topic\",\"t1-111\":\"primary_topic:topic:motor-assist:negative\",\"t1-112\":\"primary_topic:topic:riding-range:neutral\",\"t1-113\":\"primary_topic:topic:motor-assist:positive\",\"t1-114\":\"primary_topic:topic:folding-and-carrying:negative\",\"t1-115\":\"no_specific_topic\",\"t1-116\":\"primary_topic:topic:motor-assist:negative\",\"t1-117\":\"other\",\"t1-118\":\"other\",\"t1-119\":\"primary_topic:topic:brakes-and-stopping:negative\",\"t1-120\":\"primary_topic:topic:riding-range:neutral\",\"t1-121\":\"primary_topic:topic:brakes-and-stopping:neutral\",\"t1-122\":\"primary_topic:topic:riding-range:negative\",\"t1-124\":\"primary_topic:topic:companion-app:neutral\",\"t1-125\":\"primary_topic:topic:motor-assist:negative\",\"t1-126\":\"no_specific_topic\",\"t1-127\":\"no_specific_topic\",\"t1-128\":\"primary_topic:topic:riding-range:positive\",\"t1-129\":\"primary_topic:topic:motor-assist:positive\",\"t1-130\":\"primary_topic:topic:ride-comfort:positive\",\"t1-131\":\"primary_topic:topic:folding-and-carrying:neutral\",\"t1-132\":\"no_specific_topic\",\"t1-133\":\"primary_topic:topic:ride-comfort:positive\",\"t1-134\":\"primary_topic:topic:ride-comfort:positive\",\"t1-135\":\"primary_topic:topic:riding-range:positive\",\"t1-136\":\"primary_topic:topic:motor-assist:neutral\",\"t1-137\":\"other\",\"t1-138\":\"other\",\"t1-139\":\"no_specific_topic\",\"t1-140\":\"primary_topic:topic:motor-assist:positive\",\"t1-141\":\"primary_topic:topic:riding-range:neutral\",\"t1-142\":\"primary_topic:topic:price-and-value:negative\",\"t1-143\":\"primary_topic:topic:riding-range:negative\",\"t1-144\":\"primary_topic:topic:riding-range:positive\",\"t1-145\":\"primary_topic:topic:price-and-value:negative\",\"t1-146\":\"no_specific_topic\",\"t1-148\":\"primary_topic:topic:riding-range:positive\",\"t1-150\":\"primary_topic:topic:folding-and-carrying:negative\",\"t1-151\":\"primary_topic:topic:charging-and-battery-removal:neutral\",\"t1-152\":\"primary_topic:topic:ride-comfort:negative\",\"t1-153\":\"other\",\"t1-154\":\"primary_topic:topic:price-and-value:neutral\",\"t1-155\":\"primary_topic:topic:motor-assist:negative\",\"t1-156\":\"primary_topic:topic:brakes-and-stopping:positive\",\"t1-157\":\"no_specific_topic\",\"t1-158\":\"primary_topic:topic:motor-assist:positive\",\"t1-159\":\"primary_topic:topic:riding-range:positive\",\"t1-160\":\"primary_topic:topic:folding-and-carrying:neutral\",\"t1-161\":\"primary_topic:topic:brakes-and-stopping:negative\",\"t1-163\":\"no_specific_topic\",\"t1-164\":\"primary_topic:topic:ride-comfort:neutral\",\"t1-165\":\"primary_topic:topic:folding-and-carrying:positive\",\"t1-166\":\"primary_topic:topic:motor-assist:negative\",\"t1-167\":\"primary_topic:topic:folding-and-carrying:negative\",\"t1-168\":\"primary_topic:topic:riding-range:positive\",\"t1-169\":\"no_specific_topic\",\"t1-170\":\"no_specific_topic\",\"t1-172\":\"primary_topic:topic:charging-and-battery-removal:positive\",\"t1-174\":\"primary_topic:topic:charging-and-battery-removal:positive\",\"t1-175\":\"primary_topic:topic:price-and-value:positive\",\"t1-176\":\"primary_topic:topic:charging-and-battery-removal:negative\",\"t1-177\":\"primary_topic:topic:motor-assist:neutral\",\"t1-178\":\"primary_topic:topic:riding-range:negative\",\"t1-179\":\"primary_topic:topic:folding-and-carrying:neutral\",\"t1-180\":\"primary_topic:topic:charging-and-battery-removal:negative\",\"t1-181\":\"no_specific_topic\",\"t1-182\":\"other\",\"t1-183\":\"primary_topic:topic:price-and-value:negative\",\"t1-184\":\"no_specific_topic\",\"t1-185\":\"primary_topic:topic:price-and-value:neutral\",\"t1-186\":\"primary_topic:topic:ride-comfort:negative\",\"t1-187\":\"other\",\"t1-188\":\"primary_topic:topic:ride-comfort:positive\",\"t1-189\":\"no_specific_topic\",\"t1-190\":\"primary_topic:topic:motor-assist:positive\",\"t1-191\":\"primary_topic:topic:riding-range:negative\",\"t1-192\":\"primary_topic:topic:riding-range:neutral\",\"t1-193\":\"primary_topic:topic:companion-app:negative\",\"t1-194\":\"other\",\"t1-195\":\"primary_topic:topic:riding-range:neutral\",\"t1-196\":\"primary_topic:topic:motor-assist:neutral\",\"t1-197\":\"primary_topic:topic:price-and-value:negative\",\"t1-198\":\"primary_topic:topic:ride-comfort:positive\",\"t1-199\":\"other\",\"t1-200\":\"primary_topic:topic:folding-and-carrying:positive\"},\"section\":{\"status\":\"available\",\"topics\":[{\"id\":\"topic:riding-range\",\"name\":\"riding range\",\"description\":\"How far the bike travels on one charge, including range estimates and how quickly the battery drains.\",\"count\":{\"count\":28,\"base\":188,\"percent\":15},\"topicSentiment\":{\"base\":28,\"rows\":[{\"label\":\"positive\",\"count\":11,\"percent\":39},{\"label\":\"neutral\",\"count\":7,\"percent\":25},{\"label\":\"negative\",\"count\":10,\"percent\":36}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t1-028\",\"topicSentiment\":\"positive\",\"rank\":1,\"providerExample\":false},{\"commentId\":\"t1-013\",\"topicSentiment\":\"negative\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t1-009\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":true}]},{\"id\":\"topic:motor-assist\",\"name\":\"motor assist\",\"description\":\"How the electric assist feels and performs, including power on hills, assist levels, pickup and motor sound.\",\"count\":{\"count\":24,\"base\":188,\"percent\":13},\"topicSentiment\":{\"base\":24,\"rows\":[{\"label\":\"positive\",\"count\":10,\"percent\":42},{\"label\":\"neutral\",\"count\":5,\"percent\":21},{\"label\":\"negative\",\"count\":9,\"percent\":37}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t1-022\",\"topicSentiment\":\"positive\",\"rank\":1,\"providerExample\":true},{\"commentId\":\"t1-041\",\"topicSentiment\":\"negative\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t1-069\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":false}]},{\"id\":\"topic:folding-and-carrying\",\"name\":\"folding and carrying\",\"description\":\"The folding mechanism and latches, the folded size, and carrying or storing the folded bike.\",\"count\":{\"count\":20,\"base\":188,\"percent\":11},\"topicSentiment\":{\"base\":20,\"rows\":[{\"label\":\"positive\",\"count\":9,\"percent\":45},{\"label\":\"neutral\",\"count\":4,\"percent\":20},{\"label\":\"negative\",\"count\":7,\"percent\":35}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t1-011\",\"topicSentiment\":\"positive\",\"rank\":1,\"providerExample\":true},{\"commentId\":\"t1-035\",\"topicSentiment\":\"negative\",\"rank\":2,\"providerExample\":false},{\"commentId\":\"t1-034\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":false}]},{\"id\":\"topic:ride-comfort\",\"name\":\"ride comfort\",\"description\":\"How comfortable the bike is to ride, including saddle, suspension, tyres, handlebars and fit.\",\"count\":{\"count\":16,\"base\":188,\"percent\":9},\"topicSentiment\":{\"base\":16,\"rows\":[{\"label\":\"positive\",\"count\":7,\"percent\":44},{\"label\":\"neutral\",\"count\":3,\"percent\":19},{\"label\":\"negative\",\"count\":6,\"percent\":37}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t1-099\",\"topicSentiment\":\"positive\",\"rank\":1,\"providerExample\":false},{\"commentId\":\"t1-007\",\"topicSentiment\":\"negative\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t1-098\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":false}]},{\"id\":\"topic:charging-and-battery-removal\",\"name\":\"charging and battery removal\",\"description\":\"The charger, charging time, the charging port and removing the battery to charge it.\",\"count\":{\"count\":14,\"base\":188,\"percent\":7},\"topicSentiment\":{\"base\":14,\"rows\":[{\"label\":\"positive\",\"count\":4,\"percent\":29},{\"label\":\"neutral\",\"count\":3,\"percent\":21},{\"label\":\"negative\",\"count\":7,\"percent\":50}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t1-014\",\"topicSentiment\":\"negative\",\"rank\":1,\"providerExample\":true},{\"commentId\":\"t1-021\",\"topicSentiment\":\"positive\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t1-016\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":true}]},{\"id\":\"topic:price-and-value\",\"name\":\"price and value\",\"description\":\"What the bike and its accessories cost and whether that is worth the money.\",\"count\":{\"count\":14,\"base\":188,\"percent\":7},\"topicSentiment\":{\"base\":14,\"rows\":[{\"label\":\"positive\",\"count\":4,\"percent\":29},{\"label\":\"neutral\",\"count\":3,\"percent\":21},{\"label\":\"negative\",\"count\":7,\"percent\":50}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t1-024\",\"topicSentiment\":\"negative\",\"rank\":1,\"providerExample\":true},{\"commentId\":\"t1-026\",\"topicSentiment\":\"positive\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t1-107\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":false}]},{\"id\":\"topic:brakes-and-stopping\",\"name\":\"brakes and stopping\",\"description\":\"How the bike brakes and stops, including brake feel, brake noise, levers and stopping distance.\",\"count\":{\"count\":12,\"base\":188,\"percent\":6},\"topicSentiment\":{\"base\":12,\"rows\":[{\"label\":\"positive\",\"count\":3,\"percent\":25},{\"label\":\"neutral\",\"count\":3,\"percent\":25},{\"label\":\"negative\",\"count\":6,\"percent\":50}]},\"smallSample\":true,\"evidence\":[{\"commentId\":\"t1-001\",\"topicSentiment\":\"negative\",\"rank\":1,\"providerExample\":true},{\"commentId\":\"t1-044\",\"topicSentiment\":\"positive\",\"rank\":2,\"providerExample\":true},{\"commentId\":\"t1-045\",\"topicSentiment\":\"neutral\",\"rank\":3,\"providerExample\":false}]}],\"other\":{\"count\":{\"count\":28,\"base\":188,\"percent\":15},\"providerOther\":{\"count\":22,\"base\":188,\"percent\":12},\"smallTopics\":{\"count\":6,\"base\":188,\"percent\":3},\"smallTopicSentiment\":{\"base\":6,\"rows\":[{\"label\":\"positive\",\"count\":2,\"percent\":33},{\"label\":\"neutral\",\"count\":1,\"percent\":17},{\"label\":\"negative\",\"count\":3,\"percent\":50}]},\"mergedTopics\":[{\"id\":\"topic:companion-app\",\"name\":\"companion app\",\"mentionCount\":6}]},\"noSpecificTopic\":{\"count\":32,\"base\":188,\"percent\":17},\"coverage\":{\"sentimentBase\":188,\"spamExcluded\":12,\"namedTopics\":{\"count\":128,\"base\":188,\"percent\":68},\"other\":{\"count\":28,\"base\":188,\"percent\":15},\"noSpecificTopic\":{\"count\":32,\"base\":188,\"percent\":17}},\"minTopicSize\":10,\"warnings\":[],\"method\":{\"providerLabel\":\"Two-phase topics (Oracle taxonomy generator (gold) + Oracle topic assigner (gold))\",\"normalizationVersion\":\"tn1\",\"commentsSent\":188,\"attempts\":1,\"parameters\":{\"maxTopics\":12,\"evidencePerTopic\":3,\"smallSampleThreshold\":30,\"minTopicSizeFloor\":10,\"minTopicSizePercentOfBase\":1,\"otherWarningThresholdPercent\":35},\"discoverySample\":{\"version\":\"ds1\",\"strategy\":\"seeded_stratified\",\"population\":\"non_spam_topic_base\",\"seed\":\"t1-topics-v1/ds1\",\"eligible\":188,\"size\":188,\"usedAll\":true,\"strata\":[{\"key\":\"focus:negative\",\"available\":53,\"selected\":53},{\"key\":\"focus:neutral\",\"available\":15,\"selected\":15},{\"key\":\"focus:positive\",\"available\":60,\"selected\":60},{\"key\":\"substantive:negative\",\"available\":7,\"selected\":7},{\"key\":\"substantive:neutral\",\"available\":31,\"selected\":31},{\"key\":\"substantive:positive\",\"available\":11,\"selected\":11},{\"key\":\"trivial:neutral\",\"available\":3,\"selected\":3},{\"key\":\"trivial:positive\",\"available\":8,\"selected\":8}],\"parameters\":{\"maxSize\":400,\"focusReservePercent\":15,\"trivialMaxPercent\":10,\"shortWordThreshold\":4,\"minPerSentimentLabel\":10}}}}}"
+          }
+        ],
+        "repeatIdentical": true,
+        "repeatConsistency": 1,
+        "retryRate": 0,
+        "persistentFailureRate": 0,
+        "perfect": true,
+        "expectationFailures": []
+      },
+      {
+        "id": "real-google-discovery-jev-assignment",
+        "group": "live",
+        "description": "Live: gemini-3.8-flash discovery (topic-discovery-v1) + jev-latest assignment (jev-topic-a1).",
+        "expected": {
+          "status": "available",
+          "attempts": 1,
+          "generatorCalls": 1,
+          "assignerCalls": 1,
+          "failedAttemptCodes": [],
+          "perfect": true,
+          "outcome": "ideal; any deviation is a measurement of the real providers, not a harness failure"
+        },
+        "runs": [
+          {
+            "repeat": 1,
+            "status": "unavailable",
+            "attempts": 2,
+            "generatorCalls": 2,
+            "assignerCalls": 0,
+            "phaseCalls": [
+              {
+                "phase": "taxonomy",
+                "attempt": 1,
+                "comments": 188,
+                "failed": true
+              },
+              {
+                "phase": "taxonomy",
+                "attempt": 2,
+                "comments": 188,
+                "feedback": {
+                  "attempt": 1,
+                  "issues": [
+                    {
+                      "code": "provider_error",
+                      "count": 1
+                    }
+                  ]
+                },
+                "failed": true
+              }
+            ],
+            "failedAttemptCodes": [
+              [
+                "provider_error"
+              ],
+              [
+                "provider_error"
+              ]
+            ],
+            "taxonomyProposals": [],
+            "taxonomy": null,
+            "assignment": null,
+            "report": null,
+            "retry": {
+              "withinAttemptLimit": true,
+              "phaseCallsWithinLimit": true,
+              "feedbackSent": true,
+              "feedbackCorrect": true,
+              "feedbackSanitized": true,
+              "reportSanitized": true,
+              "noPartialTopics": true,
+              "diagnosticsMatch": true
+            },
+            "predictions": null,
+            "section": {
+              "status": "unavailable",
+              "reason": "TOPICS_UNAVAILABLE",
+              "issues": [
+                {
+                  "attempt": 1,
+                  "code": "provider_error",
+                  "count": 1
+                },
+                {
+                  "attempt": 2,
+                  "code": "provider_error",
+                  "count": 1
+                }
+              ],
+              "method": {
+                "providerLabel": "Two-phase topics (Google gemini-3.8-flash (topic-discovery-v1) + TypeSafe jev-latest (jev-topic-a1), batches of ≤ 25)",
+                "normalizationVersion": "tn1",
+                "commentsSent": 188,
+                "attempts": 2,
+                "parameters": {
+                  "maxTopics": 12,
+                  "evidencePerTopic": 3,
+                  "smallSampleThreshold": 30,
+                  "minTopicSizeFloor": 10,
+                  "minTopicSizePercentOfBase": 1,
+                  "otherWarningThresholdPercent": 35
+                },
+                "discoverySample": {
+                  "version": "ds1",
+                  "strategy": "seeded_stratified",
+                  "population": "non_spam_topic_base",
+                  "seed": "t1-topics-v1/ds1",
+                  "eligible": 188,
+                  "size": 188,
+                  "usedAll": true,
+                  "strata": [
+                    {
+                      "key": "focus:negative",
+                      "available": 53,
+                      "selected": 53
+                    },
+                    {
+                      "key": "focus:neutral",
+                      "available": 15,
+                      "selected": 15
+                    },
+                    {
+                      "key": "focus:positive",
+                      "available": 60,
+                      "selected": 60
+                    },
+                    {
+                      "key": "substantive:negative",
+                      "available": 7,
+                      "selected": 7
+                    },
+                    {
+                      "key": "substantive:neutral",
+                      "available": 31,
+                      "selected": 31
+                    },
+                    {
+                      "key": "substantive:positive",
+                      "available": 11,
+                      "selected": 11
+                    },
+                    {
+                      "key": "trivial:neutral",
+                      "available": 3,
+                      "selected": 3
+                    },
+                    {
+                      "key": "trivial:positive",
+                      "available": 8,
+                      "selected": 8
+                    }
+                  ],
+                  "parameters": {
+                    "maxSize": 400,
+                    "focusReservePercent": 15,
+                    "trivialMaxPercent": 10,
+                    "shortWordThreshold": 4,
+                    "minPerSentimentLabel": 10
+                  }
+                }
+              }
+            },
+            "fingerprint": "{\"status\":\"unavailable\",\"attempts\":2,\"phaseCalls\":[{\"phase\":\"taxonomy\",\"attempt\":1,\"comments\":188,\"failed\":true},{\"phase\":\"taxonomy\",\"attempt\":2,\"comments\":188,\"feedback\":{\"attempt\":1,\"issues\":[{\"code\":\"provider_error\",\"count\":1}]},\"failed\":true}],\"failedAttemptCodes\":[[\"provider_error\"],[\"provider_error\"]],\"topics\":null,\"predictions\":null,\"section\":{\"status\":\"unavailable\",\"reason\":\"TOPICS_UNAVAILABLE\",\"issues\":[{\"attempt\":1,\"code\":\"provider_error\",\"count\":1},{\"attempt\":2,\"code\":\"provider_error\",\"count\":1}],\"method\":{\"providerLabel\":\"Two-phase topics (Google gemini-3.8-flash (topic-discovery-v1) + TypeSafe jev-latest (jev-topic-a1), batches of ≤ 25)\",\"normalizationVersion\":\"tn1\",\"commentsSent\":188,\"attempts\":2,\"parameters\":{\"maxTopics\":12,\"evidencePerTopic\":3,\"smallSampleThreshold\":30,\"minTopicSizeFloor\":10,\"minTopicSizePercentOfBase\":1,\"otherWarningThresholdPercent\":35},\"discoverySample\":{\"version\":\"ds1\",\"strategy\":\"seeded_stratified\",\"population\":\"non_spam_topic_base\",\"seed\":\"t1-topics-v1/ds1\",\"eligible\":188,\"size\":188,\"usedAll\":true,\"strata\":[{\"key\":\"focus:negative\",\"available\":53,\"selected\":53},{\"key\":\"focus:neutral\",\"available\":15,\"selected\":15},{\"key\":\"focus:positive\",\"available\":60,\"selected\":60},{\"key\":\"substantive:negative\",\"available\":7,\"selected\":7},{\"key\":\"substantive:neutral\",\"available\":31,\"selected\":31},{\"key\":\"substantive:positive\",\"available\":11,\"selected\":11},{\"key\":\"trivial:neutral\",\"available\":3,\"selected\":3},{\"key\":\"trivial:positive\",\"available\":8,\"selected\":8}],\"parameters\":{\"maxSize\":400,\"focusReservePercent\":15,\"trivialMaxPercent\":10,\"shortWordThreshold\":4,\"minPerSentimentLabel\":10}}}}}"
+          }
+        ],
+        "repeatIdentical": true,
+        "repeatConsistency": 1,
+        "retryRate": 1,
+        "persistentFailureRate": 1,
+        "perfect": false,
+        "expectationFailures": [
+          "repeat 1: status unavailable, expected available",
+          "repeat 1: 2 attempts, expected 1",
+          "repeat 1: 2 taxonomy calls, expected 1",
+          "repeat 1: 0 assignment calls, expected 1",
+          "repeat 1: failed-attempt codes [[\"provider_error\"],[\"provider_error\"]], expected []",
+          "repeat 1: not perfect (topics unavailable)"
+        ]
+      }
+    ]
+  },
+  "usage": [
+    {
+      "repeat": 1,
+      "discovery": {
+        "requests": 2,
+        "failedRequests": 2,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "latencyMs": {
+          "total": 57743,
+          "mean": 28871.5,
+          "p50": 12488,
+          "p95": 45255,
+          "max": 45255
+        },
+        "modelsServed": []
+      },
+      "assignment": {
+        "requests": 0,
+        "failedRequests": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "estimatedCostUsd": 0,
+        "latencyMs": {
+          "total": 0,
+          "mean": 0,
+          "p50": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "modelsServed": [],
+        "batches": 0,
+        "failedBatches": 0
+      },
+      "records": [
+        {
+          "provider": "google",
+          "model": "gemini-3.8-flash",
+          "promptVersion": "topic-discovery-v1",
+          "schemaVersion": "topic-discovery-v1",
+          "batchSize": 188,
+          "attempt": 1,
+          "outcome": "provider_error",
+          "errorType": "HTTP503",
+          "latencyMs": 45255,
+          "timestamp": "2026-10-05T15:16:31.417Z"
+        },
+        {
+          "provider": "google",
+          "model": "gemini-3.8-flash",
+          "promptVersion": "topic-discovery-v1",
+          "schemaVersion": "topic-discovery-v1",
+          "batchSize": 188,
+          "attempt": 2,
+          "outcome": "provider_error",
+          "errorType": "HTTP503",
+          "latencyMs": 12488,
+          "timestamp": "2026-10-05T15:16:43.907Z"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "requests": 2,
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "latencyMs": 57743,
+    "attempts": [
+      2
+    ],
+    "batches": 0
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "description": "EXPERIMENTAL local real-mode prototype (ANALYSIS_MODE=real): official YouTube Data API source plus real AI adapters. Selecting real mode never changes the compliance policy: real YouTube comments are analysed only if the CG-1 gate is satisfied independently. Discovery and assignment providers come from config/topic-providers.json. The topic pipeline is the validated one (docs/topic-validation-t1-t2-t3-sonnet-v3.md): discovery topic-discovery-v2 → consolidation topic-consolidation-v3 (same Anthropic model and settings as discovery) → Jev assignment, with the benchmark's discovery sample seed. Worst-case token figures size the per-call cost reservations; prices come from config/model-prices.json. No secrets here.",
+  "youtube": {
+    "maxComments": 500,
+    "timeoutMs": 15000
+  },
+  "maxCostUsd": 1.0,
+  "discoveryContract": "topic-discovery-v2",
+  "consolidationContract": "topic-consolidation-v3",
+  "discoverySampleSeed": "t1-topics-v1/ds1",
+  "classifier": {
+    "provider": "typesafe",
+    "model": "jev-latest",
+    "questionSet": "jev-q2.2",
+    "concurrency": 8,
+    "timeoutMs": 30000,
+    "maxRetries": 3,
+    "worstCaseInputTokensPerComment": 12000,
+    "worstCaseOutputTokensPerComment": 1000
+  },
+  "assignment": {
+    "worstCaseInputTokensPerComment": 4000,
+    "worstCaseOutputTokensPerComment": 500
+  },
+  "discovery": {
+    "charsPerToken": 4,
+    "inputHeadroom": 1.5
+  }
+}

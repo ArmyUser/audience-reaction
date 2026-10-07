@@ -1,0 +1,111 @@
+{
+  "datasetId": "t1-topics-v1",
+  "datasetVersion": "sha256:e44ac9d63b94ebc9",
+  "description": "Recorded raw model responses for replay through the topic contracts (synthetic, written for this project; no model was called).",
+  "responses": [
+    {
+      "id": "taxonomy-perfect",
+      "phase": "taxonomy_discovery",
+      "contract": "topic-discovery-v1",
+      "file": "responses/taxonomy-perfect.txt",
+      "sha256": "8af2745f322cd9b567cdf30e43089bb46654afe1990ad14408c24962cdb23798",
+      "description": "Valid taxonomy in the model's own wording, two sample examples per topic."
+    },
+    {
+      "id": "taxonomy-duplicate-name",
+      "phase": "taxonomy_discovery",
+      "contract": "topic-discovery-v1",
+      "file": "responses/taxonomy-duplicate-name.txt",
+      "sha256": "1d7bfc3babfce0b29795428a301c9d6809bd5d621bed077a3fdd07877d33e63d",
+      "description": "Adds a second battery-range topic whose name differs only in case (duplicate normalised name)."
+    },
+    {
+      "id": "taxonomy-missing-definition",
+      "phase": "taxonomy_discovery",
+      "contract": "topic-discovery-v1",
+      "file": "responses/taxonomy-missing-definition.txt",
+      "sha256": "7d28a6592ca5454eab6ec7157113c22bfe869bb064c84a799994898563073181",
+      "description": "One topic has an empty definition."
+    },
+    {
+      "id": "taxonomy-malformed-prose",
+      "phase": "taxonomy_discovery",
+      "contract": "topic-discovery-v1",
+      "file": "responses/taxonomy-malformed-prose.txt",
+      "sha256": "1cb18b44abb2d8c232336e6a9c47dd134f3c48261fe3e16d644241732b0c17b9",
+      "description": "The valid taxonomy wrapped in prose and a Markdown fence (not repaired: invalid output)."
+    },
+    {
+      "id": "assignment-perfect",
+      "phase": "comment_assignment",
+      "contract": "topic-assignment-v1",
+      "file": "responses/assignment-perfect.txt",
+      "sha256": "61a604105965cb9d988e840e00cba8745b89d7815acae119ee9a36373fb98240",
+      "description": "Gold disposition and gold topic sentiment for all 188 comments."
+    },
+    {
+      "id": "assignment-unknown-topic",
+      "phase": "comment_assignment",
+      "contract": "topic-assignment-v1",
+      "file": "responses/assignment-unknown-topic.txt",
+      "sha256": "d5dc28761cf4772c2b5c12f53b3c2608ecfe74e180a48a98e0c5d989b0a63ab4",
+      "description": "The first three primary-topic comments cite the invented key battery_life."
+    },
+    {
+      "id": "assignment-unknown-topic-retry",
+      "phase": "comment_assignment",
+      "contract": "topic-assignment-v1",
+      "file": "responses/assignment-unknown-topic-retry.txt",
+      "sha256": "7db157933c8841059249470fdfd37eedc12ad9730bbdd3d83b3832f38a9f188a",
+      "description": "Corrected answer for exactly the three comments named in the feedback."
+    },
+    {
+      "id": "assignment-missing-comment",
+      "phase": "comment_assignment",
+      "contract": "topic-assignment-v1",
+      "file": "responses/assignment-missing-comment.txt",
+      "sha256": "2d79351b64792154984c80bc7e8e181a2df127a239d4061b2accaf2a78ce0740",
+      "description": "Two comments have no entry."
+    },
+    {
+      "id": "assignment-missing-comment-retry",
+      "phase": "comment_assignment",
+      "contract": "topic-assignment-v1",
+      "file": "responses/assignment-missing-comment-retry.txt",
+      "sha256": "1d68810f540064d959b36de15691ac597009bd2782a319b12876fe674e680b69",
+      "description": "Entries for exactly the two missing comments."
+    },
+    {
+      "id": "assignment-wrong-sentiment",
+      "phase": "comment_assignment",
+      "contract": "topic-assignment-v1",
+      "file": "responses/assignment-wrong-sentiment.txt",
+      "sha256": "b1f8d311f4589c4bd7224dfd51c0f632e7f01747a3a6cf94e9b5e084d38ff541",
+      "description": "Structurally valid, but every topic sentiment copies the comment's overall sentiment."
+    },
+    {
+      "id": "assignment-injection-obeyed",
+      "phase": "comment_assignment",
+      "contract": "topic-assignment-v1",
+      "file": "responses/assignment-injection-obeyed.txt",
+      "sha256": "225465921bc7e8035b084afcedb0e0703d3ac74c69ac74378baa06771777ff98",
+      "description": "Structurally valid, but the model obeyed two instruction-like comments (brakes 'flawless'; fake JSON treated as substantive)."
+    },
+    {
+      "id": "assignment-malformed-truncated",
+      "phase": "comment_assignment",
+      "contract": "topic-assignment-v1",
+      "file": "responses/assignment-malformed-truncated.txt",
+      "sha256": "e208df8e60e751f99f197ff6890dcf699a5d7b21165d7f749c90d1a253d187e0",
+      "description": "The valid answer cut off mid-entry."
+    },
+    {
+      "id": "assignment-malformed-fenced",
+      "phase": "comment_assignment",
+      "contract": "topic-assignment-v1",
+      "file": "responses/assignment-malformed-fenced.txt",
+      "sha256": "45c037635154e146dfe4c014691388c5d9b951274d3670abb3a6b8681d9d4a02",
+      "description": "The valid answer inside a Markdown code fence."
+    }
+  ]
+}

@@ -1,0 +1,708 @@
+{
+  "meta": {
+    "timestamp": "2026-10-04T18:46:14.156Z",
+    "provider": "typesafe",
+    "model": "jev-latest",
+    "modelVersions": [
+      "jev-1.13.0"
+    ],
+    "promptVersion": "jev-q1",
+    "schemaVersion": "v1-3label-focus",
+    "guidelineVersion": "g1.2",
+    "dataset": {
+      "name": "m2-synthetic",
+      "version": "sha256:1fe2fbe6facafb1c",
+      "size": 60
+    },
+    "repeats": 1,
+    "batchSize": 1,
+    "mixedEnabled": false,
+    "focus": {
+      "name": "Acme VPN",
+      "aliases": [
+        "Acme"
+      ],
+      "isVideoSponsor": true
+    },
+    "retryRounds": 2
+  },
+  "runs": [
+    {
+      "repeat": 1,
+      "wallClockMs": 21026,
+      "classified": 60,
+      "failures": [],
+      "consistencyIssues": [
+        {
+          "commentId": "m2-c42",
+          "rule": "question_type_without_question_flag"
+        }
+      ],
+      "responseIssues": 0,
+      "firstAttemptValidRate": 1,
+      "rounds": 1,
+      "tasks": [
+        {
+          "task": "type",
+          "n": 60,
+          "correct": 47,
+          "accuracy": 0.7833333333333333,
+          "macroF1": 0.6613275613275613,
+          "perClass": [
+            {
+              "label": "joke_reaction",
+              "support": 2,
+              "predicted": 3,
+              "precision": 0.6666666666666666,
+              "recall": 1,
+              "f1": 0.8
+            },
+            {
+              "label": "opinion",
+              "support": 35,
+              "predicted": 35,
+              "precision": 0.9428571428571428,
+              "recall": 0.9428571428571428,
+              "f1": 0.9428571428571428
+            },
+            {
+              "label": "other",
+              "support": 12,
+              "predicted": 2,
+              "precision": 1,
+              "recall": 0.16666666666666666,
+              "f1": 0.2857142857142857
+            },
+            {
+              "label": "question",
+              "support": 4,
+              "predicted": 7,
+              "precision": 0.5714285714285714,
+              "recall": 1,
+              "f1": 0.7272727272727273
+            },
+            {
+              "label": "request",
+              "support": 3,
+              "predicted": 6,
+              "precision": 0.5,
+              "recall": 1,
+              "f1": 0.6666666666666666
+            },
+            {
+              "label": "spam_irrelevant",
+              "support": 4,
+              "predicted": 7,
+              "precision": 0.42857142857142855,
+              "recall": 0.75,
+              "f1": 0.5454545454545454
+            }
+          ],
+          "confusion": {
+            "labels": [
+              "joke_reaction",
+              "opinion",
+              "other",
+              "question",
+              "request",
+              "spam_irrelevant"
+            ],
+            "matrix": [
+              [
+                2,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                33,
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                2,
+                2,
+                2,
+                2,
+                3
+              ],
+              [
+                0,
+                0,
+                0,
+                4,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                3,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                1,
+                0,
+                3
+              ]
+            ]
+          }
+        },
+        {
+          "task": "isQuestion",
+          "n": 60,
+          "correct": 56,
+          "accuracy": 0.9333333333333333,
+          "macroF1": 0.8382749326145553,
+          "perClass": [
+            {
+              "label": "false",
+              "support": 55,
+              "predicted": 51,
+              "precision": 1,
+              "recall": 0.9272727272727272,
+              "f1": 0.9622641509433962
+            },
+            {
+              "label": "true",
+              "support": 5,
+              "predicted": 9,
+              "precision": 0.5555555555555556,
+              "recall": 1,
+              "f1": 0.7142857142857143
+            }
+          ],
+          "confusion": {
+            "labels": [
+              "false",
+              "true"
+            ],
+            "matrix": [
+              [
+                51,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          }
+        },
+        {
+          "task": "isRequest",
+          "n": 60,
+          "correct": 57,
+          "accuracy": 0.95,
+          "macroF1": 0.8498748957464554,
+          "perClass": [
+            {
+              "label": "false",
+              "support": 56,
+              "predicted": 53,
+              "precision": 1,
+              "recall": 0.9464285714285714,
+              "f1": 0.9724770642201834
+            },
+            {
+              "label": "true",
+              "support": 4,
+              "predicted": 7,
+              "precision": 0.5714285714285714,
+              "recall": 1,
+              "f1": 0.7272727272727273
+            }
+          ],
+          "confusion": {
+            "labels": [
+              "false",
+              "true"
+            ],
+            "matrix": [
+              [
+                53,
+                3
+              ],
+              [
+                0,
+                4
+              ]
+            ]
+          }
+        },
+        {
+          "task": "sentiment",
+          "n": 60,
+          "correct": 53,
+          "accuracy": 0.8833333333333333,
+          "macroF1": 0.882171369976248,
+          "perClass": [
+            {
+              "label": "negative",
+              "support": 20,
+              "predicted": 22,
+              "precision": 0.9090909090909091,
+              "recall": 1,
+              "f1": 0.9523809523809523
+            },
+            {
+              "label": "neutral",
+              "support": 23,
+              "predicted": 18,
+              "precision": 0.9444444444444444,
+              "recall": 0.7391304347826086,
+              "f1": 0.8292682926829269
+            },
+            {
+              "label": "positive",
+              "support": 17,
+              "predicted": 20,
+              "precision": 0.8,
+              "recall": 0.9411764705882353,
+              "f1": 0.8648648648648648
+            }
+          ],
+          "confusion": {
+            "labels": [
+              "negative",
+              "neutral",
+              "positive"
+            ],
+            "matrix": [
+              [
+                20,
+                0,
+                0
+              ],
+              [
+                2,
+                17,
+                4
+              ],
+              [
+                0,
+                1,
+                16
+              ]
+            ]
+          }
+        },
+        {
+          "task": "target_creator",
+          "n": 60,
+          "correct": 48,
+          "accuracy": 0.8,
+          "macroF1": 0.4396969696969697,
+          "perClass": [
+            {
+              "label": "negative",
+              "support": 1,
+              "predicted": 5,
+              "precision": 0.2,
+              "recall": 1,
+              "f1": 0.33333333333333337
+            },
+            {
+              "label": "neutral",
+              "support": 0,
+              "predicted": 3,
+              "precision": 0,
+              "recall": 0,
+              "f1": 0
+            },
+            {
+              "label": "not_addressed",
+              "support": 56,
+              "predicted": 44,
+              "precision": 1,
+              "recall": 0.7857142857142857,
+              "f1": 0.88
+            },
+            {
+              "label": "positive",
+              "support": 3,
+              "predicted": 8,
+              "precision": 0.375,
+              "recall": 1,
+              "f1": 0.5454545454545454
+            }
+          ],
+          "confusion": {
+            "labels": [
+              "negative",
+              "neutral",
+              "not_addressed",
+              "positive"
+            ],
+            "matrix": [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                3,
+                44,
+                5
+              ],
+              [
+                0,
+                0,
+                0,
+                3
+              ]
+            ]
+          }
+        },
+        {
+          "task": "target_content",
+          "n": 60,
+          "correct": 49,
+          "accuracy": 0.8166666666666667,
+          "macroF1": 0.6014340518816221,
+          "perClass": [
+            {
+              "label": "negative",
+              "support": 16,
+              "predicted": 12,
+              "precision": 1,
+              "recall": 0.75,
+              "f1": 0.8571428571428571
+            },
+            {
+              "label": "neutral",
+              "support": 0,
+              "predicted": 1,
+              "precision": 0,
+              "recall": 0,
+              "f1": 0
+            },
+            {
+              "label": "not_addressed",
+              "support": 32,
+              "predicted": 36,
+              "precision": 0.8055555555555556,
+              "recall": 0.90625,
+              "f1": 0.8529411764705882
+            },
+            {
+              "label": "positive",
+              "support": 12,
+              "predicted": 11,
+              "precision": 0.7272727272727273,
+              "recall": 0.6666666666666666,
+              "f1": 0.6956521739130435
+            }
+          ],
+          "confusion": {
+            "labels": [
+              "negative",
+              "neutral",
+              "not_addressed",
+              "positive"
+            ],
+            "matrix": [
+              [
+                12,
+                0,
+                3,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                29,
+                2
+              ],
+              [
+                0,
+                0,
+                4,
+                8
+              ]
+            ]
+          }
+        },
+        {
+          "task": "target_focus",
+          "n": 60,
+          "correct": 48,
+          "accuracy": 0.8,
+          "macroF1": 0.6631330625895844,
+          "perClass": [
+            {
+              "label": "negative",
+              "support": 3,
+              "predicted": 5,
+              "precision": 0.6,
+              "recall": 1,
+              "f1": 0.7499999999999999
+            },
+            {
+              "label": "neutral",
+              "support": 2,
+              "predicted": 5,
+              "precision": 0.4,
+              "recall": 1,
+              "f1": 0.5714285714285715
+            },
+            {
+              "label": "not_addressed",
+              "support": 52,
+              "predicted": 40,
+              "precision": 1,
+              "recall": 0.7692307692307693,
+              "f1": 0.8695652173913044
+            },
+            {
+              "label": "positive",
+              "support": 3,
+              "predicted": 10,
+              "precision": 0.3,
+              "recall": 1,
+              "f1": 0.4615384615384615
+            }
+          ],
+          "confusion": {
+            "labels": [
+              "negative",
+              "neutral",
+              "not_addressed",
+              "positive"
+            ],
+            "matrix": [
+              [
+                3,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                0,
+                0
+              ],
+              [
+                2,
+                3,
+                40,
+                7
+              ],
+              [
+                0,
+                0,
+                0,
+                3
+              ]
+            ]
+          }
+        }
+      ],
+      "slices": [
+        {
+          "tag": "sponsor",
+          "n": 11,
+          "accuracy": {
+            "type": 1,
+            "sentiment": 0.9090909090909091,
+            "target_focus": 0.7272727272727273
+          }
+        },
+        {
+          "tag": "sarcasm",
+          "n": 3,
+          "accuracy": {
+            "type": 1,
+            "sentiment": 1,
+            "target_focus": 1
+          }
+        },
+        {
+          "tag": "irony",
+          "n": 2,
+          "accuracy": {
+            "type": 1,
+            "sentiment": 1,
+            "target_focus": 1
+          }
+        },
+        {
+          "tag": "mixed",
+          "n": 4,
+          "accuracy": {
+            "type": 1,
+            "sentiment": 1,
+            "target_focus": 0.75
+          }
+        },
+        {
+          "tag": "implicit_target",
+          "n": 4,
+          "accuracy": {
+            "type": 1,
+            "sentiment": 1,
+            "target_focus": 1
+          }
+        },
+        {
+          "tag": "explicit_brand",
+          "n": 8,
+          "accuracy": {
+            "type": 1,
+            "sentiment": 1,
+            "target_focus": 0.75
+          }
+        },
+        {
+          "tag": "prompt_injection",
+          "n": 7,
+          "accuracy": {
+            "type": 0,
+            "sentiment": 0.5714285714285714,
+            "target_focus": 0.7142857142857143
+          }
+        },
+        {
+          "tag": "html_script",
+          "n": 2,
+          "accuracy": {
+            "type": 0.5,
+            "sentiment": 1,
+            "target_focus": 1
+          }
+        },
+        {
+          "tag": "emoji",
+          "n": 5,
+          "accuracy": {
+            "type": 1,
+            "sentiment": 1,
+            "target_focus": 0.6
+          }
+        },
+        {
+          "tag": "slang",
+          "n": 6,
+          "accuracy": {
+            "type": 1,
+            "sentiment": 0.8333333333333334,
+            "target_focus": 0.6666666666666666
+          }
+        },
+        {
+          "tag": "very_short",
+          "n": 9,
+          "accuracy": {
+            "type": 0.7777777777777778,
+            "sentiment": 0.8888888888888888,
+            "target_focus": 0.8888888888888888
+          }
+        },
+        {
+          "tag": "question",
+          "n": 5,
+          "accuracy": {
+            "type": 1,
+            "sentiment": 1,
+            "target_focus": 0.8
+          }
+        },
+        {
+          "tag": "request",
+          "n": 4,
+          "accuracy": {
+            "type": 0.75,
+            "sentiment": 0.75,
+            "target_focus": 0.5
+          }
+        },
+        {
+          "tag": "spam",
+          "n": 2,
+          "accuracy": {
+            "type": 1,
+            "sentiment": 1,
+            "target_focus": 1
+          }
+        },
+        {
+          "tag": "off_topic",
+          "n": 2,
+          "accuracy": {
+            "type": 0.5,
+            "sentiment": 0.5,
+            "target_focus": 1
+          }
+        }
+      ],
+      "aggregateOverallSentiment": {
+        "gold": {
+          "positive": 30,
+          "neutral": 34,
+          "negative": 36
+        },
+        "predicted": {
+          "positive": 36,
+          "neutral": 24,
+          "negative": 40
+        },
+        "maxAbsDiffPctPoints": 10
+      },
+      "usage": {
+        "requests": 60,
+        "failedRequests": 0,
+        "inputTokens": 142153,
+        "outputTokens": 16695,
+        "estimatedCostUsd": 0.005970426000000002,
+        "latencyMs": {
+          "total": 21009,
+          "mean": 350.15,
+          "p50": 322,
+          "p95": 442,
+          "max": 463
+        }
+      }
+    }
+  ],
+  "consistency": [],
+  "usageTotal": {
+    "requests": 60,
+    "failedRequests": 0,
+    "inputTokens": 142153,
+    "outputTokens": 16695,
+    "estimatedCostUsd": 0.005970426000000002,
+    "latencyMs": {
+      "total": 21009,
+      "mean": 350.15,
+      "p50": 322,
+      "p95": 442,
+      "max": 463
+    }
+  }
+}

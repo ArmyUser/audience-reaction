@@ -1,0 +1,6 @@
+{
+  "assignments": [
+    {"commentId":"t1-008","disposition":"no_specific_topic"},
+    {"commentId":"t1-097","disposition":"primary_topic","topicKey":"braking","topicSentiment":"positive"}
+  ]
+}
