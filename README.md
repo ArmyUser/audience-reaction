@@ -5,7 +5,7 @@
 <h1 align="center">Audience Reaction</h1>
 
 <p align="center">
-  AI-powered audience intelligence from comments: sentiment, topics, targets, and evaluation.
+  An AI-powered sentiment analysis platform built on Jev and Sonnet.
 </p>
 
 ---
